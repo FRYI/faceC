@@ -26,8 +26,42 @@
         </a-form-item>
 
 
-        <a-form-item label="paramData" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['paramData']" placeholder="请输入paramData"></a-input>
+<!--        <a-form-item label="paramData" :labelCol="labelCol" :wrapperCol="wrapperCol">-->
+<!--          <a-input v-decorator="['paramData']" placeholder="请输入paramData"></a-input>-->
+<!--        </a-form-item>-->
+
+
+        <a-form-item
+          v-for="(k, index) in array"
+          :key="k"
+          :label="k"
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          :required="false"
+        >
+          <a-input
+            v-decorator="[
+          `paramData[${k}]`,
+          {
+            validateTrigger: ['change', 'blur'],
+            rules: [
+              {
+                whitespace: true,
+                message: 'Please input passenger\'s name or delete this field.',
+              },
+            ],
+          },
+        ]"
+            placeholder="paramData"/>
+<!--            style="width: 60%; margin-right: 8px"-->
+<!--          />-->
+<!--          <a-icon-->
+<!--            v-if="array.length > 1"-->
+<!--            class="dynamic-delete-button"-->
+<!--            type="minus-circle-o"-->
+<!--            :disabled="array.length === 1"-->
+<!--            @click="() => remove(k)"-->
+<!--          />-->
         </a-form-item>
 
 
@@ -61,6 +95,7 @@
         form: this.$form.createForm(this),
         title:"操作",
         width:800,
+        array: [],
         visible: false,
         model: {},
         labelCol: {
@@ -84,6 +119,11 @@
                            }
                             getAction("/project/project/queryByName",value).then((res)=>{
                               if(res.success){
+                                console.log(res.result.paramData)
+                                var string = res.result.paramData
+                                var array = string.split(" ")
+                                this.array = array
+
                                 return callback()
                               }else{
                                 return callback(new Error(res.message));
@@ -112,6 +152,10 @@
         this.visible = true;
         this.$nextTick(() => {
           this.form.setFieldsValue(pick(this.model,'sku','project','productName','supplier','paramData','description','photoString','createTime','updateTime'))
+          // this.form.setFieldsValue({"project":"test"})
+          // this.form.validator(this.validatorRules.project.rules,record.project)
+          // this.form.setFieldsValue({"paramData[process]":"oooo"})
+          // this.form.setFieldsValue({"paramData[detail]":"oooo"})
         })
       },
       close () {
@@ -133,7 +177,10 @@
               httpurl+=this.url.edit;
                method = 'put';
             }
+            values.paramData =JSON.stringify(values.paramData)
+
             let formData = Object.assign(this.model, values);
+
             console.log("表单提交数据",formData)
 
             httpAction(httpurl,formData,method).then((res)=>{

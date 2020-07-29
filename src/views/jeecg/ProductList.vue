@@ -200,6 +200,7 @@
             customRender:function (text) {
                  return text
              }
+
           },
           {
             title:'description',
@@ -258,5 +259,5 @@
   }
 </script>
 <style scoped>
-  @import '~@assets/less/common.less';
+  @import '@assets/less/common.less';
 </style>

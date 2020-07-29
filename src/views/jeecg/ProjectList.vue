@@ -154,12 +154,12 @@
             }
           },
           {
-            title:'类目',
+            title:'project',
             align:"center",
             dataIndex: 'projectName'
           },
           {
-            title:'类目产品参数',
+            title:'projectParam',
             align:"center",
             dataIndex: 'paramData'
           },

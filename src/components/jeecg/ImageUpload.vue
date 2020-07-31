@@ -1,7 +1,7 @@
 <template>
   <div class="clearfix">
     <a-upload
-      action="http://192.168.1.114:8080/product/product/add"
+      action="http://192.168.1.114:8080/product/product/addpic"
       list-type="picture-card"
       :file-list="fileList"
       @preview="handlePreview"
@@ -39,6 +39,7 @@
         previewImage: '',
         dataI: "",
         fileList: [
+
           // {
           //   uid: '-1',
           //   name: 'image.png',
@@ -71,11 +72,12 @@
             navigator.clipboard.read().then(data => {
               console.dir(data[0])
               // for (let i=0; i<data.items.length; i++) {
-                if (data[0].type != "image/jpg") {
-                  const blob = data[0].getType("image/jpg");
+                if (data[0].type != "image/png") {
+                  const blob = data[0].getType("image/png");
                   alert("Clipboard contains non-image data. Unable to access it.");
+                  alert(blob)
                 } else {
-                  const blob = data[0].getType("image/jpg");
+                  const blob = data[0].getType("image/png");
                   // imgElem.src = URL.createObjectURL(blob);
                 }
               // }
@@ -83,6 +85,13 @@
           }
         });
       }
+
+
+
+
+
+
+
     },
   };
 </script>

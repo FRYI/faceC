@@ -72,7 +72,7 @@
 
 
 <!--      <j-image-upload isMultiple v-decorator="['photo']"></j-image-upload>-->
-          <ImageUpload v-decorator="['photo']"  ref="image"> </ImageUpload>
+          <ImageIterm v-decorator="['photo']"  ref="image" @imagedatapost="imgget"> </ImageIterm>
 
 
         </a-form-item>
@@ -88,6 +88,7 @@
   import pick from 'lodash.pick'
   import ImageUpload from  '@/components/jeecg/ImageUpload'
   import JImageUpload from '@/components/jeecg/JImageUpload'
+  import ImageIterm from '@/components/jeecg/modal/ImageIterm'
   import { getAction } from '@/api/manage'
 
   export default {
@@ -95,6 +96,7 @@
     components: { 
       JImageUpload,
       ImageUpload,
+      ImageIterm,
     },
     data () {
       return {
@@ -102,6 +104,7 @@
         title:"操作",
         width:800,
         array: [],
+        img:"",
         visible: false,
         model: {},
         labelCol: {
@@ -154,9 +157,11 @@
       },
       edit (record) {
         this.form.resetFields();
+
         this.model = Object.assign({}, record);
         this.visible = true;
         this.$nextTick(() => {
+          this.$refs.paste.clearImg();
           this.form.setFieldsValue(pick(this.model,'sku','project','productName','supplier','paramData','description','photoString','createTime','updateTime'))
 
         })
@@ -182,7 +187,8 @@
             }
 
 
-            values.photoString = this.$refs.image.dataI
+            values.photoString = this.img
+
             alert(values.photoString)
             values.paramData =JSON.stringify(values.paramData)
 
@@ -211,6 +217,9 @@
       popupCallback(row){
         this.form.setFieldsValue(pick(row,'sku','project','productName','supplier','paramData','description','photoString','createTime','updateTime'))
       },
+      imgget(data){
+        this.img = data;
+      }
 
       
     }

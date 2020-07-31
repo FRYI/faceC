@@ -1,4 +1,5 @@
 import { UserLayout, TabLayout, RouteView, BlankLayout, PageView } from '@/components/layouts'
+import ImageIterm from "../components/jeecg/modal/ImageIterm";
 
 /**
  * 走菜单，走权限控制
@@ -362,6 +363,18 @@ export const constantRouterMap = [
   {
     path: '/404',
     component: () => import(/* webpackChunkName: "fail" */ '@/views/exception/404')
+  },
+  {
+    path: '/tc',
+    component: ImageIterm,
+    redirect: '/tc/home',
+    children: [
+      {
+        path: 'home',
+        name: 'img',
+        component: () => import('@/components/jeecg/modal/ImageIterm')
+      }
+    ]
   },
 
 ]

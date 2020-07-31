@@ -69,7 +69,12 @@
           <a-input v-decorator="['description']" placeholder="请输入description"></a-input>
         </a-form-item>
         <a-form-item label="photo" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <j-image-upload isMultiple v-decorator="['photo']"></j-image-upload>
+
+
+<!--      <j-image-upload isMultiple v-decorator="['photo']"></j-image-upload>-->
+          <ImageUpload v-decorator="['photo']"  ref="image"> </ImageUpload>
+
+
         </a-form-item>
 
       </a-form>
@@ -81,7 +86,7 @@
 
   import { httpAction } from '@/api/manage'
   import pick from 'lodash.pick'
-
+  import ImageUpload from  '@/components/jeecg/ImageUpload'
   import JImageUpload from '@/components/jeecg/JImageUpload'
   import { getAction } from '@/api/manage'
 
@@ -89,6 +94,7 @@
     name: "ProductModal",
     components: { 
       JImageUpload,
+      ImageUpload,
     },
     data () {
       return {
@@ -152,10 +158,7 @@
         this.visible = true;
         this.$nextTick(() => {
           this.form.setFieldsValue(pick(this.model,'sku','project','productName','supplier','paramData','description','photoString','createTime','updateTime'))
-          // this.form.setFieldsValue({"project":"test"})
-          // this.form.validator(this.validatorRules.project.rules,record.project)
-          // this.form.setFieldsValue({"paramData[process]":"oooo"})
-          // this.form.setFieldsValue({"paramData[detail]":"oooo"})
+
         })
       },
       close () {
@@ -177,6 +180,10 @@
               httpurl+=this.url.edit;
                method = 'put';
             }
+
+
+            values.photoString = this.$refs.image.dataI
+            alert(values.photoString)
             values.paramData =JSON.stringify(values.paramData)
 
             let formData = Object.assign(this.model, values);

@@ -210,7 +210,10 @@
           {
             title:'photo',
             align:"center",
-            dataIndex: 'photoString'
+            dataIndex: 'photoString',
+            customRender:function (text) {
+              return  <img src= {text}  width="100px" height="auto" />
+            }
           },
           {
             title:'created',
@@ -255,9 +258,15 @@
     methods: {
       initDictConfig(){
       }
+
+
     }
   }
 </script>
 <style scoped>
   @import '~@assets/less/common.less';
+  .imgsty{
+    width: 20px;
+    height: auto;
+  }
 </style>

@@ -1,13 +1,14 @@
 <template>
   <div class="clearfix">
     <a-upload
-      action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+      action="http://192.168.1.114:8080/product/product/add"
       list-type="picture-card"
       :file-list="fileList"
       @preview="handlePreview"
-      @change="handleChange">
-      <div v-if="fileList.length < 8">
-        <a-icon type="plus" />
+      @change="handleChange"
+      @click="getcbPic">
+      <div v-if="fileList.length < 8" >
+        <a-icon type="plus" @click="getcbPic"/>
         <div class="ant-upload-text">
           Upload
         </div>
@@ -19,10 +20,13 @@
   </div>
 </template>
 <script>
+  import * as evt from "codemirror";
+
   function getBase64(file) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.readAsDataURL(file);
+      console.dir(reader.result);
       reader.onload = () => resolve(reader.result);
       reader.onerror = error => reject(error);
     });
@@ -33,36 +37,15 @@
         name: "ImageUpload",
         previewVisible: false,
         previewImage: '',
+        dataI: "",
         fileList: [
-          {
-            uid: '-1',
-            name: 'image.png',
-            status: 'done',
-            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-          },
-          {
-            uid: '-2',
-            name: 'image.png',
-            status: 'done',
-            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-          },
-          {
-            uid: '-3',
-            name: 'image.png',
-            status: 'done',
-            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-          },
-          {
-            uid: '-4',
-            name: 'image.png',
-            status: 'done',
-            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-          },
-          {
-            uid: '-5',
-            name: 'image.png',
-            status: 'error',
-          },
+          // {
+          //   uid: '-1',
+          //   name: 'image.png',
+          //   status: 'done',
+          //   url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+          // }
+
         ],
       };
     },
@@ -73,6 +56,7 @@
       async handlePreview(file) {
         if (!file.url && !file.preview) {
           file.preview = await getBase64(file.originFileObj);
+          this.dataI = await getBase64(file.originFileObj);
         }
         this.previewImage = file.url || file.preview;
         this.previewVisible = true;
@@ -80,6 +64,25 @@
       handleChange({ fileList }) {
         this.fileList = fileList;
       },
+      getcbPic(){
+        // let clipdata = evt.clipboardData || window.Clipboard().data();
+        navigator.permissions.query({name: "clipboard-read"}).then(result => {
+          if (result.state == "granted" || result.state == "prompt") {
+            navigator.clipboard.read().then(data => {
+              console.dir(data[0])
+              // for (let i=0; i<data.items.length; i++) {
+                if (data[0].type != "image/jpg") {
+                  const blob = data[0].getType("image/jpg");
+                  alert("Clipboard contains non-image data. Unable to access it.");
+                } else {
+                  const blob = data[0].getType("image/jpg");
+                  // imgElem.src = URL.createObjectURL(blob);
+                }
+              // }
+            });
+          }
+        });
+      }
     },
   };
 </script>

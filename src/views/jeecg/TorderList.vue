@@ -1,200 +1,21 @@
 <template>
   <a-card :bordered="false">
     <!-- 查询区域 -->
-    <div class="table-page-search-wrapper">
-      <a-form layout="inline" @keyup.enter.native="searchQuery">
-        <a-row :gutter="24">
-          <a-col :xl="6" :lg="7" :md="8" :sm="24">
-            <a-form-item label="ordernumber">
-              <a-input placeholder="请输入ordernumber" v-model="queryParam.ordernumber"></a-input>
-            </a-form-item>
-          </a-col>
-          <a-col :xl="6" :lg="7" :md="8" :sm="24">
-            <a-form-item label="supplier">
-              <a-input placeholder="请输入supplier" v-model="queryParam.supplier"></a-input>
-            </a-form-item>
-          </a-col>
-          <template v-if="toggleSearchStatus">
-            <a-col :xl="6" :lg="7" :md="8" :sm="24">
-              <a-form-item label="client">
-                <a-input placeholder="请输入client" v-model="queryParam.client"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="6" :lg="7" :md="8" :sm="24">
-              <a-form-item label="chop">
-                <a-input placeholder="请输入chop" v-model="queryParam.chop"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="6" :lg="7" :md="8" :sm="24">
-              <a-form-item label="product">
-                <a-input placeholder="请输入product" v-model="queryParam.product"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="6" :lg="7" :md="8" :sm="24">
-              <a-form-item label="incoterm">
-                <a-input placeholder="请输入incoterm" v-model="queryParam.incoterm"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="6" :lg="7" :md="8" :sm="24">
-              <a-form-item label="delivery">
-                <a-input placeholder="请输入delivery" v-model="queryParam.delivery"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="10" :lg="11" :md="12" :sm="24">
-              <a-form-item label="price">
-                <a-input placeholder="请输入最小值" class="query-group-cust" v-model="queryParam.price_begin"></a-input>
-                <span class="query-group-split-cust"></span>
-                <a-input placeholder="请输入最大值" class="query-group-cust" v-model="queryParam.price_end"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="10" :lg="11" :md="12" :sm="24">
-              <a-form-item label="quantity">
-                <a-input placeholder="请输入最小值" class="query-group-cust" v-model="queryParam.quantity_begin"></a-input>
-                <span class="query-group-split-cust"></span>
-                <a-input placeholder="请输入最大值" class="query-group-cust" v-model="queryParam.quantity_end"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="10" :lg="11" :md="12" :sm="24">
-              <a-form-item label="amountRmb">
-                <a-input placeholder="请输入最小值" class="query-group-cust" v-model="queryParam.amountRmb_begin"></a-input>
-                <span class="query-group-split-cust"></span>
-                <a-input placeholder="请输入最大值" class="query-group-cust" v-model="queryParam.amountRmb_end"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="10" :lg="11" :md="12" :sm="24">
-              <a-form-item label="amountUsd">
-                <a-input placeholder="请输入最小值" class="query-group-cust" v-model="queryParam.amountUsd_begin"></a-input>
-                <span class="query-group-split-cust"></span>
-                <a-input placeholder="请输入最大值" class="query-group-cust" v-model="queryParam.amountUsd_end"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="10" :lg="11" :md="12" :sm="24">
-              <a-form-item label="depositRmb">
-                <a-input placeholder="请输入最小值" class="query-group-cust" v-model="queryParam.depositRmb_begin"></a-input>
-                <span class="query-group-split-cust"></span>
-                <a-input placeholder="请输入最大值" class="query-group-cust" v-model="queryParam.depositRmb_end"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="10" :lg="11" :md="12" :sm="24">
-              <a-form-item label="depositUsd">
-                <a-input placeholder="请输入最小值" class="query-group-cust" v-model="queryParam.depositUsd_begin"></a-input>
-                <span class="query-group-split-cust"></span>
-                <a-input placeholder="请输入最大值" class="query-group-cust" v-model="queryParam.depositUsd_end"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="10" :lg="11" :md="12" :sm="24">
-              <a-form-item label="depositPay">
-                <a-input placeholder="请输入最小值" class="query-group-cust" v-model="queryParam.depositPay_begin"></a-input>
-                <span class="query-group-split-cust"></span>
-                <a-input placeholder="请输入最大值" class="query-group-cust" v-model="queryParam.depositPay_end"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="10" :lg="11" :md="12" :sm="24">
-              <a-form-item label="balanceRmb">
-                <a-input placeholder="请输入最小值" class="query-group-cust" v-model="queryParam.balanceRmb_begin"></a-input>
-                <span class="query-group-split-cust"></span>
-                <a-input placeholder="请输入最大值" class="query-group-cust" v-model="queryParam.balanceRmb_end"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="10" :lg="11" :md="12" :sm="24">
-              <a-form-item label="balanceUsd">
-                <a-input placeholder="请输入最小值" class="query-group-cust" v-model="queryParam.balanceUsd_begin"></a-input>
-                <span class="query-group-split-cust"></span>
-                <a-input placeholder="请输入最大值" class="query-group-cust" v-model="queryParam.balanceUsd_end"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="10" :lg="11" :md="12" :sm="24">
-              <a-form-item label="balancePay">
-                <a-input placeholder="请输入最小值" class="query-group-cust" v-model="queryParam.balancePay_begin"></a-input>
-                <span class="query-group-split-cust"></span>
-                <a-input placeholder="请输入最大值" class="query-group-cust" v-model="queryParam.balancePay_end"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="10" :lg="11" :md="12" :sm="24">
-              <a-form-item label="deliveryDate">
-                <j-date placeholder="请选择开始日期" class="query-group-cust" v-model="queryParam.deliveryDate_begin"></j-date>
-                <span class="query-group-split-cust"></span>
-                <j-date placeholder="请选择结束日期" class="query-group-cust" v-model="queryParam.deliveryDate_end"></j-date>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="6" :lg="7" :md="8" :sm="24">
-              <a-form-item label="deliverySituation">
-                <a-input placeholder="请输入deliverySituation" v-model="queryParam.deliverySituation"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="10" :lg="11" :md="12" :sm="24">
-              <a-form-item label="etd">
-                <j-date placeholder="请选择开始日期" class="query-group-cust" v-model="queryParam.etd_begin"></j-date>
-                <span class="query-group-split-cust"></span>
-                <j-date placeholder="请选择结束日期" class="query-group-cust" v-model="queryParam.etd_end"></j-date>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="10" :lg="11" :md="12" :sm="24">
-              <a-form-item label="delay">
-                <a-input placeholder="请输入最小值" class="query-group-cust" v-model="queryParam.delay_begin"></a-input>
-                <span class="query-group-split-cust"></span>
-                <a-input placeholder="请输入最大值" class="query-group-cust" v-model="queryParam.delay_end"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="10" :lg="11" :md="12" :sm="24">
-              <a-form-item label="eta">
-                <j-date placeholder="请选择开始日期" class="query-group-cust" v-model="queryParam.eta_begin"></j-date>
-                <span class="query-group-split-cust"></span>
-                <j-date placeholder="请选择结束日期" class="query-group-cust" v-model="queryParam.eta_end"></j-date>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="6" :lg="7" :md="8" :sm="24">
-              <a-form-item label="status">
-                <a-input placeholder="请输入status" v-model="queryParam.status"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="10" :lg="11" :md="12" :sm="24">
-              <a-form-item label="statusdate">
-                <j-date placeholder="请选择开始日期" class="query-group-cust" v-model="queryParam.statusdate_begin"></j-date>
-                <span class="query-group-split-cust"></span>
-                <j-date placeholder="请选择结束日期" class="query-group-cust" v-model="queryParam.statusdate_end"></j-date>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="10" :lg="11" :md="12" :sm="24">
-              <a-form-item label="create_time">
-                <j-date placeholder="请选择开始日期" class="query-group-cust" v-model="queryParam.createTime_begin"></j-date>
-                <span class="query-group-split-cust"></span>
-                <j-date placeholder="请选择结束日期" class="query-group-cust" v-model="queryParam.createTime_end"></j-date>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="10" :lg="11" :md="12" :sm="24">
-              <a-form-item label="update_time">
-                <j-date placeholder="请选择开始日期" class="query-group-cust" v-model="queryParam.updateTime_begin"></j-date>
-                <span class="query-group-split-cust"></span>
-                <j-date placeholder="请选择结束日期" class="query-group-cust" v-model="queryParam.updateTime_end"></j-date>
-              </a-form-item>
-            </a-col>
-          </template>
-          <a-col :xl="6" :lg="7" :md="8" :sm="24">
-            <span style="float: left;overflow: hidden;" class="table-page-search-submitButtons">
-              <a-button type="primary" @click="searchQuery" icon="search">查询</a-button>
-              <a-button type="primary" @click="searchReset" icon="reload" style="margin-left: 8px">重置</a-button>
-              <a @click="handleToggleSearch" style="margin-left: 8px">
-                {{ toggleSearchStatus ? '收起' : '展开' }}
-                <a-icon :type="toggleSearchStatus ? 'up' : 'down'"/>
-              </a>
-            </span>
-          </a-col>
-        </a-row>
-      </a-form>
-    </div>
-    <!-- 查询区域-END -->
+
     
     <!-- 操作按钮区域 -->
     <div class="table-operator">
-      <a-button @click="handleAdd" type="primary" icon="plus">新增</a-button>
-      <a-button type="primary" icon="download" @click="handleExportXls('torder')">导出</a-button>
+      <a-button @click="handleAdd" type="primary" icon="plus">Add</a-button>
+      <a-button type="primary" icon="download" @click="handleExportXls('torder')">ExportXls</a-button>
       <a-upload name="file" :showUploadList="false" :multiple="false" :headers="tokenHeader" :action="importExcelUrl" @change="handleImportExcel">
-        <a-button type="primary" icon="import">导入</a-button>
+        <a-button type="primary" icon="import">Import</a-button>
       </a-upload>
+      <j-super-query :fieldList="fieldList" ref="superQueryModal" @handleSuperQuery="handleSuperQuery">
+
+      </j-super-query>
       <a-dropdown v-if="selectedRowKeys.length > 0">
         <a-menu slot="overlay">
-          <a-menu-item key="1" @click="batchDel"><a-icon type="delete"/>删除</a-menu-item>
+          <a-menu-item key="1" @click="batchDel"><a-icon type="delete"/>Delete</a-menu-item>
         </a-menu>
         <a-button style="margin-left: 8px"> 批量操作 <a-icon type="down" /></a-button>
       </a-dropdown>
@@ -204,7 +25,7 @@
     <div>
       <div class="ant-alert ant-alert-info" style="margin-bottom: 16px;">
         <i class="anticon anticon-info-circle ant-alert-icon"></i> 已选择 <a style="font-weight: 600">{{ selectedRowKeys.length }}</a>项
-        <a style="margin-left: 24px" @click="onClearSelected">清空</a>
+        <a style="margin-left: 24px" @click="onClearSelected">Clear Selected</a>
       </div>
 
       <a-table
@@ -236,20 +57,20 @@
             icon="download"
             size="small"
             @click="uploadFile(text)">
-            下载
+            download
           </a-button>
         </template>
 
         <span slot="action" slot-scope="text, record">
-          <a @click="handleEdit(record)">编辑</a>
+          <a @click="handleEdit(record)">Edit</a>
 
           <a-divider type="vertical" />
           <a-dropdown>
-            <a class="ant-dropdown-link">更多 <a-icon type="down" /></a>
+            <a class="ant-dropdown-link">More <a-icon type="down" /></a>
             <a-menu slot="overlay">
               <a-menu-item>
-                <a-popconfirm title="确定删除吗?" @confirm="() => handleDelete(record.id)">
-                  <a>删除</a>
+                <a-popconfirm title="confirm Delete?" @confirm="() => handleDelete(record.id)">
+                  <a>Delete</a>
                 </a-popconfirm>
               </a-menu-item>
             </a-menu>
@@ -262,7 +83,7 @@
     <torder-modal ref="modalForm" @ok="modalFormOk"></torder-modal>
     <supplier-modal ref="smodalForm" @ok="modalFormOk"></supplier-modal>
     <client-modal ref="cmodalForm" @ok="modalFormOk"></client-modal>
-    <product-modal ref="modalFormp" @ok="modalFormOk"></product-modal>
+    <product-modal ref="modalFormp" :immm="imgdata" @ok="modalFormOk"></product-modal>
   </a-card>
 </template>
 
@@ -278,21 +99,223 @@
   import ProductModal from './modules/ProductModal'
   import { getAction } from '@/api/manage'
   import pick from 'lodash.pick'
+  import JSuperQuery from '@/components/jeecg/JSuperQuery'
+  import {filterObj} from "../../utils/util";
+  import ProjectModal from "./modules/ProjectModal";
 
+
+
+
+  const superQueryFieldList=[
+    {
+      type: "string",
+      value: "Torder.ordernumber",
+      text: "Order Number"
+    },
+    {
+      type: "string",
+      value: "Torder.supplier",
+      text: "Supplier"
+    },
+    {
+      type: "string",
+      value: "Torder.client",
+      text: "Client"
+    },
+    {
+      type: "string",
+      value: "Torder.chop",
+      text: "Chop"
+    },
+    {
+      value:'Torder.season',
+      type:"string",
+      text: 'season'
+    },
+    {
+      type: "string",
+      value: "Torder.product",
+      text: "Product"
+    },
+    {
+      type: "string",
+      value: "Torder.incoterm",
+      text: "Incoterm"
+    },
+    {
+      type: "string",
+      value: "Torder.delivery",
+      text: "Delivery"
+    },
+    {
+      type: "int",
+      value: "Torder.priceUsd",
+      text: "Price Usd"
+    },
+    {
+      type: "string",
+      value: "Torder.client",
+      text: "Client"
+    },
+    {
+      value:'Torder.quantity',
+      type: "int",
+      text: 'Quantity'
+    },
+    {
+      value:'Torder.amountRmb',
+      type: "int",
+      text: 'Amount Rmb'
+    },
+    {
+      value:'Torder.amountUsd',
+      type: "int",
+      text: 'Amount Usd'
+    },
+    {
+      value:'Torder.depositRmb',
+      type: "int",
+      text: 'Deposit Rmb'
+    },
+    {
+      value:'Torder.depositUsd',
+      type: "int",
+      text: 'Deposit Usd'
+    },
+    {
+      value:'Torder.depositPay',
+      type: "int",
+      text: 'Deposit Pay'
+    },
+    {
+      value:'Torder.balanceRmb',
+      type: "int",
+      text: 'Balance Rmb'
+    },
+    {
+      value:'Torder.balanceUsd',
+      type: "int",
+      text: 'Balance Usd'
+    },
+    {
+      value:'Torder.balancePay',
+      type: "int",
+      text: 'Balance Pay'
+    },
+    {
+      value:'Torder.deliveryDate',
+      type: "date",
+      text: 'Delivery Date',
+    },
+    {
+      value:'Torder.deliverySituation',
+      type: "string",
+      text: 'Delivery Situation'
+    },
+    {
+      value:'Torder.etd',
+      type: "date",
+      text: 'Etd',
+
+    },
+    {
+      value:'Torder.delay',
+      type: "int",
+      text: 'Delay'
+    },
+    {
+      value:'Torder.eta',
+      type: "date",
+      text: 'Eta',
+
+    },
+    {
+      value:'Torder.status',
+      type: "stirng",
+      text: 'Status'
+    },
+    {
+      value:'Torder.statusdate',
+      type: "string",
+      text: 'Status Date',
+
+    },
+    {
+      value:'Torder.createTime',
+      type: "date",
+      text: 'Create Time',
+
+    },
+    {
+      value:'Torder.updateTime',
+      type: "date",
+      text: 'Update Time',
+
+    },
+
+
+    {
+      type: "string",
+      value: "Product.sku",
+      text: "Product.Sku"
+    },
+    {
+      type: "string",
+      value: "Product.project",
+      text: "Product.Project"
+    },
+    {
+      type: "string",
+      value: "Product.supplier",
+      text: "Product.Supplier"
+    },
+    {
+      type: "string",
+      value: "Product.productName",
+      text: "Product.Product Name"
+    },
+
+    {
+      type: "string",
+      value: "Product.paramData",
+      text: "Product.Specification"
+    },
+    {
+      type: "string",
+      value: "Product.description",
+      text: "Product.Description"
+    },
+    {
+      type: "date",
+      value: "Product.createTime",
+      text: "Product.Create Time"
+    },
+    {
+      type: "date",
+      value: "Product.updateTime",
+      text: "Product.Update Time"
+    }
+
+
+  ]
 
   export default {
     name: "TorderList",
     mixins:[JeecgListMixin, mixinDevice],
+
     components: {
       JDate,
       TorderModal,
       SupplierModal,
       ClientModal,
       ProductModal,
+      JSuperQuery,
     },
     data () {
       return {
+        imgdata:"",
         description: 'torder管理页面',
+        fieldList: superQueryFieldList,
         // 表头
         columns: [
           {
@@ -306,17 +329,17 @@
             }
           },
           {
-            title:'ordernumber',
+            title:'Ordernumber',
             align:"center",
             dataIndex: 'ordernumber'
           },
           {
-            title:'supplier',
+            title:'Supplier',
             align:"center",
             dataIndex: 'supplier',
             customRender: (text, row, index) => {
               const show =()=>{
-                this.showInfo(text,"supplier");  //调用method里面的方法
+                this.showInfo(row,"supplier");  //调用method里面的方法
               }
               let content = (<a href="javascript:;"  onClick={ show }>{text}</a>);
               const obj = {
@@ -328,12 +351,12 @@
           },
 
           {
-            title:'client',
+            title:'Client',
             align:"center",
             dataIndex: 'client',
             customRender: (text, row, index) => {
               const show =()=>{
-                this.showInfo(text,"client");  //调用method里面的方法
+                this.showInfo(row,"client");  //调用method里面的方法
               }
               let content = (<a href="javascript:;"  onClick={ show }>{text}</a>);
               const obj = {
@@ -343,20 +366,25 @@
               return obj;
             }
           },
-
           {
-            title:'chop',
+            title:'Chop',
             align:"center",
             dataIndex: 'chop'
           },
-
           {
-            title:'product',
+            title:'Season',
+            align:"center",
+            dataIndex: 'season'
+          },
+          {
+            title:'Product',
             align:"center",
             dataIndex: 'product',
             customRender: (text, row, index) => {
+
+
               const show =()=>{
-                this.showInfo(text,"product");  //调用method里面的方法
+                this.showInfo(row,"product");  //调用method里面的方法
               }
               let content = (<a href="javascript:;"  onClick={ show }>{text}</a>);
               const obj = {
@@ -369,67 +397,67 @@
            },
 
           {
-            title:'incoterm',
+            title:'Incoterm',
             align:"center",
             dataIndex: 'incoterm'
           },
           {
-            title:'delivery',
+            title:'Delivery',
             align:"center",
             dataIndex: 'delivery'
           },
           {
-            title:'price',
+            title:'Price Usd',
             align:"center",
-            dataIndex: 'price'
+            dataIndex: 'priceUsd'
           },
           {
-            title:'quantity',
+            title:'Quantity',
             align:"center",
             dataIndex: 'quantity'
           },
           {
-            title:'amountRmb',
+            title:'Amount Rmb',
             align:"center",
             dataIndex: 'amountRmb'
           },
           {
-            title:'amountUsd',
+            title:'Amount Usd',
             align:"center",
             dataIndex: 'amountUsd'
           },
           {
-            title:'depositRmb',
+            title:'Deposit Rmb',
             align:"center",
             dataIndex: 'depositRmb'
           },
           {
-            title:'depositUsd',
+            title:'Deposit Usd',
             align:"center",
             dataIndex: 'depositUsd'
           },
           {
-            title:'depositPay',
+            title:'Deposit Pay',
             align:"center",
             dataIndex: 'depositPay'
           },
           {
-            title:'balanceRmb',
+            title:'Balance Rmb',
             align:"center",
             dataIndex: 'balanceRmb'
           },
           {
-            title:'balanceUsd',
+            title:'Balance Usd',
             align:"center",
             dataIndex: 'balanceUsd'
           },
           {
-            title:'balancePay',
+            title:'Balance Pay',
             align:"center",
             dataIndex: 'balancePay'
           },
           {
-            title:'deliveryDate',
+            title:'Delivery Date',
             align:"center",
             dataIndex: 'deliveryDate',
             customRender:function (text) {
@@ -437,12 +465,12 @@
             }
           },
           {
-            title:'deliverySituation',
+            title:'Delivery Situation',
             align:"center",
             dataIndex: 'deliverySituation'
           },
           {
-            title:'etd',
+            title:'Etd',
             align:"center",
             dataIndex: 'etd',
             customRender:function (text) {
@@ -450,12 +478,12 @@
             }
           },
           {
-            title:'delay',
+            title:'Delay',
             align:"center",
             dataIndex: 'delay'
           },
           {
-            title:'eta',
+            title:'Eta',
             align:"center",
             dataIndex: 'eta',
             customRender:function (text) {
@@ -463,12 +491,12 @@
             }
           },
           {
-            title:'status',
+            title:'Status',
             align:"center",
             dataIndex: 'status'
           },
           {
-            title:'statusdate',
+            title:'Statusdate',
             align:"center",
             dataIndex: 'statusdate',
             customRender:function (text) {
@@ -476,7 +504,7 @@
             }
           },
           {
-            title:'create_time',
+            title:'Create Time',
             align:"center",
             dataIndex: 'createTime',
             customRender:function (text) {
@@ -484,7 +512,7 @@
             }
           },
           {
-            title:'update_time',
+            title:'Update Time',
             align:"center",
             dataIndex: 'updateTime',
             customRender:function (text) {
@@ -492,7 +520,7 @@
             }
           },
           {
-            title: '操作',
+            title: 'Action',
             dataIndex: 'action',
             align:"center",
             // fixed:"right",
@@ -516,20 +544,36 @@
       },
     },
     methods: {
+      getQueryParams(){
+        //高级查询器
+        let sqp = {}
+        if(this.superQueryParams){
+          sqp['superQueryParams']=encodeURI(this.superQueryParams)
+          sqp['superQueryMatchType'] = this.superQueryMatchType
+        }
+        var param = Object.assign(sqp, this.queryParam, this.isorter ,this.filters);
+
+        param.field = this.getQueryField();
+        param.pageNo = this.ipagination.current;
+        param.pageSize = this.ipagination.pageSize;
+        delete param.birthdayRange; //范围参数不传递后台
+        return filterObj(param);
+      },
       initDictConfig(){
 
       },
 
       showInfo(text,name){
-
+        console.log(text)
         let value ={}
 
         name=="supplier"?value = {
-          supplier:text
+
+          supplier:text.supplier
         }:(name=="client"?value = {
-          client:text
+          client:text.client
         }:value = {
-          product:text
+          product:{"season":text.season,"product":text.product}
         })
 
         var link = "/"+name+"/"+name+"/queryByName"
@@ -544,7 +588,6 @@
       },
       edit11 (obj,name) {
         var ll,ls
-
         if(name == "supplier"){
           ll =  this.$refs.smodalForm
           ls = { 'pin':obj.pin, 'supplier':obj.supplier, 'contact':obj.contact, 'tel':obj.tel, 'email':obj.email, 'website':obj.website, 'city':obj.city, 'address':obj.address, 'zipCode':obj.zipCode, 'scope':obj.scope}
@@ -555,7 +598,11 @@
         }else if (name =="product") {
           ll= this.$refs.modalFormp
           ll.model = Object.assign({}, obj);
-          ls ={'sku':obj.sku,'project':obj.project,'productName':obj.productName,'supplier':obj.supplier,'paramData':obj.paramData,'description':obj.description,'photoString':obj.photoString}
+          ls ={'season':obj.season,'sku':obj.sku,'project':obj.project,'productName':obj.productName,'supplier':obj.supplier,'paramData':obj.paramData,'description':obj.description,'photoString':obj.photoString}
+          console.log(ll)
+          ll.array =JSON.parse(obj.paramData)
+          console.log(ll.array)
+          ll.imgsrc = obj.photoString
         }
 
         ll.form.resetFields();
@@ -565,6 +612,7 @@
 
         //   this.$refs.smodalForm.form.setFieldsValue({ 'pin':obj.pin, 'supplier':obj.supplier, 'contact':obj.contact, 'tel':obj.tel, 'email':obj.email, 'website':obj.website, 'city':obj.city, 'address':obj.address, 'zipCode':obj.zipCode, 'scope':obj.scope})
           ll.form.setFieldsValue(ls)
+
           // this.$refs.smodalForm.form.setFieldsValue({'supplier': "it"})
 
         })
@@ -573,6 +621,12 @@
       }
 
       }
+
+
+
+
+
+
 
   }
 </script>

@@ -113,7 +113,7 @@
           this.visibleCheck = false;
         }
       },
-      // 确定
+      // confirm
       handleOk() {
         const that = this;
         // 触发表单验证

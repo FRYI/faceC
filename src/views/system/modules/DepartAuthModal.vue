@@ -26,10 +26,10 @@
           <a-menu slot="overlay">
             <!-- 简化Tree逻辑，使用默认checkStrictly为false的行为，即默认父子关联
             <a-menu-item key="1" @click="switchCheckStrictly(1)">父子关联</a-menu-item>
-            <a-menu-item key="2" @click="switchCheckStrictly(2)">取消关联</a-menu-item>
+            <a-menu-item key="2" @click="switchCheckStrictly(2)">cancel关联</a-menu-item>
             -->
             <a-menu-item key="3" @click="checkALL">全部勾选</a-menu-item>
-            <a-menu-item key="4" @click="cancelCheckALL">取消全选</a-menu-item>
+            <a-menu-item key="4" @click="cancelCheckALL">cancel全选</a-menu-item>
             <a-menu-item key="5" @click="expandAll">展开所有</a-menu-item>
             <a-menu-item key="6" @click="closeAll">合并所有</a-menu-item>
           </a-menu>

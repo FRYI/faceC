@@ -138,19 +138,19 @@
               </a-menu-item>
 
               <a-menu-item>
-                <a-popconfirm title="确定删除吗?" @confirm="() => handleDelete(record.id)">
+                <a-popconfirm title="confirm删除吗?" @confirm="() => handleDelete(record.id)">
                   <a>删除</a>
                 </a-popconfirm>
               </a-menu-item>
 
               <a-menu-item v-if="record.status==1">
-                <a-popconfirm title="确定冻结吗?" @confirm="() => handleFrozen(record.id,2,record.username)">
+                <a-popconfirm title="confirm冻结吗?" @confirm="() => handleFrozen(record.id,2,record.username)">
                   <a>冻结</a>
                 </a-popconfirm>
               </a-menu-item>
 
               <a-menu-item v-if="record.status==2">
-                <a-popconfirm title="确定解冻吗?" @confirm="() => handleFrozen(record.id,1,record.username)">
+                <a-popconfirm title="confirm解冻吗?" @confirm="() => handleFrozen(record.id,1,record.username)">
                   <a>解冻</a>
                 </a-popconfirm>
               </a-menu-item>

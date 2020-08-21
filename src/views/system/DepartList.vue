@@ -18,7 +18,7 @@
           <a-alert type="info" :showIcon="true">
             <div slot="message">
               当前选择：<span v-if="this.currSelected.title">{{ getCurrSelectedTitle() }}</span>
-              <a v-if="this.currSelected.title" style="margin-left: 10px" @click="onClearSelected">取消选择</a>
+              <a v-if="this.currSelected.title" style="margin-left: 10px" @click="onClearSelected">cancel选择</a>
             </div>
           </a-alert>
           <a-input-search @search="onSearch" style="width:100%;margin-top: 10px" placeholder="请输入部门名称"/>
@@ -45,7 +45,7 @@
                 <a-menu slot="overlay">
                   <a-menu-item @click="handleAdd(3)" key="1">添加</a-menu-item>
                   <a-menu-item @click="handleDelete" key="2">删除</a-menu-item>
-                  <a-menu-item @click="closeDrop" key="3">取消</a-menu-item>
+                  <a-menu-item @click="closeDrop" key="3">cancel</a-menu-item>
                 </a-menu>
               </a-dropdown>
             </template>
@@ -57,9 +57,9 @@
         <a-dropdown :trigger="['click']" placement="topCenter">
           <a-menu slot="overlay">
             <a-menu-item key="1" @click="switchCheckStrictly(1)">父子关联</a-menu-item>
-            <a-menu-item key="2" @click="switchCheckStrictly(2)">取消关联</a-menu-item>
+            <a-menu-item key="2" @click="switchCheckStrictly(2)">cancel关联</a-menu-item>
             <a-menu-item key="3" @click="checkALL">全部勾选</a-menu-item>
-            <a-menu-item key="4" @click="cancelCheckALL">取消全选</a-menu-item>
+            <a-menu-item key="4" @click="cancelCheckALL">cancel全选</a-menu-item>
             <a-menu-item key="5" @click="expandAll">展开所有</a-menu-item>
             <a-menu-item key="6" @click="closeAll">合并所有</a-menu-item>
           </a-menu>
@@ -356,7 +356,7 @@
           var that = this
           this.$confirm({
             title: '确认删除',
-            content: '确定要删除所选中的 ' + this.checkedKeys.length + ' 条数据，以及子节点数据吗?',
+            content: 'confirm要删除所选中的 ' + this.checkedKeys.length + ' 条数据，以及子节点数据吗?',
             onOk: function () {
               deleteAction(that.url.deleteBatch, {ids: ids}).then((res) => {
                 if (res.success) {

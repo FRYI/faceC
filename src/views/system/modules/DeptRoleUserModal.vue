@@ -34,14 +34,14 @@
       <a-dropdown style="float: left" :trigger="['click']" placement="topCenter">
         <a-menu slot="overlay">
           <a-menu-item key="1" @click="checkALL">全部勾选</a-menu-item>
-          <a-menu-item key="2" @click="cancelCheckALL">取消全选</a-menu-item>
+          <a-menu-item key="2" @click="cancelCheckALL">cancel全选</a-menu-item>
         </a-menu>
         <a-button>
           操作 <a-icon type="up" />
         </a-button>
       </a-dropdown>
-      <a-popconfirm  title="确定放弃编辑？" @confirm="close" okText="确定" cancelText="取消">
-        <a-button style="margin-right: .8rem">取消</a-button>
+      <a-popconfirm  title="confirm放弃编辑？" @confirm="close" okText="confirm" cancelText="cancel">
+        <a-button style="margin-right: .8rem">cancel</a-button>
       </a-popconfirm>
       <a-button @click="handleSubmit(true)" type="primary">保存</a-button>
     </div>

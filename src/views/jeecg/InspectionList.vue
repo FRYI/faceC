@@ -1,24 +1,22 @@
 <template>
   <a-card :bordered="false">
     <!-- 查询区域 -->
-    <div class="table-page-search-wrapper">
-      <a-form layout="inline" @keyup.enter.native="searchQuery">
-        <a-row :gutter="24">
-        </a-row>
-      </a-form>
-    </div>
+
     <!-- 查询区域-END -->
     
     <!-- 操作按钮区域 -->
     <div class="table-operator">
-      <a-button @click="handleAdd" type="primary" icon="plus">新增</a-button>
-      <a-button type="primary" icon="download" @click="handleExportXls('inspection')">导出</a-button>
+      <a-button @click="handleAdd" type="primary" icon="plus">Add</a-button>
+      <a-button type="primary" icon="download" @click="handleExportXls('inspection')">ExportXls</a-button>
       <a-upload name="file" :showUploadList="false" :multiple="false" :headers="tokenHeader" :action="importExcelUrl" @change="handleImportExcel">
-        <a-button type="primary" icon="import">导入</a-button>
+        <a-button type="primary" icon="import">Import</a-button>
       </a-upload>
+      <j-super-query :fieldList="fieldList" ref="superQueryModal" @handleSuperQuery="handleSuperQuery">
+
+      </j-super-query>
       <a-dropdown v-if="selectedRowKeys.length > 0">
         <a-menu slot="overlay">
-          <a-menu-item key="1" @click="batchDel"><a-icon type="delete"/>删除</a-menu-item>
+          <a-menu-item key="1" @click="batchDel"><a-icon type="delete"/>Delete</a-menu-item>
         </a-menu>
         <a-button style="margin-left: 8px"> 批量操作 <a-icon type="down" /></a-button>
       </a-dropdown>
@@ -65,15 +63,15 @@
         </template>
 
         <span slot="action" slot-scope="text, record">
-          <a @click="handleEdit(record)">编辑</a>
+          <a @click="handleEdit(record)">Edit</a>
 
           <a-divider type="vertical" />
           <a-dropdown>
-            <a class="ant-dropdown-link">更多 <a-icon type="down" /></a>
+            <a class="ant-dropdown-link">More <a-icon type="down" /></a>
             <a-menu slot="overlay">
               <a-menu-item>
                 <a-popconfirm title="确定删除吗?" @confirm="() => handleDelete(record.id)">
-                  <a>删除</a>
+                  <a>Delete</a>
                 </a-popconfirm>
               </a-menu-item>
             </a-menu>
@@ -93,16 +91,80 @@
   import { mixinDevice } from '@/utils/mixin'
   import { JeecgListMixin } from '@/mixins/JeecgListMixin'
   import InspectionModal from './modules/InspectionModal'
+  import JSuperQuery from '@/components/jeecg/JSuperQuery'
+  import {filterObj} from "../../utils/util";
+
+
+  const superQueryFieldList=[
+    {
+      type: "string",
+      value: "ordernumber",
+      text: "Order Number"
+    },
+    {
+      type: "string",
+      value: "season",
+      text: "season"
+    },
+    {
+      type: "string",
+      value: "supplier",
+      text: "Supplier"
+    },
+    {
+      type: "string",
+      value: "inspector",
+      text: "Inspector"
+    },
+    {
+      type: "date",
+      value: "depositeDate",
+      text: "Deposite Date"
+    },
+    {
+      type: "date",
+      value: "comfirmDate",
+      text: "Comfirm Date"
+    },
+    {
+      type: "date",
+      value: "inspectionDate",
+      text: "Inspection Date"
+    },
+    {
+      type: "date",
+      value: "deliveryDate",
+      text: "Delivery Date"
+    },
+    {
+      type: "int",
+      value: "amount",
+      text: "Amount"
+    },
+    {
+      type: "date",
+      value: "createTime",
+      text: "Create Time"
+    },
+    {
+      type: "date",
+      value: "updateTime",
+      text: "Update Time"
+    }
+  ]
+
 
   export default {
     name: "InspectionList",
     mixins:[JeecgListMixin, mixinDevice],
     components: {
-      InspectionModal
+      InspectionModal,
+      JSuperQuery,
     },
     data () {
       return {
-        description: 'inspection管理页面',
+        description: 'inspection',
+        fieldList: superQueryFieldList,
         // 表头
         columns: [
           {
@@ -116,22 +178,27 @@
             }
           },
           {
-            title:'ordernumber',
+            title:'Season',
+            align:"center",
+            dataIndex: 'season'
+          },
+          {
+            title:'Order Number',
             align:"center",
             dataIndex: 'ordernumber'
           },
           {
-            title:'supplier',
+            title:'Supplier',
             align:"center",
             dataIndex: 'supplier'
           },
           {
-            title:'inspector',
+            title:'Inspector',
             align:"center",
             dataIndex: 'inspector'
           },
           {
-            title:'depositeDate',
+            title:'Deposite Date',
             align:"center",
             dataIndex: 'depositeDate',
             customRender:function (text) {
@@ -139,7 +206,7 @@
             }
           },
           {
-            title:'comfirmDate',
+            title:'Comfirm Date',
             align:"center",
             dataIndex: 'comfirmDate',
             customRender:function (text) {
@@ -147,7 +214,7 @@
             }
           },
           {
-            title:'inspection Date',
+            title:'Inspection Date',
             align:"center",
             dataIndex: 'inspectionDate',
             customRender:function (text) {
@@ -155,7 +222,7 @@
             }
           },
           {
-            title:'deliveryDate',
+            title:'Delivery Date',
             align:"center",
             dataIndex: 'deliveryDate',
             customRender:function (text) {
@@ -163,12 +230,12 @@
             }
           },
           {
-            title:'amount',
+            title:'Amount',
             align:"center",
             dataIndex: 'amount'
           },
           {
-            title:'createTime',
+            title:'Create Time',
             align:"center",
             dataIndex: 'createTime',
             customRender:function (text) {
@@ -176,7 +243,7 @@
             }
           },
           {
-            title:'updateTime',
+            title:'Update Time',
             align:"center",
             dataIndex: 'updateTime',
             customRender:function (text) {
@@ -184,7 +251,7 @@
             }
           },
           {
-            title: '操作',
+            title: 'Action',
             dataIndex: 'action',
             align:"center",
             // fixed:"right",
@@ -208,6 +275,21 @@
       },
     },
     methods: {
+      getQueryParams(){
+        //高级查询器
+        let sqp = {}
+        if(this.superQueryParams){
+          sqp['superQueryParams']=encodeURI(this.superQueryParams)
+          sqp['superQueryMatchType'] = this.superQueryMatchType
+        }
+        var param = Object.assign(sqp, this.queryParam, this.isorter ,this.filters);
+
+        param.field = this.getQueryField();
+        param.pageNo = this.ipagination.current;
+        param.pageSize = this.ipagination.pageSize;
+        delete param.birthdayRange; //范围参数不传递后台
+        return filterObj(param);
+      },
       initDictConfig(){
       }
     }

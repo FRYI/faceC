@@ -2021,7 +2021,7 @@
         return null
       },
 
-      /** 全选或取消全选 */
+      /** 全选或cancel全选 */
       handleChangeCheckedAll() {
         let selectedRowIds = []
         if (!this.getSelectAll) {

@@ -132,7 +132,7 @@ export const JEditableTableMixin = {
     handleCancel() {
       this.close()
     },
-    /** 确定按钮点击事件 */
+    /** confirm按钮点击事件 */
     handleOk() {
       /** 触发表单验证 */
       this.getAllTable().then(tables => {

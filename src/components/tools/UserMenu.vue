@@ -35,7 +35,7 @@
     <a-dropdown>
       <span class="action action-full ant-dropdown-link user-dropdown-menu">
         <a-avatar class="avatar" size="small" :src="getAvatar()"/>
-        <span v-if="isDesktop()">欢迎您，{{ nickname() }}</span>
+        <span v-if="isDesktop()">Welcome，{{ nickname() }}</span>
       </span>
       <a-menu slot="overlay" class="user-dropdown-menu-wrapper">
         <a-menu-item key="0">
@@ -78,7 +78,7 @@
     <span class="action">
       <a class="logout_title" href="javascript:;" @click="handleLogout">
         <a-icon type="logout"/>
-        <span v-if="isDesktop()">&nbsp;退出登录</span>
+        <span v-if="isDesktop()">&nbsp;LogOut</span>
       </a>
     </span>
     <user-password ref="userPassword"></user-password>
@@ -164,8 +164,8 @@
         const that = this
 
         this.$confirm({
-          title: '提示',
-          content: '真的要注销登录吗 ?',
+          title: 'Mention',
+          content: 'Really logout?',
           onOk() {
             return that.Logout({}).then(() => {
                 window.location.href="/";

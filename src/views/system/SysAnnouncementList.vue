@@ -75,17 +75,17 @@
             <a class="ant-dropdown-link">更多 <a-icon type="down"/></a>
             <a-menu slot="overlay">
               <a-menu-item v-if="record.sendStatus != 1">
-                <a-popconfirm title="确定删除吗?" @confirm="() => handleDelete(record.id)">
+                <a-popconfirm title="confirm删除吗?" @confirm="() => handleDelete(record.id)">
                   <a>删除</a>
                 </a-popconfirm>
               </a-menu-item>
               <a-menu-item v-if="record.sendStatus == 0">
-                <a-popconfirm title="确定发布吗?" @confirm="() => releaseData(record.id)">
+                <a-popconfirm title="confirm发布吗?" @confirm="() => releaseData(record.id)">
                   <a>发布</a>
                 </a-popconfirm>
               </a-menu-item>
               <a-menu-item v-if="record.sendStatus == 1">
-                <a-popconfirm title="确定撤销吗?" @confirm="() => reovkeData(record.id)">
+                <a-popconfirm title="confirm撤销吗?" @confirm="() => reovkeData(record.id)">
                   <a>撤销</a>
                 </a-popconfirm>
               </a-menu-item>

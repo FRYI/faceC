@@ -83,7 +83,7 @@
 |-----------------|----------------------------------------------------|--------------------------------------------------|
 | added           | 当添加行操作完成后触发                             |                                                  |
 | deleted         | 当删除行操作完成后触发（批量删除操作只会触发一次） | `deleteIds` 被逻辑删除的id                       |
-| selectRowChange | 当行被选中或取消选中时触发                         | `selectedRowIds` 被选中行的id                    |
+| selectRowChange | 当行被选中或cancel选中时触发                         | `selectedRowIds` 被选中行的id                    |
 | valueChange     | 当数据发生改变的时候触发的事件                     | `{ type, row, column, value, target }` Event对象 |
 
 ## 方法

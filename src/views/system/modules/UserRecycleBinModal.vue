@@ -137,7 +137,7 @@
       handleRevert(userIds) {
         this.$confirm({
           title: '恢复用户',
-          content: `您确定要恢复这 ${userIds.length} 个用户吗？`,
+          content: `您confirm要恢复这 ${userIds.length} 个用户吗？`,
           centered: true,
           onOk: () => {
             putAction(this.url.putRecycleBin,{userIds:userIds.join(',')}).then((res)=>{
@@ -155,7 +155,7 @@
         this.$confirm({
           title: '彻底删除用户',
           content: (<div>
-            <p>您确定要彻底删除这 {userIds.length} 个用户吗？</p>
+            <p>您confirm要彻底删除这 {userIds.length} 个用户吗？</p>
             <p style="color:red;">注意：彻底删除后将无法恢复，请谨慎操作！</p>
           </div>),
           centered: true,

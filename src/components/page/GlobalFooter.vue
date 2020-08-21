@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <div class="links">
-      <a href="http://www.jeecg.com" target="_blank">JEECG 首页</a>
+      <a href="http://www.jeecg.com" target="_blank">JEECG confirm</a>
       <a href="https://github.com/zhangdaiscott/jeecg-boot" target="_blank">
         <a-icon type="github"/>
       </a>

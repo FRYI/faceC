@@ -5,7 +5,7 @@
       :width="width"
       :visible="visible"
       @ok="ok"
-      cancelText="取消"
+      cancelText="cancel"
       @cancel="close">
       <!--style="top: 20px;"-->
       <j-upload :file-type="fileType" :value="filePath" @change="handleChange" :disabled="disabled"></j-upload>

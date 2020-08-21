@@ -15,20 +15,74 @@
         <a-form-item label="ordernumber" :labelCol="labelCol" :wrapperCol="wrapperCol">
           <a-input v-decorator="['ordernumber']" placeholder="请输入ordernumber"></a-input>
         </a-form-item>
-        <a-form-item label="supplier" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['supplier', validatorRules.supplier]" placeholder="请输入supplier"></a-input>
+<!--        <a-form-item label="supplier" :labelCol="labelCol" :wrapperCol="wrapperCol">-->
+<!--          <a-input v-decorator="['supplier', validatorRules.supplier]" placeholder="请输入supplier" ></a-input>-->
+<!--          <ListItem v-decorator="['supplier', validatorRules.supplier]" placeholder="请输入supplier" ></ListItem>-->
+
+<!--          <a-button style="margin-right: 8px;" @click="()=>this.$refs.modalForm.visible=true">enter supplier detail</a-button>-->
+<!--          <supplier-modal ref="modalForm" @ok="modalFormOk"></supplier-modal>-->
+<!--        </a-form-item>-->
+        <a-form-item label="supplier" :labelCol="labelCol" :wrapperCol="wrapperCol"  has-feedback  @click.native="clickS()">
+          <a-select
+            v-decorator="['supplier', validatorRules.supplier]"
+            placeholder="Please select a supplier"
+            style="width: 500px"
+          >
+            <a-select-option :value="spr.supplier" v-for="spr in suppliers">
+              {{ spr.supplier }}
+            </a-select-option>
+          </a-select>
           <a-button style="margin-right: 8px;" @click="()=>this.$refs.modalForm.visible=true">enter supplier detail</a-button>
-          <supplier-modal ref="modalForm" @ok="modalFormOk"></supplier-modal>
         </a-form-item>
-        <a-form-item label="client" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['client', validatorRules.client]" placeholder="请输入client"></a-input>
+
+        <supplier-modal ref="modalForm" @ok="modalFormOk"></supplier-modal>
+
+
+        <a-form-item label="client" :labelCol="labelCol" :wrapperCol="wrapperCol"  @click.native="clickC()" has-feedback>
+          <a-select
+            v-decorator="['client', validatorRules.client]"
+            placeholder="Please select a client"
+            style="width: 500px"
+
+          >
+            <a-select-option :value="cli.client" v-for="cli in clients">
+              {{ cli.client }}
+            </a-select-option>
+          </a-select>
           <a-button style="margin-right: 8px;" @click="()=>this.$refs.cmodalForm.visible=true">enter client detail</a-button>
           <client-modal ref="cmodalForm" @ok="modalFormOk"></client-modal>
         </a-form-item>
+
+
+
+
+
         <a-form-item label="chop" :labelCol="labelCol" :wrapperCol="wrapperCol">
           <a-input v-decorator="['chop']" placeholder="请输入chop"></a-input>
         </a-form-item>
-        <a-form-item label="product" :labelCol="labelCol" :wrapperCol="wrapperCol">
+        <a-form-item label="season" :labelCol="labelCol" :wrapperCol="wrapperCol">
+          <a-input v-model="objseason" v-decorator="['season']" placeholder="请输入season"></a-input>
+        </a-form-item>
+
+<!--        <a-form-item label="season" :labelCol="labelCol" :wrapperCol="wrapperCol"  has-feedback>-->
+<!--          <a-select-->
+<!--            v-decorator="['season', validatorRules.season]"-->
+<!--            placeholder="Please select a season"-->
+<!--            style="width: 500px"-->
+<!--          >-->
+<!--            <a-select-option :value="ses" v-for="ses in seasons">-->
+<!--              {{ ses }}-->
+<!--            </a-select-option>-->
+<!--          </a-select>-->
+<!--        </a-form-item>-->
+
+
+
+
+
+
+
+        <a-form-item label="product" :labelCol="labelCol" :wrapperCol="wrapperCol" v-model="sku">
           <a-input v-decorator="['product', validatorRules.product]" placeholder="请输入product"></a-input>
           <a-button style="margin-right: 8px;" @click="()=>this.$refs.modalFormp.visible=true">enter product detail</a-button>
           <product-modal ref="modalFormp" @ok="modalFormOk"></product-modal>
@@ -39,8 +93,8 @@
         <a-form-item label="delivery" :labelCol="labelCol" :wrapperCol="wrapperCol">
           <a-input v-decorator="['delivery']" placeholder="请输入delivery"></a-input>
         </a-form-item>
-        <a-form-item label="price" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['price']" placeholder="请输入price"></a-input>
+        <a-form-item label="priceUsd" :labelCol="labelCol" :wrapperCol="wrapperCol">
+          <a-input v-decorator="['priceUsd']" placeholder="请输入price"></a-input>
         </a-form-item>
         <a-form-item label="quantity" :labelCol="labelCol" :wrapperCol="wrapperCol">
           <a-input v-decorator="['quantity']" placeholder="请输入quantity"></a-input>
@@ -109,7 +163,7 @@
   import SupplierModal from './SupplierModal'
   import ClientModal from './ClientModal'
   import ProductModal from './ProductModal'
-
+  import ListItem from '@/components/jeecg/modal/ListItem'
 
   export default {
     name: "TorderModal",
@@ -118,9 +172,15 @@
       SupplierModal,
       ClientModal,
       ProductModal,
+      ListItem,
     },
     data () {
       return {
+        sku:"",
+        seasons:{},
+        objseason: "",
+        suppliers: {},
+        clients:{},
         form: this.$form.createForm(this),
         title:"操作",
         width:800,
@@ -182,10 +242,11 @@
                               if(!value){
                                 return callback("不为空")
                               }
-                              value = {
-                                product:value
+                             let value1 = {
+                               product:{"season":this.objseason,"product":this.sku}
                               }
-                              getAction("/product/product/queryByName",value).then((res)=>{
+
+                              getAction("/product/product/queryByName",value1).then((res)=>{
                                 if(res.success){
                                   return callback()
                                 }else{
@@ -204,8 +265,56 @@
       }
     },
     created () {
+      getAction("/supplier/supplier/listAll").then((res)=>{
+        if(res.success){
+
+
+          this.suppliers= res.result
+
+        }else{
+          alert("supplier false")
+        }
+      }),
+      getAction("/client/client/listAll").then((res)=>{
+        if(res.success){
+          this.clients = res.result
+
+        }else{
+          alert("clent false")
+        }
+      }),
+      getAction("/torder/torder/season").then((res)=>{
+        if(res.success){
+          this.seasons = res.result
+          console.log(res)
+        }else{
+          alert("season false")
+        }
+      })
     },
+
+
     methods: {
+      clickS(){
+        getAction("/supplier/supplier/listAll").then((res)=>{
+          if(res.success){
+            this.suppliers = res.result
+          }else{
+            alert("supplier false")
+          }
+        })
+      },
+      clickC(){
+        getAction("/client/client/listAll").then((res)=>{
+          if(res.success){
+            this.clients = res.result
+
+          }else{
+            alert("clent false")
+          }
+        })
+      },
+
       add () {
         this.edit({});
       },
@@ -214,7 +323,10 @@
         this.model = Object.assign({}, record);
         this.visible = true;
         this.$nextTick(() => {
-          this.form.setFieldsValue(pick(this.model,'ordernumber','supplier','client','chop','product','incoterm','delivery','price','quantity','amountRmb','amountUsd','depositRmb','depositUsd','depositPay','balanceRmb','balanceUsd','balancePay','deliveryDate','deliverySituation','etd','delay','eta','status','statusdate','created','updated'))
+          this.sku = record.product
+          this.objseason = record.season
+          this.form.setFieldsValue(pick(this.model,'ordernumber','supplier','client','chop','season','product','incoterm','delivery','priceUsd','quantity','amountRmb','amountUsd','depositRmb','depositUsd','depositPay','balanceRmb','balanceUsd','balancePay','deliveryDate','deliverySituation','etd','delay','eta','status','statusdate','created','updated'))
+
         })
       },
       close () {
@@ -257,7 +369,7 @@
         this.close()
       },
       popupCallback(row){
-        this.form.setFieldsValue(pick(row,'ordernumber','supplier','client','chop','product','incoterm','delivery','price','quantity','amountRmb','amountUsd','depositRmb','depositUsd','depositPay','balanceRmb','balanceUsd','balancePay','deliveryDate','deliverySituation','etd','delay','eta','status','statusdate','created','updated'))
+        this.form.setFieldsValue(pick(row,'ordernumber','supplier','client','chop','season','product','incoterm','delivery','priceUsd','quantity','amountRmb','amountUsd','depositRmb','depositUsd','depositPay','balanceRmb','balanceUsd','balancePay','deliveryDate','deliverySituation','etd','delay','eta','status','statusdate','created','updated'))
       },
 
       

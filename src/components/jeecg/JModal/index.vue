@@ -56,7 +56,7 @@
         type: Boolean,
         default: false
       },
-      // 点击确定按钮的时候是否关闭弹窗
+      // 点击confirm按钮的时候是否关闭弹窗
       okClose: {
         type: Boolean,
         default: true

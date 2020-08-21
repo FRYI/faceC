@@ -101,7 +101,7 @@
           class="login-button"
           :loading="loginBtn"
           @click.stop.prevent="handleSubmit"
-          :disabled="loginBtn">确定
+          :disabled="loginBtn">confirm
         </a-button>
       </a-form-item>
 

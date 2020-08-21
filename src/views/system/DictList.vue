@@ -52,7 +52,7 @@
           <a-divider type="vertical"/>
           <a @click="editDictItem(record)"><a-icon type="setting"/> 字典配置</a>
           <a-divider type="vertical"/>
-          <a-popconfirm title="确定删除吗?" @confirm="() =>handleDelete(record.id)">
+          <a-popconfirm title="confirm删除吗?" @confirm="() =>handleDelete(record.id)">
             <a>删除</a>
           </a-popconfirm>
         </span>
@@ -158,7 +158,7 @@
         }
         return filterObj(param);
       },
-      //取消选择
+      //cancel选择
       cancelDict() {
         this.dict = "";
         this.visible = false;

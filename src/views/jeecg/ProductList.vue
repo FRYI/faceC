@@ -1,80 +1,21 @@
 <template>
   <a-card :bordered="false">
-    <!-- 查询区域 -->
-    <div class="table-page-search-wrapper">
-      <a-form layout="inline" @keyup.enter.native="searchQuery">
-        <a-row :gutter="24">
-          <a-col :xl="6" :lg="7" :md="8" :sm="24">
-            <a-form-item label="sku">
-              <a-input placeholder="请输入sku" v-model="queryParam.sku"></a-input>
-            </a-form-item>
-          </a-col>
-          <a-col :xl="6" :lg="7" :md="8" :sm="24">
-            <a-form-item label="project">
-              <a-input placeholder="请输入project" v-model="queryParam.project"></a-input>
-            </a-form-item>
-          </a-col>
-          <template v-if="toggleSearchStatus">
-            <a-col :xl="6" :lg="7" :md="8" :sm="24">
-              <a-form-item label="productName">
-                <a-input placeholder="请输入productName" v-model="queryParam.productName"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="6" :lg="7" :md="8" :sm="24">
-              <a-form-item label="supplier">
-                <a-input placeholder="请输入supplier" v-model="queryParam.supplier"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="6" :lg="7" :md="8" :sm="24">
-              <a-form-item label="paramData">
-                <a-input placeholder="请输入paramData" v-model="queryParam.paramData"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="6" :lg="7" :md="8" :sm="24">
-              <a-form-item label="description">
-                <a-input placeholder="请输入description" v-model="queryParam.description"></a-input>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="10" :lg="11" :md="12" :sm="24">
-              <a-form-item label="created">
-                <j-date placeholder="请选择开始日期" class="query-group-cust" v-model="queryParam.createTime_begin"></j-date>
-                <span class="query-group-split-cust"></span>
-                <j-date placeholder="请选择结束日期" class="query-group-cust" v-model="queryParam.createTime_end"></j-date>
-              </a-form-item>
-            </a-col>
-            <a-col :xl="10" :lg="11" :md="12" :sm="24">
-              <a-form-item label="updated">
-                <j-date placeholder="请选择开始日期" class="query-group-cust" v-model="queryParam.updateTime_begin"></j-date>
-                <span class="query-group-split-cust"></span>
-                <j-date placeholder="请选择结束日期" class="query-group-cust" v-model="queryParam.updateTime_end"></j-date>
-              </a-form-item>
-            </a-col>
-          </template>
-          <a-col :xl="6" :lg="7" :md="8" :sm="24">
-            <span style="float: left;overflow: hidden;" class="table-page-search-submitButtons">
-              <a-button type="primary" @click="searchQuery" icon="search">查询</a-button>
-              <a-button type="primary" @click="searchReset" icon="reload" style="margin-left: 8px">重置</a-button>
-              <a @click="handleToggleSearch" style="margin-left: 8px">
-                {{ toggleSearchStatus ? '收起' : '展开' }}
-                <a-icon :type="toggleSearchStatus ? 'up' : 'down'"/>
-              </a>
-            </span>
-          </a-col>
-        </a-row>
-      </a-form>
-    </div>
+
     <!-- 查询区域-END -->
     
     <!-- 操作按钮区域 -->
     <div class="table-operator">
-      <a-button @click="handleAdd" type="primary" icon="plus">新增</a-button>
-      <a-button type="primary" icon="download" @click="handleExportXls('product')">导出</a-button>
+      <a-button @click="handleAdd" type="primary" icon="plus">Add</a-button>
+      <a-button type="primary" icon="download" @click="handleExportXls('product')">ExportXls</a-button>
       <a-upload name="file" :showUploadList="false" :multiple="false" :headers="tokenHeader" :action="importExcelUrl" @change="handleImportExcel">
-        <a-button type="primary" icon="import">导入</a-button>
+        <a-button type="primary" icon="import">Import</a-button>
       </a-upload>
+      <j-super-query :fieldList="fieldList" ref="superQueryModal" @handleSuperQuery="handleSuperQuery">
+
+      </j-super-query>
       <a-dropdown v-if="selectedRowKeys.length > 0">
         <a-menu slot="overlay">
-          <a-menu-item key="1" @click="batchDel"><a-icon type="delete"/>删除</a-menu-item>
+          <a-menu-item key="1" @click="batchDel"><a-icon type="delete"/>Delete</a-menu-item>
         </a-menu>
         <a-button style="margin-left: 8px"> 批量操作 <a-icon type="down" /></a-button>
       </a-dropdown>
@@ -121,15 +62,15 @@
         </template>
 
         <span slot="action" slot-scope="text, record">
-          <a @click="handleEdit(record)">编辑</a>
+          <a @click="handleEdit(record)">Edit</a>
 
           <a-divider type="vertical" />
           <a-dropdown>
-            <a class="ant-dropdown-link">更多 <a-icon type="down" /></a>
+            <a class="ant-dropdown-link">More <a-icon type="down" /></a>
             <a-menu slot="overlay">
               <a-menu-item>
-                <a-popconfirm title="确定删除吗?" @confirm="() => handleDelete(record.id)">
-                  <a>删除</a>
+                <a-popconfirm title="confirm删除吗?" @confirm="() => handleDelete(record.id)">
+                  <a>Delete</a>
                 </a-popconfirm>
               </a-menu-item>
             </a-menu>
@@ -150,17 +91,69 @@
   import { JeecgListMixin } from '@/mixins/JeecgListMixin'
   import ProductModal from './modules/ProductModal'
   import JDate from '@/components/jeecg/JDate.vue'
+  import JSuperQuery from '@/components/jeecg/JSuperQuery'
+  import {filterObj} from "../../utils/util";
 
+  const superQueryFieldList=[
+    {
+      text:'season',
+      type:"string",
+      value: 'season'
+    },
+    {
+      type: "string",
+      value: "sku",
+      text: "Sku"
+    },
+    {
+      type: "string",
+      value: "project",
+      text: "Project"
+    },
+    {
+      type: "string",
+      value: "supplier",
+      text: "Supplier"
+    },
+    {
+      type: "string",
+      value: "productName",
+      text: "Product Name"
+    },
+    {
+      type: "string",
+      value: "paramData",
+      text: " Specification"
+    },
+    {
+      type: "string",
+      value: "description",
+      text: "Description"
+    },
+    {
+      type: "date",
+      value: "createTime",
+      text: "Create Time"
+    },
+    {
+      type: "date",
+      value: "updateTime",
+      text: "Update Time"
+    }
+  ]
   export default {
     name: "ProductList",
     mixins:[JeecgListMixin, mixinDevice],
     components: {
       JDate,
-      ProductModal
+      ProductModal,
+      JSuperQuery,
     },
     data () {
       return {
-        description: 'product管理页面',
+        description: 'product',
+
+        fieldList: superQueryFieldList,
         // 表头
         columns: [
           {
@@ -174,49 +167,63 @@
             }
           },
           {
-            title:'sku',
+            title:'season',
+            align:"center",
+            dataIndex: 'season'
+          },
+          {
+            title:'Sku',
             align:"center",
             dataIndex: 'sku'
           },
           {
-            title:'project',
+            title:'Project',
             align:"center",
             dataIndex: 'project'
           },
           {
-            title:'productName',
+            title:'Product Name',
             align:"center",
             dataIndex: 'productName'
           },
           {
-            title:'supplier',
+            title:'Supplier',
             align:"center",
             dataIndex: 'supplier'
           },
           {
-            title:'paramData',
+            title:'Specification',
             align:"center",
             dataIndex: 'paramData',
             customRender:function (text) {
-                 return text
+
+              var json2 = JSON.parse(text)
+              return (
+                <div>
+                  {Object.keys(json2).map((obj, idx) => (
+                    <div> <span style="margin-right:5px;">{obj}</span> <span style="font-weight:bold;font-style: oblique;">{json2[obj]}</span></div>
+                  ))}
+                </div>
+            )
+
              }
 
           },
           {
-            title:'description',
+            title:'Description',
             align:"center",
             dataIndex: 'description'
           },
           {
-            title:'photo',
+            title:'Photo',
             align:"center",
             dataIndex: 'photoString',
             customRender:function (text) {
-              return  <img src= {text}  width="100px" height="auto" />
+              return  <img src= {text}  width="auto" height="80px" />
             }
           },
           {
-            title:'created',
+            title:'Created',
             align:"center",
             dataIndex: 'createTime',
             customRender:function (text) {
@@ -224,7 +231,7 @@
             }
           },
           {
-            title:'updated',
+            title:'Updated',
             align:"center",
             dataIndex: 'updateTime',
             customRender:function (text) {
@@ -232,7 +239,7 @@
             }
           },
           {
-            title: '操作',
+            title: 'Action',
             dataIndex: 'action',
             align:"center",
             // fixed:"right",
@@ -256,6 +263,21 @@
       },
     },
     methods: {
+      getQueryParams(){
+        //高级查询器
+        let sqp = {}
+        if(this.superQueryParams){
+          sqp['superQueryParams']=encodeURI(this.superQueryParams)
+          sqp['superQueryMatchType'] = this.superQueryMatchType
+        }
+        var param = Object.assign(sqp, this.queryParam, this.isorter ,this.filters);
+
+        param.field = this.getQueryField();
+        param.pageNo = this.ipagination.current;
+        param.pageSize = this.ipagination.pageSize;
+        delete param.birthdayRange; //范围参数不传递后台
+        return filterObj(param);
+      },
       initDictConfig(){
       }
 
@@ -268,5 +290,11 @@
   .imgsty{
     width: 20px;
     height: auto;
+  }
+  td{
+    height: 100px;
+  }
+  img{
+    margin-top: 0;
   }
 </style>

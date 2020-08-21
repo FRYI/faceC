@@ -19,7 +19,7 @@ module.exports = {
   //打包app时放开该配置
   //publicPath:'./',
   configureWebpack: config => {
-    //生产环境取消 console.log
+    //生产环境cancel console.log
     if (process.env.NODE_ENV === 'production') {
       config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
     }

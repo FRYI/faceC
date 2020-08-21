@@ -85,8 +85,8 @@
         
       </a-form>
     </a-spin>
-    <a-button type="primary" @click="handleOk">确定</a-button>
-    <a-button type="primary" @click="handleCancel">取消</a-button>
+    <a-button type="primary" @click="handleOk">confirm</a-button>
+    <a-button type="primary" @click="handleCancel">cancel</a-button>
   </a-drawer>
 </template>
 

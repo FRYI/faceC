@@ -34,7 +34,7 @@
         <a-menu slot="overlay">
           <a-menu-item key="1" @click="batchDel">
             <a-icon type="delete"/>
-            取消关联
+            cancel关联
           </a-menu-item>
         </a-menu>
         <a-button style="margin-left: 8px"> 批量操作
@@ -84,8 +84,8 @@
               </a-menu-item>
 
               <a-menu-item>
-                <a-popconfirm title="确定取消与选中部门关联吗?" @confirm="() => handleDelete(record.id)">
-                  <a>取消关联</a>
+                <a-popconfirm title="confirmcancel与选中部门关联吗?" @confirm="() => handleDelete(record.id)">
+                  <a>cancel关联</a>
                 </a-popconfirm>
               </a-menu-item>
             </a-menu>
@@ -198,7 +198,7 @@
           return
         }
         if (!this.currentDeptId) {
-          this.$message.error("未选中任何部门，无法取消部门与用户的关联!")
+          this.$message.error("未选中任何部门，无法cancel部门与用户的关联!")
           return
         }
 
@@ -213,8 +213,8 @@
           var that = this;
           console.log(this.currentDeptId);
           this.$confirm({
-            title: "确认取消",
-            content: "是否取消用户与选中部门的关联?",
+            title: "确认cancel",
+            content: "是否cancel用户与选中部门的关联?",
             onOk: function () {
               deleteAction(that.url.deleteBatch, {depId: that.currentDeptId, userIds: ids}).then((res) => {
                 if (res.success) {
@@ -235,7 +235,7 @@
           return
         }
         if (!this.currentDeptId) {
-          this.$message.error("未选中任何部门，无法取消部门与用户的关联!")
+          this.$message.error("未选中任何部门，无法cancel部门与用户的关联!")
           return
         }
 

@@ -10,7 +10,9 @@
     cancelText="关闭">
     <a-spin :spinning="confirmLoading">
       <a-form :form="form">
-
+        <a-form-item label="season" :labelCol="labelCol" :wrapperCol="wrapperCol">
+          <a-input  v-decorator="['season']" placeholder="请输入season"></a-input>
+        </a-form-item>
         <a-form-item label="ordernumber" :labelCol="labelCol" :wrapperCol="wrapperCol">
           <a-input v-decorator="['ordernumber']" placeholder="请输入ordernumber"></a-input>
         </a-form-item>
@@ -89,7 +91,7 @@
         this.model = Object.assign({}, record);
         this.visible = true;
         this.$nextTick(() => {
-          this.form.setFieldsValue(pick(this.model,'ordernumber','supplier','inspector','depositeDate','comfirmDate','inspectionDate','deliveryDate','amount','createTime','updateTime'))
+          this.form.setFieldsValue(pick(this.model,'season','ordernumber','supplier','inspector','depositeDate','comfirmDate','inspectionDate','deliveryDate','amount','createTime','updateTime'))
         })
       },
       close () {
@@ -132,7 +134,7 @@
         this.close()
       },
       popupCallback(row){
-        this.form.setFieldsValue(pick(row,'ordernumber','supplier','inspector','depositeDate','comfirmDate','inspectionDate','deliveryDate','amount','createTime','updateTime'))
+        this.form.setFieldsValue(pick(row,'season','ordernumber','supplier','inspector','depositeDate','comfirmDate','inspectionDate','deliveryDate','amount','createTime','updateTime'))
       },
 
       

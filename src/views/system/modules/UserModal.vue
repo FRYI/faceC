@@ -137,8 +137,8 @@
     <depart-window ref="departWindow" @ok="modalFormOk"></depart-window>
 
     <div class="drawer-bootom-button" v-show="!disableSubmit">
-      <a-popconfirm title="确定放弃编辑？" @confirm="handleCancel" okText="确定" cancelText="取消">
-        <a-button style="margin-right: .8rem">取消</a-button>
+      <a-popconfirm title="confirm放弃编辑？" @confirm="handleCancel" okText="confirm" cancelText="cancel">
+        <a-button style="margin-right: .8rem">cancel</a-button>
       </a-popconfirm>
       <a-button @click="handleSubmit" type="primary" :loading="confirmLoading">提交</a-button>
     </div>

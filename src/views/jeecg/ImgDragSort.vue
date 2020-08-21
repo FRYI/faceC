@@ -8,7 +8,7 @@
           </div>
         </div>
       </template>
-      <a-button @click="sureChange" type="primary" style="margin-top: 115px">确定</a-button>
+      <a-button @click="sureChange" type="primary" style="margin-top: 115px">confirm</a-button>
     </draggable>
     <br/>
     <a-row>

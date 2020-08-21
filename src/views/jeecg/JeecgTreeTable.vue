@@ -69,7 +69,7 @@
           width: 600,
           title: '编辑',
           content: '编辑ID：' + record.id+"；名称："+record.name,
-          okText: '确定',
+          okText: 'confirm',
           maskClosable: true
         })
       }

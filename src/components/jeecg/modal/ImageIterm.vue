@@ -17,11 +17,16 @@
       },
       methods: {
         clearImg(){
+          this.imgData =""
           this.$refs.paste.innerHTML=""
         },
         pasteImg(e) {
           console.log('获得剪切板的内容', e);
           const cbd = e.clipboardData;
+          e.clipboardData.clearData('image/jpeg')
+          e.clipboardData.clearData('image/png')
+          e.clipboardData.clearData('image/jpg')
+          console.log( e.clipboardData.setData('text/plain', ""))
           const ua = window.navigator.userAgent;
           // 如果是 Safari 直接 return
           if ( !(e.clipboardData && e.clipboardData.items) ) {
@@ -50,16 +55,26 @@
                 return function(e) {
                   console.log('获得粘贴的结果', e.target.result);
                   aImg.src = e.target.result;
-                  alert(e.target.result)
+                  e.target.result.length >= 32767?alert("图片超出大小限制"):console.log(e.target.result)
                   vm.$emit("imagedatapost",e.target.result)
                 };
               })(imgs);
               reader.readAsDataURL(blob);
               this.$refs.paste.appendChild(imgs);
-
             }
           }
-        }
+        },
+
+        copyImg(data) {
+              const imgs = new Image();
+              imgs.src=data
+              this.imgData=data
+              this.$refs.paste.appendChild(imgs);
+            }
+
+
+
+
       }
     }
 </script>
@@ -70,5 +85,6 @@
         border: grey solid 1px;
         border-radius: 15px;
         overflow: hidden;
+        display: inline-block;
       }
 </style>

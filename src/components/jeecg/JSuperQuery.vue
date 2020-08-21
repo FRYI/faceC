@@ -14,16 +14,16 @@
       <a-button-group>
         <a-button type="primary" @click="handleOpen">
           <a-icon type="appstore" theme="twoTone" spin/>
-          <span>高级查询</span>
+          <span>Query</span>
         </a-button>
         <a-button v-if="izMobile" type="primary" icon="delete" @click="handleReset"/>
       </a-button-group>
     </a-tooltip>
-    <a-button v-else type="primary" icon="filter" @click="handleOpen">高级查询</a-button>
+    <a-button v-else type="primary" icon="filter" @click="handleOpen">Query</a-button>
   </slot>
 
   <j-modal
-    title="高级查询构造器"
+    title="Super Query"
     :width="1000"
     :visible="visible"
     @cancel="handleCancel"
@@ -35,11 +35,11 @@
 
     <template slot="footer">
       <div style="float: left">
-        <a-button :loading="loading" @click="handleReset">重置</a-button>
-        <a-button :loading="loading" @click="handleSave">保存查询条件</a-button>
+        <a-button :loading="loading" @click="handleReset">Reset</a-button>
+        <a-button :loading="loading" @click="handleSave">Save Query Condition</a-button>
       </div>
-      <a-button :loading="loading" @click="handleCancel">关闭</a-button>
-      <a-button :loading="loading" type="primary" @click="handleOk">查询</a-button>
+      <a-button :loading="loading" @click="handleCancel">Close</a-button>
+      <a-button :loading="loading" type="primary" @click="handleOk">Query</a-button>
     </template>
 
     <a-spin :spinning="loading">
@@ -48,9 +48,9 @@
 
           <a-empty v-if="queryParamsModel.length === 0" style="margin-bottom: 12px;">
             <div slot="description">
-              <span>没有任何查询条件</span>
+              <span>Have not Any condition</span>
               <a-divider type="vertical"/>
-              <a @click="handleAdd">点击新增</a>
+              <a @click="handleAdd">Add</a>
             </div>
           </a-empty>
 

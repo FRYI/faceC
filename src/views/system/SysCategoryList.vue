@@ -39,7 +39,7 @@
         <span slot="action" slot-scope="text, record">
           <a @click="handleEdit(record)">编辑</a>
           <a-divider type="vertical" />
-          <a-popconfirm title="确定删除吗?" @confirm="() => handleDelete(record)">
+          <a-popconfirm title="confirm删除吗?" @confirm="() => handleDelete(record)">
             <a>删除</a>
           </a-popconfirm>
           <a-divider type="vertical" />

@@ -100,7 +100,7 @@
             <a @click="() => save(record)">保存</a>
             <a-divider type="vertical" />
             <a-popconfirm title="真的放弃编辑吗?" @confirm="() => cancel(record)">
-              <a>取消</a>
+              <a>cancel</a>
             </a-popconfirm>
           </span>
           <span v-else>
@@ -201,7 +201,7 @@
           content: '真的要删除吗?',
           okText: '删除',
           okType: 'danger',
-          cancelText: '取消',
+          cancelText: 'cancel',
           onOk() {
             console.log('OK');
             // 在这里调用删除接口

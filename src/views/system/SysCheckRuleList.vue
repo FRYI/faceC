@@ -90,7 +90,7 @@
           </a>
           <a-menu slot="overlay">
             <a-menu-item>
-              <a-popconfirm title="确定删除吗？" @confirm="handleDelete(record.id)">删除</a-popconfirm>
+              <a-popconfirm title="confirm删除吗？" @confirm="handleDelete(record.id)">删除</a-popconfirm>
             </a-menu-item>
           </a-menu>
         </a-dropdown>

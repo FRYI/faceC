@@ -109,6 +109,7 @@ export const JeecgListMixin = {
       param.field = this.getQueryField();
       param.pageNo = this.ipagination.current;
       param.pageSize = this.ipagination.pageSize;
+
       return filterObj(param);
     },
     getQueryField() {
@@ -117,6 +118,7 @@ export const JeecgListMixin = {
       this.columns.forEach(function (value) {
         str += "," + value.dataIndex;
       });
+
       return str;
     },
 

@@ -603,6 +603,17 @@
           ll.array =JSON.parse(obj.paramData)
           console.log(ll.array)
           ll.imgsrc = obj.photoString
+          var json2 = JSON.parse(obj.paramData)
+          Object.keys(json2).map((obj, idx) => (
+            setTimeout(()=>{
+
+              var cs = "paramData["+obj+"]".toString()
+              // this.form.setFieldsValue({ ["paramData[color]"]:json2[obj]});
+              ll.form.setFieldsValue({ [cs]:json2[obj]});
+            },1000)
+          ))
+
+
         }
 
         ll.form.resetFields();

@@ -7,7 +7,7 @@
     <div class="table-operator">
       <a-button @click="handleAdd" type="primary" icon="plus">Add</a-button>
       <a-button type="primary" icon="download" @click="handleExportXls('torder')">ExportXls</a-button>
-      <a-upload name="file" :showUploadList="false" :multiple="false" :headers="tokenHeader" :action="importExcelUrl" @change="handleImportExcel">
+      <a-upload name="file"  :showUploadList="false" :multiple="false" :headers="tokenHeader" :action="importExcelUrl" @change="handleImportExcel">
         <a-button type="primary" icon="import">Import</a-button>
       </a-upload>
       <j-super-query :fieldList="fieldList" ref="superQueryModal" @handleSuperQuery="handleSuperQuery">

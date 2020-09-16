@@ -1602,8 +1602,8 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
     "@types/color-name" "^1.1.1"
     color-convert "^2.0.1"
 
-ant-design-vue@1.5.2:
-  version "1.5.2"
+ant-design-vue@1.6.4:
+  version "1.6.4"
   resolved "https://registry.npm.taobao.org/ant-design-vue/download/ant-design-vue-1.5.2.tgz?cache=0&sync_timestamp=1593928542004&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fant-design-vue%2Fdownload%2Fant-design-vue-1.5.2.tgz#0943f17d7908de16e633da7ab7133fb856eedd2c"
   integrity sha1-CUPxfXkI3hbmM9p6txM/uFbu3Sw=
   dependencies:

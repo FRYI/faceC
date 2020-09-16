@@ -162,6 +162,7 @@
       }
     },
     created(){
+
       const token = Vue.ls.get(ACCESS_TOKEN);
       //---------------------------- begin 图片左右换位置 -------------------------------------
       this.headers = {"X-Access-Token":token};

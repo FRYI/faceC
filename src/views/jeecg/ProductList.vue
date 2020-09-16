@@ -7,7 +7,7 @@
     <div class="table-operator">
       <a-button @click="handleAdd" type="primary" icon="plus">Add</a-button>
       <a-button type="primary" icon="download" @click="handleExportXls('product')">ExportXls</a-button>
-      <a-upload name="file" :showUploadList="false" :multiple="false" :headers="tokenHeader" :action="importExcelUrl" @change="handleImportExcel">
+      <a-upload name="file" :data="fileData" :beforeUpload="catchData" ref="aupload" :showUploadList="false" :multiple="false" :headers="tokenHeader" :action="importExcelUrl" @change="handleImportExcel">
         <a-button type="primary" icon="import">Import</a-button>
       </a-upload>
       <j-super-query :fieldList="fieldList" ref="superQueryModal" @handleSuperQuery="handleSuperQuery">
@@ -93,6 +93,12 @@
   import JDate from '@/components/jeecg/JDate.vue'
   import JSuperQuery from '@/components/jeecg/JSuperQuery'
   import {filterObj} from "../../utils/util";
+  import {stream} from "exceljs";
+  import {buffer} from "ant-design-vue";
+  const Excel = require('exceljs')
+  const XLSX = require("xlsx")
+
+
 
   const superQueryFieldList=[
     {
@@ -152,7 +158,7 @@
     data () {
       return {
         description: 'product',
-
+        fileData: {},
         fieldList: superQueryFieldList,
         // 表头
         columns: [
@@ -196,11 +202,14 @@
             align:"center",
             dataIndex: 'paramData',
             customRender:function (text) {
-
               var json2 = JSON.parse(text)
+             if(json2 == null){
+               return text
+             }
               return (
                 <div>
-                  {Object.keys(json2).map((obj, idx) => (
+                  {
+                    Object.keys(json2).map((obj, idx) => (
                     <div> <span style="margin-right:5px;">{obj}</span> <span style="font-weight:bold;font-style: oblique;">{json2[obj]}</span></div>
                   ))}
                 </div>
@@ -257,12 +266,119 @@
         dictOptions:{},
       }
     },
+    watch:{
+      // fileData(val){
+      //   this.postData(val)
+      //   alert("111")
+      //
+      // }
+    },
     computed: {
       importExcelUrl: function(){
         return `${window._CONFIG['domianURL']}/${this.url.importExcelUrl}`;
       },
     },
     methods: {
+      async catchData(file, fileList) {
+
+      let  blobUpdate = await this.fileChange(file)
+        return Promise.resolve(new window.File([blobUpdate], "product.xlsx", {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}))
+      },
+      fileChange(file){
+        let vm = this
+        let blobUpdate = null
+        const workbook = new Excel.Workbook();
+        return new Promise((resolve, reject) => {
+          var fileReader = new FileReader();
+          fileReader.readAsArrayBuffer(file);
+          fileReader.onload = (e) => {
+            const buffer = e.target.result;
+            workbook.xlsx.load(buffer).then(async (wb)=> {
+              console.log("readFile success");
+              let worksheet1 = wb.getWorksheet(1)
+              worksheet1.getImages().forEach((item) =>{
+                let img = wb.getImage(Number(item.imageId))
+                let base64 = vm.uint8arrayToBase64(img.buffer)
+                console.log(base64)
+                worksheet1.getCell('F4').value=""
+                worksheet1.getRow(item.range.br.nativeRow+1).getCell(item.range.br.nativeCol+1).value = base64
+              })
+              workbook.xlsx.writeBuffer().then(data => {
+                blobUpdate = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+                console.log(blobUpdate)
+                this.fileData = new window.File([blobUpdate], "product.xlsx", {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'})
+
+                resolve(blobUpdate)
+                // return Promise.resolve(new window.File([blobUpdate], "product.xlsx", {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}))
+              });
+            }).catch((error)=> {
+              console.log("readFile fail", error);
+            })
+          };
+        })
+      },
+      fileChange2(file){
+        let vm = this
+        let blobUpdate = null
+        const workbook = new Excel.Workbook();
+        return new Promise((resolve, reject) => {
+          var fileReader = new FileReader();
+          fileReader.readAsArrayBuffer(file);
+          fileReader.onload = (e) => {
+            const buffer = e.target.result;
+            workbook.xlsx.load(buffer).then(async (wb)=> {
+              console.log("readFile success");
+              let worksheet1 = wb.getWorksheet(1)
+
+             var rowCount = worksheet1.rowCount
+              console.log(rowCount)
+              for(var i =1;i<= rowCount;i++){
+                console.log(i)
+                  let base64 = worksheet1.getRow(i).getCell(8).value
+                console.log(base64)
+                  if(base64 && base64.startsWith("data:image")) {
+                    worksheet1.getRow(i).getCell(8).value = ""
+                    const imageId = workbook.addImage({
+                      base64: base64,
+                      extension: 'jpg',
+                    });
+                    worksheet1.addImage(imageId, {
+                      tl: {col: 8-1, row: i-1},
+                      ext: {width: 50, height: 50}
+                    });
+                  }
+              }
+              workbook.xlsx.writeBuffer().then(data => {
+                blobUpdate = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+                console.log(blobUpdate)
+                // this.fileData = new window.File([blobUpdate], "product.xlsx", {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'})
+
+                resolve(blobUpdate)
+                // return Promise.resolve(new window.File([blobUpdate], "product.xlsx", {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}))
+              });
+            }).catch((error)=> {
+              console.log("readFile fail", error);
+            })
+          };
+        })
+      },
+      uint8arrayToBase64(u8Arr) {
+        let CHUNK_SIZE = 0x8000; //arbitrary number
+        let index = 0;
+        let length = u8Arr.length;
+        let result = '';
+        let slice;
+        while (index < length) {
+          slice = u8Arr.subarray(index, Math.min(index + CHUNK_SIZE, length));
+          result += String.fromCharCode.apply(null, slice);
+          index += CHUNK_SIZE;
+        }
+        // web image base64图片格式: "data:image/png;base64," + b64encoded;
+        // return  "data:image/png;base64," + btoa(result);
+        return "data:image/png;base64," + btoa(result);
+      },
+
+
       getQueryParams(){
         //高级查询器
         let sqp = {}

@@ -7,7 +7,7 @@ import { filterObj } from '@/utils/util';
 import { deleteAction, getAction,downFile,getFileAccessHttpUrl } from '@/api/manage'
 import Vue from 'vue'
 import { ACCESS_TOKEN } from "@/store/mutation-types"
-
+const Excel = require('exceljs')
 export const JeecgListMixin = {
   data(){
     return {
@@ -231,6 +231,25 @@ export const JeecgListMixin = {
       let url = `${window._CONFIG['domianURL']}/${this.url.exportXlsUrl}?paramsStr=${paramsStr}`;
       window.location.href = url;
     },
+    // fileChange(file){
+    //   let vm = this
+    //   let blobUpdate = null
+    //   const workbook = new Excel.Workbook();
+    //   return new Promise((resolve, reject) => {
+    //     var fileReader = new FileReader();
+    //     fileReader.readAsArrayBuffer(file);
+    //     fileReader.onload = (e) => {
+    //       const buffer = e.target.result;
+    //       workbook.xlsx.load(buffer).then(async (wb)=> {
+    //         console.log("readFile success");
+    //         let worksheet1 = wb.getWorksheet(1)
+    //         alert(worksheet1.getRow(4).getCell(8).value)
+    //       }).catch((error)=> {
+    //         console.log("readFile fail", error);
+    //       })
+    //     };
+    //   })
+    // },
     handleExportXls(fileName){
       if(!fileName || typeof fileName != "string"){
         fileName = "导出文件"
@@ -240,19 +259,23 @@ export const JeecgListMixin = {
         param['selections'] = this.selectedRowKeys.join(",")
       }
       console.log("导出参数",param)
-      downFile(this.url.exportXlsUrl,param).then((data)=>{
+      downFile(this.url.exportXlsUrl,param).then(async (data)=>{
+        if(fileName=="product"){
+          data = await this.fileChange2(data)
+        }
+
         if (!data) {
           this.$message.warning("文件下载失败")
           return
         }
         if (typeof window.navigator.msSaveBlob !== 'undefined') {
-          window.navigator.msSaveBlob(new Blob([data],{type: 'application/vnd.ms-excel'}), fileName+'.xls')
+          window.navigator.msSaveBlob(new Blob([data],{type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}), fileName+'.xlsx')
         }else{
-          let url = window.URL.createObjectURL(new Blob([data],{type: 'application/vnd.ms-excel'}))
+          let url = window.URL.createObjectURL(new Blob([data],{type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}))
           let link = document.createElement('a')
           link.style.display = 'none'
           link.href = url
-          link.setAttribute('download', fileName+'.xls')
+          link.setAttribute('download', fileName+'.xlsx')
           document.body.appendChild(link)
           link.click()
           document.body.removeChild(link); //下载完成移除元素
@@ -260,8 +283,11 @@ export const JeecgListMixin = {
         }
       })
     },
+
     /* 导入 */
     handleImportExcel(info){
+      console.log(info)
+
       if (info.file.status !== 'uploading') {
         console.log(info.file, info.fileList);
       }

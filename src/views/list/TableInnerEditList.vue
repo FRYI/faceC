@@ -70,7 +70,7 @@
           <a-menu-item key="2"><a-icon type="lock" />锁定</a-menu-item>
         </a-menu>
         <a-button style="margin-left: 8px">
-          批量操作 <a-icon type="down" />
+          Bulk Operations <a-icon type="down" />
         </a-button>
       </a-dropdown>
     </div>

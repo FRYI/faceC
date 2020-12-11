@@ -201,17 +201,19 @@
               { validator: (rule, value, callback) => {
                    if(!value){
                         return callback("不为空")
+                   }else {
+                     return callback()
                    }
-                   value = {
-                      supplier:value
-                   }
-                   getAction("/supplier/supplier/queryByName",value).then((res)=>{
-                      if(res.success){
-                          return callback()
-                      }else{
-                          return callback(new Error(res.message));
-                      }
-                    })
+                   // value = {
+                   //    supplier:value
+                   // }
+                   // getAction("/supplier/supplier/queryByName",value).then((res)=>{
+                   //    if(res.success){
+                   //        return callback()
+                   //    }else{
+                   //        return callback(new Error(res.message));
+                   //    }
+                   //  })
                   }
               },
             ]
@@ -221,17 +223,19 @@
                          { validator: (rule, value, callback) => {
                               if(!value){
                                    return callback("不为空")
+                              }else {
+                                return callback()
                               }
-                              value = {
-                                 client:value
-                              }
-                              getAction("/client/client/queryByName",value).then((res)=>{
-                                 if(res.success){
-                                     return callback()
-                                 }else{
-                                     return callback(new Error(res.message));
-                                 }
-                               })
+                              // value = {
+                              //    client:value
+                              // }
+                              // getAction("/client/client/queryByName",value).then((res)=>{
+                              //    if(res.success){
+                              //        return callback()
+                              //    }else{
+                              //        return callback(new Error(res.message));
+                              //    }
+                              //  })
                              }
                          },
                        ]
@@ -241,18 +245,20 @@
                      { validator: (rule, value, callback) => {
                               if(!value){
                                 return callback("不为空")
+                              }else {
+                                return callback()
                               }
-                             let value1 = {
-                               product:{"season":this.objseason,"product":this.sku}
-                              }
-
-                              getAction("/product/product/queryByName",value1).then((res)=>{
-                                if(res.success){
-                                  return callback()
-                                }else{
-                                  return callback(new Error(res.message));
-                                }
-                              })
+                             // let value1 = {
+                             //   product:{"season":this.objseason,"product":this.sku}
+                             //  }
+                             //
+                             //  getAction("/product/product/queryByName",value1).then((res)=>{
+                             //    if(res.success){
+                             //      return callback()
+                             //    }else{
+                             //      return callback(new Error(res.message));
+                             //    }
+                             //  })
                           }
                      },
             ]
@@ -295,25 +301,25 @@
 
 
     methods: {
-      clickS(){
-        getAction("/supplier/supplier/listAll").then((res)=>{
-          if(res.success){
-            this.suppliers = res.result
-          }else{
-            alert("supplier false")
-          }
-        })
-      },
-      clickC(){
-        getAction("/client/client/listAll").then((res)=>{
-          if(res.success){
-            this.clients = res.result
-
-          }else{
-            alert("clent false")
-          }
-        })
-      },
+      // clickS(){
+      //   getAction("/supplier/supplier/listAll").then((res)=>{
+      //     if(res.success){
+      //       this.suppliers = res.result
+      //     }else{
+      //       alert("supplier false")
+      //     }
+      //   })
+      // },
+      // clickC(){
+      //   getAction("/client/client/listAll").then((res)=>{
+      //     if(res.success){
+      //       this.clients = res.result
+      //
+      //     }else{
+      //       alert("clent false")
+      //     }
+      //   })
+      // },
 
       add () {
         this.edit({});
@@ -334,6 +340,7 @@
         this.visible = false;
       },
       handleOk () {
+        var d = new Date()
         const that = this;
         // 触发表单验证
         this.form.validateFields((err, values) => {
@@ -350,6 +357,8 @@
             }
             let formData = Object.assign(this.model, values);
             console.log("表单提交数据",formData)
+            alert("表单提交数据")
+            var d1 = new Date()
             httpAction(httpurl,formData,method).then((res)=>{
               if(res.success){
                 that.$message.success(res.message);
@@ -361,9 +370,14 @@
               that.confirmLoading = false;
               that.close();
             })
+            var d2 = new Date()
+            console.log(d)
+            console.log(d1)
+            console.log(d2)
           }
 
         })
+
       },
       handleCancel () {
         this.close()

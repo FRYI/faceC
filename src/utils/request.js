@@ -12,12 +12,13 @@ import { ACCESS_TOKEN } from "@/store/mutation-types"
  * @type {*|string}
  */
 let apiBaseUrl = window._CONFIG['domianURL'] || "/jeecg-boot";
+
 console.log("apiBaseUrl= ",apiBaseUrl)
 // 创建 axios 实例
 const service = axios.create({
   //baseURL: '/jeecg-boot',
   baseURL: apiBaseUrl, // api base_url
-  timeout: 9000 // 请求超时时间
+  timeout: 600000 // 请求超时时间
 })
 
 const err = (error) => {

@@ -17,7 +17,7 @@
         <a-menu slot="overlay">
           <a-menu-item key="1" @click="batchDel"><a-icon type="delete"/>Delete</a-menu-item>
         </a-menu>
-        <a-button style="margin-left: 8px"> 批量操作 <a-icon type="down" /></a-button>
+        <a-button style="margin-left: 8px"> Bulk Operations <a-icon type="down" /></a-button>
       </a-dropdown>
     </div>
 
@@ -373,8 +373,6 @@
           result += String.fromCharCode.apply(null, slice);
           index += CHUNK_SIZE;
         }
-        // web image base64图片格式: "data:image/png;base64," + b64encoded;
-        // return  "data:image/png;base64," + btoa(result);
         return "data:image/png;base64," + btoa(result);
       },
 

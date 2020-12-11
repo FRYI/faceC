@@ -23,17 +23,17 @@
               </a-select>
             </a-col>
             <a-col :span="6">
-              <a-select placeholder="选择匹配规则"  v-model="item.rule">
-                <a-select-option value="=">等于</a-select-option>
-                <a-select-option value="!=">不等于</a-select-option>
-                <a-select-option value=">">大于</a-select-option>
-                <a-select-option value=">=">大于等于</a-select-option>
-                <a-select-option value="<">小于</a-select-option>
-                <a-select-option value="<=">小于等于</a-select-option>
-                <a-select-option value="LEFT_LIKE">以..开始</a-select-option>
-                <a-select-option value="RIGHT_LIKE">以..结尾</a-select-option>
-                <a-select-option value="LIKE">包含</a-select-option>
-                <a-select-option value="IN">在...中</a-select-option>
+              <a-select placeholder="Select a matching rule "  v-model="item.rule">
+                <a-select-option value="=">Equal to</a-select-option>
+                <a-select-option value="!=">Not equal to</a-select-option>
+                <a-select-option value=">">Greater than</a-select-option>
+                <a-select-option value=">=">greater than or equal to</a-select-option>
+                <a-select-option value="<">Less than</a-select-option>
+                <a-select-option value="<="> Less than or equal to</a-select-option>
+                <a-select-option value="LEFT_LIKE">Begin with</a-select-option>
+                <a-select-option value="RIGHT_LIKE">End with</a-select-option>
+                <a-select-option value="LIKE">Contains</a-select-option>
+                <a-select-option value="IN">In... </a-select-option>
               </a-select>
             </a-col>
 

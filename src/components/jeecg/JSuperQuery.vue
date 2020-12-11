@@ -75,7 +75,7 @@
                   v-model="item.field"
                   :treeData="fieldTreeData"
                   :dropdownStyle="{ maxHeight: '400px', overflow: 'auto' }"
-                  placeholder="选择查询字段"
+                  placeholder="Select the query field"
                   allowClear
                   treeDefaultExpandAll
                   :getPopupContainer="node=>node.parentNode"
@@ -86,17 +86,17 @@
               </a-col>
 
               <a-col :md="4" :xs="24" style="margin-bottom: 12px;">
-                <a-select placeholder="匹配规则" :value="item.rule" :getPopupContainer="node=>node.parentNode" @change="handleRuleChange(item,$event)">
-                  <a-select-option value="eq">等于</a-select-option>
-                  <a-select-option value="like">包含</a-select-option>
-                  <a-select-option value="right_like">以..开始</a-select-option>
-                  <a-select-option value="left_like">以..结尾</a-select-option>
-                  <a-select-option value="in">在...中</a-select-option>
-                  <a-select-option value="ne">不等于</a-select-option>
-                  <a-select-option value="gt">大于</a-select-option>
-                  <a-select-option value="ge">大于等于</a-select-option>
-                  <a-select-option value="lt">小于</a-select-option>
-                  <a-select-option value="le">小于等于</a-select-option>
+                <a-select placeholder="Select a matching rule" :value="item.rule" :getPopupContainer="node=>node.parentNode" @change="handleRuleChange(item,$event)">
+                  <a-select-option value="=">Equal to</a-select-option>
+                  <a-select-option value="!=">Not equal to</a-select-option>
+                  <a-select-option value=">">Greater than</a-select-option>
+                  <a-select-option value=">=">greater than or equal to</a-select-option>
+                  <a-select-option value="<">Less than</a-select-option>
+                  <a-select-option value="<="> Less than or equal to</a-select-option>
+                  <a-select-option value="LEFT_LIKE">Begin with</a-select-option>
+                  <a-select-option value="RIGHT_LIKE">End with</a-select-option>
+                  <a-select-option value="LIKE">Contains</a-select-option>
+                  <a-select-option value="IN">In... </a-select-option>
                 </a-select>
               </a-col>
 
@@ -167,7 +167,7 @@
 
           <a-card class="j-super-query-history-card" :bordered="true">
             <div slot="title">
-              保存的查询
+              Saved query
             </div>
 
             <a-empty v-if="saveTreeData.length === 0" class="j-super-query-history-empty" description="没有保存任何查询"/>

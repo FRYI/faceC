@@ -87,7 +87,7 @@
           </a-menu-item>
         </a-menu>
         <a-button style="margin-left: 8px">
-          批量操作
+          Bulk Operations
           <a-icon type="down"/>
         </a-button>
       </a-dropdown>

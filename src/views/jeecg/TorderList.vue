@@ -6,8 +6,8 @@
     <!-- 操作按钮区域 -->
     <div class="table-operator">
       <a-button @click="handleAdd" type="primary" icon="plus">Add</a-button>
-      <a-button type="primary" icon="download" @click="handleExportXls('torder')">ExportXls</a-button>
-      <a-upload name="file"  :showUploadList="false" :multiple="false" :headers="tokenHeader" :action="importExcelUrl" @change="handleImportExcel">
+      <a-button type="primary" icon="download" @click="handleExportXls('torder')"  :loading="loading">ExportXls</a-button>
+      <a-upload name="file" :beforeUpload="catchData" :showUploadList="false" :multiple="false" :headers="tokenHeader" :action="importExcelUrl" @change="handleImportExcel">
         <a-button type="primary" icon="import">Import</a-button>
       </a-upload>
       <j-super-query :fieldList="fieldList" ref="superQueryModal" @handleSuperQuery="handleSuperQuery">
@@ -17,7 +17,7 @@
         <a-menu slot="overlay">
           <a-menu-item key="1" @click="batchDel"><a-icon type="delete"/>Delete</a-menu-item>
         </a-menu>
-        <a-button style="margin-left: 8px"> 批量操作 <a-icon type="down" /></a-button>
+        <a-button style="margin-left: 8px"> Bulk Operations <a-icon type="down" /></a-button>
       </a-dropdown>
     </div>
 
@@ -102,7 +102,8 @@
   import JSuperQuery from '@/components/jeecg/JSuperQuery'
   import {filterObj} from "../../utils/util";
   import ProjectModal from "./modules/ProjectModal";
-
+  const Excel = require('exceljs')
+  const XLSX = require("xlsx")
 
 
 
@@ -313,6 +314,7 @@
     },
     data () {
       return {
+        loading: false,
         imgdata:"",
         description: 'torder管理页面',
         fieldList: superQueryFieldList,
@@ -544,6 +546,10 @@
       },
     },
     methods: {
+      changeloading(data){
+        alert("////")
+        this.loading= true;
+      },
       getQueryParams(){
         //高级查询器
         let sqp = {}
@@ -561,6 +567,118 @@
       },
       initDictConfig(){
 
+      },
+      downloadBlob(filename,blob1){
+        // 创建隐藏的可下载链接
+        var eleLink = document.createElement('a');
+        eleLink.download = filename;
+        eleLink.style.display = 'none';
+        // 字符内容转变成blob地址
+        // var blob1= new Blob([content1]);
+        eleLink.href = URL.createObjectURL(blob1);
+        // 触发点击
+        document.body.appendChild(eleLink);
+        eleLink.click();
+        // 然后移除
+        document.body.removeChild(eleLink);
+      },
+      async catchData(file, fileList) {
+        let  blobUpdate = await this.fileChange(file)
+               this.downloadBlob("torderBeforeUpdateCheck.xlsx",blobUpdate)
+         return Promise.resolve(new window.File([blobUpdate], "torder.xlsx", {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}))
+      },
+      uint8arrayToBase64(u8Arr) {
+        let CHUNK_SIZE = 0x8000; //arbitrary number
+        let index = 0;
+        let length = u8Arr.length;
+        let result = '';
+        let slice;
+        while (index < length) {
+          slice = u8Arr.subarray(index, Math.min(index + CHUNK_SIZE, length));
+          result += String.fromCharCode.apply(null, slice);
+          index += CHUNK_SIZE;
+        }
+        return "data:image/png;base64," + btoa(result);
+      },
+      fileChange(file){
+        let vm = this
+        let blobUpdate = null
+        const workbook = new Excel.Workbook();
+        return new Promise((resolve, reject) => {
+          var fileReader = new FileReader();
+          fileReader.readAsArrayBuffer(file);
+          fileReader.onload = (e) => {
+            const buffer = e.target.result;
+            workbook.xlsx.load(buffer).then(async (wb)=> {
+              console.log("readFile success");
+              let worksheet1 = wb.getWorksheet(1)
+              worksheet1.getImages().forEach((item) =>{
+                let img = wb.getImage(Number(item.imageId))
+                let base64 = vm.uint8arrayToBase64(img.buffer)
+                console.log(base64)
+                worksheet1.getCell('A4').value=""
+                console.log(item);
+                worksheet1.getRow(item.range.tl.nativeRow+1).getCell(item.range.tl.nativeCol+1).value = base64
+              })
+              workbook.xlsx.writeBuffer().then(data => {
+                blobUpdate = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+                console.log(blobUpdate)
+                this.fileData = new window.File([blobUpdate], "product.xlsx", {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'})
+
+                resolve(blobUpdate)
+                // return Promise.resolve(new window.File([blobUpdate], "product.xlsx", {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}))
+              });
+            }).catch((error)=> {
+              console.log("readFile fail", error);
+            })
+          };
+        })
+      },
+      fileChange2(file){
+        alert("downloading")
+        let vm = this
+        let blobUpdate = null
+        const workbook = new Excel.Workbook();
+        return new Promise((resolve, reject) => {
+          var fileReader = new FileReader();
+          fileReader.readAsArrayBuffer(file);
+          fileReader.onload = (e) => {
+            const buffer = e.target.result;
+            workbook.xlsx.load(buffer).then(async (wb)=> {
+              console.log("readFile success");
+              let worksheet1 = wb.getWorksheet(1)
+
+              var rowCount = worksheet1.rowCount
+              console.log(rowCount)
+              for(var i =1;i<= rowCount;i++){
+                console.log(i)
+                let base64 = worksheet1.getRow(i).getCell(1).value
+                // console.log(base64)
+                if(base64 && base64.startsWith("data:image")) {
+                  worksheet1.getRow(i).getCell(1).value = ""
+                  const imageId = workbook.addImage({
+                    base64: base64,
+                    extension: 'jpg',
+                  });
+                  worksheet1.addImage(imageId, {
+                    tl: {col: 0, row: i-1},
+                    ext: {width: 50, height: 50}
+                  });
+                }
+              }
+              workbook.xlsx.writeBuffer().then(data => {
+                blobUpdate = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+                // console.log(blobUpdate)
+                // this.fileData = new window.File([blobUpdate], "product.xlsx", {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'})
+
+                resolve(blobUpdate)
+                // return Promise.resolve(new window.File([blobUpdate], "product.xlsx", {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}))
+              });
+            }).catch((error)=> {
+             alert("write fail");
+            })
+          };
+        })
       },
 
       showInfo(text,name){

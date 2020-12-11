@@ -251,6 +251,7 @@ export const JeecgListMixin = {
     //   })
     // },
     handleExportXls(fileName){
+      alert("begin download")
       if(!fileName || typeof fileName != "string"){
         fileName = "导出文件"
       }
@@ -263,7 +264,9 @@ export const JeecgListMixin = {
         if(fileName=="product"){
           data = await this.fileChange2(data)
         }
-
+        if(fileName=="torder"){
+          data = await this.fileChange2(data)
+        }
         if (!data) {
           this.$message.warning("文件下载失败")
           return
@@ -281,6 +284,8 @@ export const JeecgListMixin = {
           document.body.removeChild(link); //下载完成移除元素
           window.URL.revokeObjectURL(url); //释放掉blob对象
         }
+      }).catch((err) => {
+        this.$message.warning(err.toString)
       })
     },
 

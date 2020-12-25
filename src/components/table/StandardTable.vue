@@ -3,14 +3,14 @@
     <div class="alert">
       <a-alert type="info" :show-icon="true">
         <div slot="message">
-          已选择&nbsp;<a style="font-weight: 600">{{ selectedRows.length }}</a>&nbsp;&nbsp;
+          selected&nbsp;<a style="font-weight: 600">{{ selectedRows.length }}</a>&nbsp;&nbsp;
           <template v-for="(item, index) in needTotalList" v-if="item.needTotal">
             {{ item.title }} 总计&nbsp;
             <a :key="index" style="font-weight: 600">
               {{ item.customRender ? item.customRender(item.total) : item.total }}
             </a>&nbsp;&nbsp;
           </template>
-          <a style="margin-left: 24px" @click="onClearSelected">清空</a>
+          <a style="margin-left: 24px" @click="onClearSelected">Clear Selected</a>
         </div>
       </a-alert>
     </div>
@@ -220,7 +220,7 @@
       pager () {
         return {
           total: this.total,
-          showTotal: total => `共有 ${total} 条`,
+          showTotal: total => `total ${total}  number`,
           showSizeChanger: true,
           pageSizeOptions: this.pageSizeOptions,
           pageSize: this.pageSize,

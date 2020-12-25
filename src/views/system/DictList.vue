@@ -7,12 +7,12 @@
         <a-row :gutter="12">
           <a-col :md="7" :sm="8">
             <a-form-item label="字典名称" :labelCol="{span: 6}" :wrapperCol="{span: 14, offset: 1}">
-              <a-input placeholder="请输入字典名称" v-model="queryParam.dictName"></a-input>
+              <a-input placeholder="please enter 字典名称" v-model="queryParam.dictName"></a-input>
             </a-form-item>
           </a-col>
           <a-col :md="7" :sm="8">
             <a-form-item label="字典编号" :labelCol="{span: 6}" :wrapperCol="{span: 14, offset: 1}">
-              <a-input placeholder="请输入字典编号" v-model="queryParam.dictCode"></a-input>
+              <a-input placeholder="please enter 字典编号" v-model="queryParam.dictCode"></a-input>
             </a-form-item>
           </a-col>
           <a-col :md="7" :sm="8">
@@ -47,13 +47,13 @@
         <span slot="action" slot-scope="text, record">
           <a @click="handleEdit(record)">
             <a-icon type="edit"/>
-            编辑
+            Edit
           </a>
           <a-divider type="vertical"/>
           <a @click="editDictItem(record)"><a-icon type="setting"/> 字典配置</a>
           <a-divider type="vertical"/>
-          <a-popconfirm title="confirm删除吗?" @confirm="() =>handleDelete(record.id)">
-            <a>删除</a>
+          <a-popconfirm title="Are you sure you want to delete it?" @confirm="() =>handleDelete(record.id)">
+            <a>Delete</a>
           </a-popconfirm>
         </span>
       </a-table>
@@ -81,7 +81,7 @@
     components: {DictModal, DictItemList,DictDeleteList},
     data() {
       return {
-        description: '这是数据字典页面',
+        description: '这是数据字典page面',
         visible: false,
         // 查询条件
         queryParam: {
@@ -164,7 +164,7 @@
         this.visible = false;
         this.loadData();
       },
-      //编辑字典数据
+      //Edit字典数据
       editDictItem(record) {
         this.$refs.dictItemList.edit(record);
       },

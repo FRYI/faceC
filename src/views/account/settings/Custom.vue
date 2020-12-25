@@ -22,8 +22,8 @@
     filters: {
       themeFilter(theme) {
         const themeMap = {
-          'dark': '暗色',
-          'light': '白色'
+          'dark': 'dark',
+          'light': 'light'
         }
         return themeMap[theme]
       },
@@ -47,20 +47,20 @@
         <AList itemLayout="horizontal">
           <AListItem>
             <Meta>
-              <a slot="title">风格配色</a>
+              <a slot="title">Style color</a>
               <span slot="description">
-                整体风格配色设置
+                Overall style color setting
               </span>
             </Meta>
             <div slot="actions">
-              <ASwitch checkedChildren="暗色" unCheckedChildren="白色" defaultChecked={this.navTheme === 'dark' && true || false} onChange={this.onChange} />
+              <ASwitch checkedChildren="dark" unCheckedChildren="light" defaultChecked={this.navTheme === 'dark' && true || false} onChange={this.onChange} />
             </div>
           </AListItem>
           <AListItem>
             <Meta>
-              <a slot="title">主题色</a>
+              <a slot="title">Theme color</a>
               <span slot="description">
-                页面风格配色： <a domPropsInnerHTML={ this.colorFilter(this.primaryColor) }/>
+                page style color matching： <a domPropsInnerHTML={ this.colorFilter(this.primaryColor) }/>
               </span>
             </Meta>
           </AListItem>

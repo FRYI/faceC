@@ -61,16 +61,16 @@
         reloadFlag:true
       }
     },
-    /* update_begin author:wuxianquan date:20190828 for: 关闭当前tab页，供子页面调用 ->望菜单能配置外链，直接弹出新页面而不是嵌入iframe #428 */
+    /* update_begin author:wuxianquan date:20190828 for: 关闭当前tabpage，供子page面调用 ->望菜单能配置外链，直接弹出新page面而不是嵌入iframe #428 */
     provide(){
       return{
         closeCurrent:this.closeCurrent
       }
     },
-    /* update_end author:wuxianquan date:20190828 for: 关闭当前tab页，供子页面调用->望菜单能配置外链，直接弹出新页面而不是嵌入iframe #428 */
+    /* update_end author:wuxianquan date:20190828 for: 关闭当前tabpage，供子page面调用->望菜单能配置外链，直接弹出新page面而不是嵌入iframe #428 */
     computed: {
       multipage() {
-        //判断如果是手机模式，自动切换为单页面模式
+        //判断如果是手机模式，自动切换为单page面模式
         if (this.isMobile()) {
           return false
         } else {
@@ -102,21 +102,21 @@
         if (!this.multipage) {
           this.linkList = [newRoute.fullPath]
           this.pageList = [Object.assign({},newRoute)]
-        // update-begin-author:taoyan date:20200211 for: TASK #3368 【路由缓存】首页的缓存设置有问题，需要根据后台的路由配置来实现是否缓存
+        // update-begin-author:taoyan date:20200211 for: TASK #3368 【路由缓存】首page的缓存设置有问题，需要根据后台的路由配置来实现是否缓存
         } else if(indexKey==newRoute.fullPath) {
-          //首页时 判断是否缓存 没有缓存 刷新之
+          //首page时 判断是否缓存 没有缓存 刷新之
           if (newRoute.meta.keepAlive === false) {
             this.routeReload()
           }
-        // update-end-author:taoyan date:20200211 for: TASK #3368 【路由缓存】首页的缓存设置有问题，需要根据后台的路由配置来实现是否缓存
+        // update-end-author:taoyan date:20200211 for: TASK #3368 【路由缓存】首page的缓存设置有问题，需要根据后台的路由配置来实现是否缓存
         }else if (this.linkList.indexOf(newRoute.fullPath) < 0) {
           this.linkList.push(newRoute.fullPath)
           this.pageList.push(Object.assign({},newRoute))
-          // update-begin-author:sunjianlei date:20200103 for: 如果新增的页面配置了缓存路由，那么就强制刷新一遍
+          // update-begin-author:sunjianlei date:20200103 for: 如果新增的page面配置了缓存路由，那么就强制刷新一遍
           if (newRoute.meta.keepAlive) {
             this.routeReload()
           }
-          // update-end-author:sunjianlei date:20200103 for: 如果新增的页面配置了缓存路由，那么就强制刷新一遍
+          // update-end-author:sunjianlei date:20200103 for: 如果新增的page面配置了缓存路由，那么就强制刷新一遍
         } else if (this.linkList.indexOf(newRoute.fullPath) >= 0) {
           let oldIndex = this.linkList.indexOf(newRoute.fullPath)
           let oldPositionRoute = this.pageList[oldIndex]
@@ -137,17 +137,17 @@
           }
         }
       },
-      // update-begin-author:sunjianlei date:20191223 for: 修复从单页模式切换回多页模式后首页不居第一位的 BUG
+      // update-begin-author:sunjianlei date:20191223 for: 修复从单page模式切换回多page模式后首page不居第一位的 BUG
       device() {
         if (this.multipage && this.linkList.indexOf(indexKey) === -1) {
           this.addIndexToFirst()
         }
       },
-      // update-end-author:sunjianlei date:20191223 for: 修复从单页模式切换回多页模式后首页不居第一位的 BUG
+      // update-end-author:sunjianlei date:20191223 for: 修复从单page模式切换回多page模式后首page不居第一位的 BUG
     },
     methods: {
-      // update-begin-author:sunjianlei date:20191223 for: 修复从单页模式切换回多页模式后首页不居第一位的 BUG
-      // 将首页添加到第一位
+      // update-begin-author:sunjianlei date:20191223 for: 修复从单page模式切换回多page模式后首page不居第一位的 BUG
+      // 将首page添加到第一位
       addIndexToFirst() {
         this.pageList.splice(0, 0, {
           name: 'dashboard-analysis',
@@ -160,19 +160,19 @@
         })
         this.linkList.splice(0, 0, indexKey)
       },
-      // update-end-author:sunjianlei date:20191223 for: 修复从单页模式切换回多页模式后首页不居第一位的 BUG
+      // update-end-author:sunjianlei date:20191223 for: 修复从单page模式切换回多page模式后首page不居第一位的 BUG
 
-      // update-begin-author:sunjianlei date:20200120 for: 动态更改页面标题
+      // update-begin-author:sunjianlei date:20200120 for: 动态更改page面标题
       changeTitle(title) {
         let projectTitle = "Panyau Database"
-        // 首页特殊处理
+        // 首page特殊处理
         if (this.$route.path === indexKey) {
           document.title = projectTitle
         } else {
           document.title = title + ' · ' + projectTitle
         }
       },
-      // update-end-author:sunjianlei date:20200120 for: 动态更改页面标题
+      // update-end-author:sunjianlei date:20200120 for: 动态更改page面标题
 
       changePage(key) {
         this.activePage = key
@@ -187,11 +187,11 @@
       },
       remove(key) {
         if (key == indexKey) {
-          this.$message.warning('首页不能关闭!')
+          this.$message.warning('首page不能关闭!')
           return
         }
         if (this.pageList.length === 1) {
-          this.$message.warning('这是最后一页，不能再关闭了啦')
+          this.$message.warning('这是最后一page，不能再关闭了啦')
           return
         }
         console.log("this.pageList ",this.pageList );
@@ -236,11 +236,11 @@
             break
         }
       },
-      /* update_begin author:wuxianquan date:20190828 for: 关闭当前tab页，供子页面调用->望菜单能配置外链，直接弹出新页面而不是嵌入iframe #428 */
+      /* update_begin author:wuxianquan date:20190828 for: 关闭当前tabpage，供子page面调用->望菜单能配置外链，直接弹出新page面而不是嵌入iframe #428 */
       closeCurrent(){
         this.remove(this.activePage);
       },
-      /* update_end author:wuxianquan date:20190828 for: 关闭当前tab页，供子页面调用->望菜单能配置外链，直接弹出新页面而不是嵌入iframe #428 */
+      /* update_end author:wuxianquan date:20190828 for: 关闭当前tabpage，供子page面调用->望菜单能配置外链，直接弹出新page面而不是嵌入iframe #428 */
       closeOthers(pageKey) {
         let index = this.linkList.indexOf(pageKey)
         if (pageKey == indexKey || pageKey.indexOf('?ticke=')>=0) {

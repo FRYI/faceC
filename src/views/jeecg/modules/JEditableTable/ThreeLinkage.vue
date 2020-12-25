@@ -91,7 +91,7 @@
         return this.mockData.filter(i => i.parent === parentId)
       },
 
-      /** 当选项被改变时，联动其他组件 */
+      /** 当选item被改变时，联动其他组件 */
       handleValueChange(event) {
         const { type, row, column, value, target } = event
 
@@ -101,7 +101,7 @@
           if (column.key === 's1') {
             // 设置第二列的 options
             this.columns[1].options = this.request(value)
-            // 清空后两列的数据
+            // clear后两列的数据
             target.setValues([{
               rowKey: row.id,
               values: { s2: '', s3: '' }

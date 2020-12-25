@@ -4,13 +4,13 @@
       <a-col :lg="6" :md="12" :sm="24">
         <a-form-item
           label="任务名">
-          <a-input placeholder="请输入任务名称" v-decorator="[ 'task.name', {rules: [{ required: true, message: '请输入任务名称', whitespace: true}]} ]" />
+          <a-input placeholder="please enter 任务名称" v-decorator="[ 'task.name', {rules: [{ required: true, message: 'please enter 任务名称', whitespace: true}]} ]" />
         </a-form-item>
       </a-col>
       <a-col :xl="{span: 7, offset: 1}" :lg="{span: 8}" :md="{span: 12}" :sm="24">
         <a-form-item
           label="任务描述">
-          <a-input placeholder="请输入任务描述" v-decorator="[ 'task.description', {rules: [{ required: true, message: '请输入任务描述', whitespace: true}]} ]" />
+          <a-input placeholder="please enter 任务描述" v-decorator="[ 'task.description', {rules: [{ required: true, message: 'please enter 任务描述', whitespace: true}]} ]" />
         </a-form-item>
       </a-col>
       <a-col :xl="{span: 9, offset: 1}" :lg="{span: 10}" :md="{span: 24}" :sm="24">

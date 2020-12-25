@@ -9,10 +9,10 @@ export function disabledAuthFilter(code,formData) {
 }
 
 function nodeDisabledAuth(code,formData){
-  console.log("页面权限禁用--NODE--开始");
+  console.log("page面权限禁用--NODE--开始");
   let permissionList = [];
   try {
-    console.log("页面权限禁用--NODE--开始",formData);
+    console.log("page面权限禁用--NODE--开始",formData);
     if (formData) {
       let bpmList = formData.permissionList;
       permissionList = bpmList.filter(item=>item.type=='2')
@@ -25,26 +25,26 @@ function nodeDisabledAuth(code,formData){
       return false;
     }
   } catch (e) {
-    //console.log("页面权限异常----", e);
+    //console.log("page面权限异常----", e);
   }
   if (permissionList.length ==  0) {
     return false;
   }
 
-  console.log("流程节点页面权限禁用--NODE--开始");
+  console.log("流程节点page面权限禁用--NODE--开始");
   let permissions = [];
   for (let item of permissionList) {
     if(item.type == '2') {
       permissions.push(item.action);
     }
   }
-  //console.log("页面权限----"+code);
+  //console.log("page面权限----"+code);
   if (!permissions.includes(code)) {
     return false;
   }else{
     for (let item2 of permissionList) {
       if(code === item2.action){
-        console.log("流程节点页面权限禁用--NODE--生效");
+        console.log("流程节点page面权限禁用--NODE--生效");
         return true;
       }
     }
@@ -53,7 +53,7 @@ function nodeDisabledAuth(code,formData){
 }
 
 function globalDisabledAuth(code){
-  console.log("全局页面禁用权限--Global--开始");
+  console.log("全局page面禁用权限--Global--开始");
 
   let permissionList = [];
   let allPermissionList = [];
@@ -65,7 +65,7 @@ function globalDisabledAuth(code){
       permissionList.push(auth);
     }
   }
-  //console.log("页面禁用权限--Global--",sessionStorage.getItem(SYS_BUTTON_AUTH));
+  //console.log("page面禁用权限--Global--",sessionStorage.getItem(SYS_BUTTON_AUTH));
   let allAuthList = JSON.parse(sessionStorage.getItem(SYS_BUTTON_AUTH) || "[]");
   for (let gauth of allAuthList) {
     if(gauth.type == '2') {
@@ -100,13 +100,13 @@ function globalDisabledAuth(code){
       permissions.push(item.action);
     }
   }
-  //console.log("页面禁用权限----"+code);
+  //console.log("page面禁用权限----"+code);
   if (!permissions.includes(code)) {
     return gFlag;
   }else{
     for (let item2 of permissionList) {
       if(code === item2.action){
-        console.log("全局页面权限解除禁用--Global--生效");
+        console.log("全局page面权限解除禁用--Global--生效");
         gFlag = false;
       }
     }
@@ -128,7 +128,7 @@ export function colAuthFilter(columns,pre) {
 }
 
 /**
- * 【子表行编辑】实现两个功能：
+ * 【子表行Edit】实现两个功能：
  * 1、隐藏JEditableTable无权限的字段
  * 2、禁用JEditableTable无权限的字段
  * @param columns
@@ -186,7 +186,7 @@ function getNoAuthCols(pre){
       permissionList.push(substrPre(auth.action,pre));
     }
   }
-  //console.log("页面禁用权限--Global--",sessionStorage.getItem(SYS_BUTTON_AUTH));
+  //console.log("page面禁用权限--Global--",sessionStorage.getItem(SYS_BUTTON_AUTH));
   let allAuthList = JSON.parse(sessionStorage.getItem(SYS_BUTTON_AUTH) || "[]");
   for (let gauth of allAuthList) {
     //显示策略，有效状态
@@ -206,7 +206,7 @@ function getNoAuthCols(pre){
 
 
 /**
- * 额外增加方法【用于行编辑组件】
+ * 额外增加方法【用于行Edit组件】
  * date: 2020-04-05
  * author: scott
  * @param pre

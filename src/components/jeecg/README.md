@@ -35,7 +35,7 @@
 ```
 添加placeholder
 ```vue
-<j-date v-model="dateStr" placeholder="请输入dateStr"></j-date>
+<j-date v-model="dateStr" placeholder="please enter dateStr"></j-date>
 ```
 添加readOnly
 ```vue
@@ -84,7 +84,7 @@ fieldList结构示例：
     text:"年龄"
   }]
 ```
-页面代码概述:  
+page面代码概述:  
 ----
 1.import之后再components之内声明
 ```vue
@@ -96,18 +96,18 @@ import JSuperQuery from '@/components/jeecg/JSuperQuery.vue';
     },
 
 ```
-2.页面引用
+2.page面引用
 ```vue
   <!-- 高级查询区域 -->
   <j-super-query :fieldList="fieldList" ref="superQueryModal" @handleSuperQuery="handleSuperQuery"></j-super-query>
 ```
-3.list页面data中需要定义三个属性：
+3.listpage面data中需要定义三个属性：
 ```vue
   fieldList:superQueryFieldList,
   superQueryFlag:false,
   superQueryParams:""
 ```
-4.list页面声明回调事件handleSuperQuery(与组件的callback对应即可)
+4.listpage面声明回调事件handleSuperQuery(与组件的callback对应即可)
 ```vue
 //高级查询方法
 handleSuperQuery(arg) {
@@ -121,7 +121,7 @@ handleSuperQuery(arg) {
   this.loadData()
 },
 ```
-5.改造list页面方法
+5.改造listpage面方法
 ```vue
   // 获取查询条件
   getQueryParams() {
@@ -196,7 +196,7 @@ this.$refs.superQueryModal.show();
         modaltoggleFlag:true,
 ```
 
-# <a-select/> 下拉选项滚动错位的解决方法
+# <a-select/> 下拉选item滚动错位的解决方法
 
 ## 问题描述
 
@@ -271,8 +271,8 @@ export default {
        tableProps() {
          let _this = this
          return {
-           // 列表项是否可选择
-           // 配置项见：https://vue.ant.design/components/table-cn/#rowSelection
+           // 列表item是否可选择
+           // 配置item见：https://vue.ant.design/components/table-cn/#rowSelection
            rowSelection: {
              selectedRowKeys: _this.selectedRowKeys,
              onChange: (selectedRowKeys) => _this.selectedRowKeys = selectedRowKeys
@@ -290,7 +290,7 @@ export default {
 ## 参数配置
 | 参数           | 类型   | 必填 |说明|
 |--------------|---------|----|---------|
-| options      |array   |✔| checkbox需要配置的项，是个数组，数组中每个对象包含两个属性:label(用于显示)和value(用于存储) |
+| options      |array   |✔| checkbox需要配置的item，是个数组，数组中每个对象包含两个属性:label(用于显示)和value(用于存储) |
 
 使用示例
 ----
@@ -339,7 +339,7 @@ export default {
 
 # JCodeEditor 使用文档
   
-###### 说明: 一个简易版的代码编辑器，支持语法高亮
+###### 说明: 一个简易版的代码Edit器，支持语法高亮
 ## 参数配置
 | 参数           | 类型   | 必填 |说明|
 |--------------|---------|----|---------|
@@ -394,7 +394,7 @@ export default {
 
 # JImportModal 使用文档
   
-###### 说明: 用于列表页面导入excel功能
+###### 说明: 用于列表page面导入excel功能
 
 使用示例
 ----

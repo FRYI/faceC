@@ -15,19 +15,19 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="规则名称">
-          <a-input placeholder="请输入规则名称" v-decorator="['ruleName', validatorRules.ruleName]"/>
+          <a-input placeholder="please enter 规则名称" v-decorator="['ruleName', validatorRules.ruleName]"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="规则Code">
-          <a-input placeholder="请输入规则Code" v-decorator="['ruleCode', validatorRules.ruleCode]"/>
+          <a-input placeholder="please enter 规则Code" v-decorator="['ruleCode', validatorRules.ruleCode]"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="规则描述">
-          <a-textarea placeholder="请输入规则描述" v-decorator="['ruleDescription', {}]"/>
+          <a-textarea placeholder="please enter 规则描述" v-decorator="['ruleDescription', {}]"/>
         </a-form-item>
 
       </a-form>
@@ -148,10 +148,10 @@
         confirmLoading: false,
         form: this.$form.createForm(this),
         validatorRules: {
-          ruleName: { rules: [{ required: true, message: '请输入规则名称!' },] },
+          ruleName: { rules: [{ required: true, message: 'please enter 规则名称!' },] },
           ruleCode: {
             rules: [
-              { required: true, message: '请输入规则Code!' },
+              { required: true, message: 'please enter 规则Code!' },
               { validator: (rule, value, callback) => validateDuplicateValue('sys_check_rule', 'rule_code', value, this.model.id, callback) }
             ]
           },
@@ -212,7 +212,7 @@
                 type: FormTypes.inputNumber,
                 validateRules: [
                   { required: true, message: '${title}不能为空' },
-                  { pattern: /^[1-9]\d*$/, message: '请输入零以上的正整数' },
+                  { pattern: /^[1-9]\d*$/, message: 'please enter 零以上的正整数' },
                 ]
               },
               {
@@ -261,7 +261,7 @@
             new RegExp(value)
             callback(true)
           } catch (e) {
-            callback(false, '请输入正确的正则表达式')
+            callback(false, 'please enter 正确的正则表达式')
           }
         } else {
           callback(true) // 不填写或者填写 null 代表不进行任何操作

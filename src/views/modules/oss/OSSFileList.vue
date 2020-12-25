@@ -6,12 +6,12 @@
         <a-row :gutter="24">
           <a-col :md="6" :sm="8">
             <a-form-item label="文件名称">
-              <a-input placeholder="请输入文件名称" v-model="queryParam.fileName"></a-input>
+              <a-input placeholder="please enter 文件名称" v-model="queryParam.fileName"></a-input>
             </a-form-item>
           </a-col>
           <a-col :md="6" :sm="8">
             <a-form-item label="文件地址">
-              <a-input placeholder="请输入文件地址" v-model="queryParam.url"></a-input>
+              <a-input placeholder="please enter 文件地址" v-model="queryParam.url"></a-input>
             </a-form-item>
           </a-col>
           <a-col :md="6" :sm="8">
@@ -59,10 +59,10 @@
     <!-- table区域-begin -->
     <div>
       <div class="ant-alert ant-alert-info" style="margin-bottom: 16px;">
-        <i class="anticon anticon-info-circle ant-alert-icon"></i> 已选择 <a
+        <i class="anticon anticon-info-circle ant-alert-icon"></i> Selected<a
           style="font-weight: 600">{{
-        selectedRowKeys.length }}</a>项
-        <a style="margin-left: 24px" @click="onClearSelected">清空</a>
+        selectedRowKeys.length }}</a>item
+        <a style="margin-left: 24px" @click="onClearSelected">clear</a>
       </div>
 
       <a-table

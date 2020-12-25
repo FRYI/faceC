@@ -3,14 +3,14 @@
     
     <!-- 操作按钮区域 -->
     <div class="table-operator">
-      <a-button @click="handleAdd" type="primary" icon="plus">新增</a-button>
+      <a-button @click="handleAdd" type="primary" icon="plus">New</a-button>
       <!--<a-button type="primary" icon="download" @click="handleExportXls('分类字典')">导出</a-button>
       <a-upload name="file" :showUploadList="false" :multiple="false" :action="importExcelUrl" @change="handleImportExcel">
         <a-button type="primary" icon="import">导入</a-button>
       </a-upload>-->
       <a-dropdown v-if="selectedRowKeys.length > 0">
         <a-menu slot="overlay">
-          <a-menu-item key="1" @click="batchDel"><a-icon type="delete"/>删除</a-menu-item>
+          <a-menu-item key="1" @click="batchDel"><a-icon type="delete"/>Delete</a-menu-item>
         </a-menu>
         <a-button style="margin-left: 8px"> Bulk Operations <a-icon type="down" /></a-button>
       </a-dropdown>
@@ -19,8 +19,8 @@
     <!-- table区域-begin -->
     <div>
       <div class="ant-alert ant-alert-info" style="margin-bottom: 16px;">
-        <i class="anticon anticon-info-circle ant-alert-icon"></i> 已选择 <a style="font-weight: 600">{{ selectedRowKeys.length }}</a>项
-        <a style="margin-left: 24px" @click="onClearSelected">清空</a>
+        <i class="anticon anticon-info-circle ant-alert-icon"></i> Selected<a style="font-weight: 600">{{ selectedRowKeys.length }}</a>item
+        <a style="margin-left: 24px" @click="onClearSelected">Clear Selected</a>
       </div>
 
       <a-table
@@ -37,10 +37,10 @@
         v-bind="tableProps">
         
         <span slot="action" slot-scope="text, record">
-          <a @click="handleEdit(record)">编辑</a>
+          <a @click="handleEdit(record)">Edit</a>
           <a-divider type="vertical" />
-          <a-popconfirm title="confirm删除吗?" @confirm="() => handleDelete(record)">
-            <a>删除</a>
+          <a-popconfirm title="Are you sure you want to delete it?" @confirm="() => handleDelete(record)">
+            <a>Delete</a>
           </a-popconfirm>
           <a-divider type="vertical" />
           <a @click="handleAddSub(record)">添加下级</a>
@@ -68,7 +68,7 @@
     },
     data () {
       return {
-        description: '分类字典管理页面',
+        description: '分类字典管理page面',
         // 表头
         columns: [
           {
@@ -111,7 +111,7 @@
       tableProps() {
         let _this = this
         return {
-          // 列表项是否可选择
+          // 列表item是否可选择
           rowSelection: {
             selectedRowKeys: _this.selectedRowKeys,
             onChange: (selectedRowKeys) => _this.selectedRowKeys = selectedRowKeys

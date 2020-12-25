@@ -4,10 +4,10 @@
       <a-col :lg="6" :md="12" :sm="24">
         <a-form-item label="仓库名">
           <a-input
-            placeholder="请输入仓库名称"
+            placeholder="please enter 仓库名称"
             v-decorator="[
               'repository.name',
-              {rules: [{ required: true, message: '请输入仓库名称', whitespace: true}]}
+              {rules: [{ required: true, message: 'please enter 仓库名称', whitespace: true}]}
             ]" />
         </a-form-item>
       </a-col>
@@ -17,10 +17,10 @@
           <a-input
             addonBefore="http://"
             addonAfter=".com"
-            placeholder="请输入"
+            placeholder="please enter "
             v-decorator="[
               'repository.domain',
-              {rules: [{ required: true, message: '请输入仓库域名', whitespace: true}, {validator: validate}]}
+              {rules: [{ required: true, message: 'please enter 仓库域名', whitespace: true}, {validator: validate}]}
             ]" />
         </a-form-item>
       </a-col>

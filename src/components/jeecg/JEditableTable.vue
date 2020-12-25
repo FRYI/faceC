@@ -11,17 +11,17 @@
       <a-col>
         <!-- 操作按钮 -->
         <div v-if="actionButton" class="action-button">
-          <a-button type="primary" icon="plus" @click="handleClickAdd" :disabled="disabled">新增</a-button>
+          <a-button type="primary" icon="plus" @click="handleClickAdd" :disabled="disabled">New</a-button>
           <span class="gap"></span>
           <template v-if="selectedRowIds.length>0">
             <a-popconfirm
-              :title="`确定要删除这 ${selectedRowIds.length} 项吗?`"
+              :title="`确定要删除这 ${selectedRowIds.length} item吗?`"
               @confirm="handleConfirmDelete">
               <a-button type="primary" icon="minus" :disabled="disabled">删除</a-button>
               <span class="gap"></span>
             </a-popconfirm>
             <template v-if="showClearSelectButton">
-              <a-button icon="delete" @click="handleClickClearSelection">清空选择</a-button>
+              <a-button icon="delete" @click="handleClickClearSelection">clear选择</a-button>
               <span class="gap"></span>
             </template>
           </template>
@@ -76,7 +76,7 @@
           <div class="tr-expand" :style="`height:${getExpandHeight}px; z-index:${loading?'11':'9'};`"></div>
           <!-- 无数据时显示 -->
           <div v-if="rows.length===0" class="tr-nodata">
-            <span>暂无数据</span>
+            <span>No data temporarily</span>
           </div>
           <!-- v-model="rows"-->
           <draggable
@@ -782,12 +782,12 @@
         type: Boolean,
         default: false
       },
-      // 页面是否在加载中
+      // page面是否在加载中
       loading: {
         type: Boolean,
         default: false
       },
-      // 页面是否在加载中
+      // page面是否在加载中
       maxHeight: {
         type: Number,
         default: 400
@@ -818,7 +818,7 @@
       return {
         // 是否首次运行
         isFirst: true,
-        // 当前实例是否是行编辑
+        // 当前实例是否是行Edit
         isJEditableTable: true,
         // caseId，用于防止有多个实例的时候会冲突
         caseIdPrefix: '_jet-',
@@ -865,7 +865,7 @@
         metaCheckboxValues: {},
         multiSelectValues: {},
         searchSelectValues: {},
-        // 绑定左侧选择框已选择的id
+        // 绑定左侧选择框selected的id
         selectedRowIds: [],
         // 存储被删除行的id
         deleteIds: [],
@@ -879,7 +879,7 @@
         // 是否有统计列
         hasStatisticsColumn: false,
         statisticsColumns: {},
-        // 只有在行编辑被销毁时才主动清空GroupRequest的内存
+        // 只有在行Edit被销毁时才主动clearGroupRequest的内存
         destroyCleanGroupRequest: false,
       }
     },
@@ -1058,10 +1058,10 @@
       /** 初始化列表 */
       initialize() {
         this.visibleTrEls = []
-        // 判断是否是首次进入该方法，如果是就不清空行，防止删除了预添加的数据
+        // 判断是否是首次进入该方法，如果是就不clear行，防止删除了预添加的数据
         if (!this.isFirst) {
           // inputValues：用来存储input表单的值
-          // 数组里的每项都是一个对象，对象里每个key都是input的rowKey，值就是input的值，其中有个id的字段来区分
+          // 数组里的每item都是一个对象，对象里每个key都是input的rowKey，值就是input的值，其中有个id的字段来区分
           // 示例：
           // [{
           //    id: "_jet-4sp0iu-15541771111770"
@@ -1635,7 +1635,7 @@
           })
         })
       },
-      /** 获取被删除项的id */
+      /** 获取被删除item的id */
       getDeleteIds() {
         return cloneObject(this.deleteIds)
       },
@@ -2071,7 +2071,7 @@
       /** select 搜索时的事件，用于动态添加options */
       handleSearchSelect(value, id, row, col) {
         if (col.allowSearch !== true && col.allowInput === true) {
-          // 是否找到了对应的项，找不到则添加这一项
+          // 是否找到了对应的item，找不到则添加这一item
           let flag = false
           for (let option of col.options) {
             if (option.value.toLocaleString() === value.toLocaleString()) {
@@ -2090,7 +2090,7 @@
       // blur 失去焦点
       handleBlurSearch(value, id, row, col) {
         if (col.allowInput === true) {
-          // 删除无用的因搜索（用户输入）而创建的项
+          // 删除无用的因搜索（用户输入）而创建的item
           if (typeof value === 'string') {
             let indexs = []
             col.options.forEach((option, index) => {
@@ -2100,7 +2100,7 @@
                 indexs.push(index)
               }
             })
-            // 翻转删除数组中的项
+            // 翻转删除数组中的item
             for (let index of indexs.reverse()) {
               col.options.splice(index, 1)
             }
@@ -2140,10 +2140,10 @@
       /** 行重新排序 */
       rowResort(oldIndex, newIndex) {
         const sort = (array) => {
-          // 存储旧数据，并删除旧项目
+          // 存储旧数据，并删除旧item目
           let temp = array[oldIndex]
           array.splice(oldIndex, 1)
-          // 向新项目里添加旧数据
+          // 向新item目里添加旧数据
           array.splice(newIndex, 0, temp)
         }
 
@@ -2438,7 +2438,7 @@
 
       /* --- common function end --- */
 
-      /* --- 以下是辅助方法，多用于动态构造页面中的数据 --- */
+      /* --- 以下是辅助方法，多用于动态构造page面中的数据 --- */
 
       /** 辅助方法：打印日志 */
       log() {

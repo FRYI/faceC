@@ -15,19 +15,19 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="部门角色名称">
-          <a-input placeholder="请输入部门角色名称" v-decorator="['roleName', validatorRules.roleName]" />
+          <a-input placeholder="please enter 部门角色名称" v-decorator="['roleName', validatorRules.roleName]" />
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="部门角色编码">
-          <a-input placeholder="请输入部门角色编码" v-decorator="['roleCode', validatorRules.roleCode]" />
+          <a-input placeholder="please enter 部门角色编码" v-decorator="['roleCode', validatorRules.roleCode]" />
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="描述">
-          <a-input placeholder="请输入描述" v-decorator="['description', validatorRules.description]" />
+          <a-input placeholder="please enter 描述" v-decorator="['description', validatorRules.description]" />
         </a-form-item>
 		
       </a-form>
@@ -61,12 +61,12 @@
         validatorRules:{
           roleName:{
             rules: [
-              { required: true, message: '请输入部门角色名称!' },
+              { required: true, message: 'please enter 部门角色名称!' },
               { min: 2, max: 30, message: '长度在 2 到 30 个字符', trigger: 'blur' }
             ]},
           roleCode:{
             rules: [
-              { required: true, message: '请输入部门角色编码!'},
+              { required: true, message: 'please enter 部门角色编码!'},
               { min: 0, max: 64, message: '长度不超过 64 个字符', trigger: 'blur' },
               { validator: this.validateRoleCode}
             ]},

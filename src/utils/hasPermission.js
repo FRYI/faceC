@@ -5,7 +5,7 @@ const hasPermission = {
         console.log(options);
           Vue.directive('has', {
             inserted: (el, binding, vnode)=>{
-                console.log("页面权限控制----");
+                console.log("page面权限控制----");
                 //console.time()
                 //节点权限处理，如果命中则不进行全局权限处理
                 if(!filterNodePermission(el, binding, vnode)){
@@ -35,22 +35,22 @@ export function filterNodePermission(el, binding, vnode) {
       return false;
     }
   } catch (e) {
-    //console.log("页面权限异常----", e);
+    //console.log("page面权限异常----", e);
   }
   if (permissionList === null || permissionList === "" || permissionList === undefined||permissionList.length<=0) {
     //el.parentNode.removeChild(el)
     return false;
   }
 
-  console.log("流程节点页面权限--NODE--");
+  console.log("流程节点page面权限--NODE--");
   let permissions = [];
   for (let item of permissionList) {
     if(item.type != '2') {
       permissions.push(item.action);
     }
   }
-  //console.log("页面权限----"+permissions);
-  //console.log("页面权限----"+binding.value);
+  //console.log("page面权限----"+permissions);
+  //console.log("page面权限----"+binding.value);
   if (!permissions.includes(binding.value)) {
     //el.parentNode.removeChild(el)
     return false;
@@ -68,7 +68,7 @@ export function filterNodePermission(el, binding, vnode) {
  * 全局权限控制
  */
 export function filterGlobalPermission(el, binding, vnode) {
-  console.log("全局页面权限--Global--");
+  console.log("全局page面权限--Global--");
 
   let permissionList = [];
   let allPermissionList = [];
@@ -80,7 +80,7 @@ export function filterGlobalPermission(el, binding, vnode) {
       permissionList.push(auth);
     }
   }
-  //console.log("页面权限--Global--",sessionStorage.getItem(SYS_BUTTON_AUTH));
+  //console.log("page面权限--Global--",sessionStorage.getItem(SYS_BUTTON_AUTH));
   let allAuthList = JSON.parse(sessionStorage.getItem(SYS_BUTTON_AUTH) || "[]");
   for (let gauth of allAuthList) {
     if(gauth.type != '2') {

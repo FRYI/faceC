@@ -8,12 +8,12 @@
 
           <a-col :xl="6" :lg="7" :md="8" :sm="24">
             <a-form-item label="用户名">
-              <j-input placeholder="请输入名称模糊查询" v-model="queryParam.name"></j-input>
+              <j-input placeholder="please enter 名称模糊查询" v-model="queryParam.name"></j-input>
             </a-form-item>
           </a-col>
           <a-col :xl="6" :lg="7" :md="8" :sm="24">
             <a-form-item label="年龄">
-             <!-- <a-input placeholder="请输入名称查询" v-model="queryParam.age"></a-input>-->
+             <!-- <a-input placeholder="please enter 名称查询" v-model="queryParam.age"></a-input>-->
               <a-input placeholder="最小年龄" type="ge" v-model="queryParam.age_begin" style="width:calc(50% - 15px);"></a-input>
               <span class="group-query-strig">~</span>
               <a-input placeholder="最大年龄" type="le" v-model="queryParam.age_end" style="width:calc(50% - 15px);"></a-input>
@@ -55,7 +55,7 @@
 
     <!-- 操作按钮区域 -->
     <div class="table-operator">
-      <a-button @click="handleAdd" type="primary" icon="plus">新增</a-button>
+      <a-button @click="handleAdd" type="primary" icon="plus">New</a-button>
       <a-button type="primary" icon="plus" @click="jump">创建单据</a-button>
       <a-button type="primary" icon="plus" @click="onetomany">一对多</a-button>
       <a-button type="primary" icon="download" @click="handleExportXls('单表示例')">导出</a-button>
@@ -68,7 +68,7 @@
         <a-menu slot="overlay">
           <a-menu-item key="1" @click="batchDel">
             <a-icon type="delete"/>
-            删除
+            Delete
           </a-menu-item>
         </a-menu>
         <a-button style="margin-left: 8px"> Bulk Operations
@@ -80,9 +80,9 @@
     <!-- table区域-begin -->
     <div>
       <div class="ant-alert ant-alert-info" style="margin-bottom: 16px;">
-        <i class="anticon anticon-info-circle ant-alert-icon"></i> 已选择 <a style="font-weight: 600">{{
-          selectedRowKeys.length }}</a>项
-        <a style="margin-left: 24px" @click="onClearSelected">清空</a>
+        <i class="anticon anticon-info-circle ant-alert-icon"></i> Selected<a style="font-weight: 600">{{
+          selectedRowKeys.length }}</a>item
+        <a style="margin-left: 24px" @click="onClearSelected">Clear Selected</a>
         <span style="float:right;">
           <a @click="loadData()"><a-icon type="sync" />刷新</a>
           <a-divider type="vertical" />
@@ -131,15 +131,15 @@
         <a-icon slot="filterIcon" type='setting' :style="{ fontSize:'16px',color:  '#108ee9' }" />
 
         <span slot="action" slot-scope="text, record">
-          <a @click="handleEdit(record)">编辑</a>
+          <a @click="handleEdit(record)">Edit</a>
 
           <a-divider type="vertical"/>
           <a-dropdown>
             <a class="ant-dropdown-link">更多 <a-icon type="down"/></a>
             <a-menu slot="overlay">
               <a-menu-item>
-                <a-popconfirm title="confirm删除吗?" @confirm="() => handleDelete(record.id)">
-                  <a>删除</a>
+                <a-popconfirm title="Are you sure you want to delete it?" @confirm="() => handleDelete(record.id)">
+                  <a>Delete</a>
                 </a-popconfirm>
               </a-menu-item>
             </a-menu>
@@ -306,9 +306,9 @@
       },
       onetomany: function () {
         this.$refs.jeecgDemoTabsModal.add();
-        this.$refs.jeecgDemoTabsModal.title = "编辑";
+        this.$refs.jeecgDemoTabsModal.title = "Edit";
       },
-      //跳转单据页面
+      //跳转单据page面
       jump() {
         this.$router.push({path: '/jeecg/helloworld'})
       },

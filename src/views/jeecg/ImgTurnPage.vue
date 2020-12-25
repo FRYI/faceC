@@ -1,5 +1,5 @@
 <template>
-  <a-card title="树形结构图片翻页查看" style="min-width: 800px;overflow-x:auto ">
+  <a-card title="树形结构图片翻page查看" style="min-width: 800px;overflow-x:auto ">
     <a-row>
       <!-- 左侧文件树 -->
       <a-col :span="5">
@@ -19,8 +19,8 @@
       <a-col :span="19">
         <a-row style="margin-top: 10px">
           <a-col :span="24" style="padding-left: 2%;margin-bottom: 10px">
-            <a-button @click="prev" type="primary"><a-icon type="left" />上一页</a-button>
-            <a-button @click="next" type="primary" style="margin-left: 8px">下一页<a-icon type="right" /></a-button>
+            <a-button @click="prev" type="primary"><a-icon type="left" />上一page</a-button>
+            <a-button @click="next" type="primary" style="margin-left: 8px">下一page<a-icon type="right" /></a-button>
             <span style="margin-left: 15%;font-weight: bolder">{{ navName }}</span>
           </a-col>
           <a-col :span="24" style="padding-left: 2%;">
@@ -42,37 +42,37 @@
     },
     data() {
       return {
-        description: '图片翻页',
+        description: '图片翻page',
         //数据集
         treeData: [{
-          title: '第一页',
+          title: '第一page',
           key: '0-0',
           children: [{
-            title: '1页',
+            title: '1page',
             key: '0-0-0',
             imgUrl:'https://static.jeecg.com/upload/test/1_1588149743473.jpg'
           }, {
-            title: '2页',
+            title: '2page',
             key: '0-0-1',
             imgUrl:'https://static.jeecg.com/upload/test/u27356337152749454924fm27gp0_1588149731821.jpg'
           }]
         },{
-          title: '第二页',
+          title: '第二page',
           key: '0-1',
           children: [{
-            title: '1页',
+            title: '1page',
             key: '0-1-0',
             imgUrl:'https://static.jeecg.com/upload/test/u24454681402491956848fm27gp0_1588149712663.jpg'
           }, {
-            title: '2页',
+            title: '2page',
             key: '0-1-1',
             imgUrl:'https://static.jeecg.com/upload/test/u8891206113801177793fm27gp0_1588149704459.jpg'
           }]
         },{
-          title: '第三页',
+          title: '第三page',
           key: '0-2',
           children: [{
-            title: '1页',
+            title: '1page',
             key: '0-2-0',
             imgUrl:'https://static.jeecg.com/upload/test/1374962_1587621329085.jpg'
           }]

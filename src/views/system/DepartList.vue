@@ -21,7 +21,7 @@
               <a v-if="this.currSelected.title" style="margin-left: 10px" @click="onClearSelected">cancel选择</a>
             </div>
           </a-alert>
-          <a-input-search @search="onSearch" style="width:100%;margin-top: 10px" placeholder="请输入部门名称"/>
+          <a-input-search @search="onSearch" style="width:100%;margin-top: 10px" placeholder="please enter 部门名称"/>
           <!-- 树-->
           <a-col :md="10" :sm="24">
             <template>
@@ -44,7 +44,7 @@
                 <!--新增右键点击事件,和增加添加和删除功能-->
                 <a-menu slot="overlay">
                   <a-menu-item @click="handleAdd(3)" key="1">添加</a-menu-item>
-                  <a-menu-item @click="handleDelete" key="2">删除</a-menu-item>
+                  <a-menu-item @click="handleDelete" key="2">Delete</a-menu-item>
                   <a-menu-item @click="closeDrop" key="3">cancel</a-menu-item>
                 </a-menu>
               </a-dropdown>
@@ -79,7 +79,7 @@
                 :labelCol="labelCol"
                 :wrapperCol="wrapperCol"
                 label="机构名称">
-                <a-input placeholder="请输入机构/部门名称" v-decorator="['departName', validatorRules.departName ]"/>
+                <a-input placeholder="please enter 机构/部门名称" v-decorator="['departName', validatorRules.departName ]"/>
               </a-form-item>
               <a-form-item :labelCol="labelCol" :wrapperCol="wrapperCol" label="上级部门">
                 <a-tree-select
@@ -95,7 +95,7 @@
                 :labelCol="labelCol"
                 :wrapperCol="wrapperCol"
                 label="机构编码">
-                <a-input disabled placeholder="请输入机构编码" v-decorator="['orgCode', validatorRules.orgCode ]"/>
+                <a-input disabled placeholder="please enter 机构编码" v-decorator="['orgCode', validatorRules.orgCode ]"/>
               </a-form-item>
               <a-form-item
                 :labelCol="labelCol"
@@ -129,19 +129,19 @@
                 :labelCol="labelCol"
                 :wrapperCol="wrapperCol"
                 label="手机号">
-                <a-input placeholder="请输入手机号" v-decorator="['mobile', {'initialValue':''}]"/>
+                <a-input placeholder="please enter 手机号" v-decorator="['mobile', {'initialValue':''}]"/>
               </a-form-item>
               <a-form-item
                 :labelCol="labelCol"
                 :wrapperCol="wrapperCol"
                 label="地址">
-                <a-input placeholder="请输入地址" v-decorator="['address', {'initialValue':''}]"/>
+                <a-input placeholder="please enter 地址" v-decorator="['address', {'initialValue':''}]"/>
               </a-form-item>
               <a-form-item
                 :labelCol="labelCol"
                 :wrapperCol="wrapperCol"
                 label="备注">
-                <a-textarea placeholder="请输入备注" v-decorator="['memo', {'initialValue':''}]"/>
+                <a-textarea placeholder="please enter 备注" v-decorator="['memo', {'initialValue':''}]"/>
               </a-form-item>
             </a-form>
             <div class="anty-form-btn">
@@ -258,9 +258,9 @@
           edges: []
         },
         validatorRules: {
-          departName: {rules: [{required: true, message: '请输入机构/部门名称!'}]},
-          orgCode: {rules: [{required: true, message: '请输入机构编码!'}]},
-          orgCategory: {rules: [{required: true, message: '请输入机构类型!'}]},
+          departName: {rules: [{required: true, message: 'please enter 机构/部门名称!'}]},
+          orgCode: {rules: [{required: true, message: 'please enter 机构编码!'}]},
+          orgCategory: {rules: [{required: true, message: 'please enter 机构类型!'}]},
           mobile: {rules: [{validator: this.validateMobile}]}
         },
         url: {
@@ -493,7 +493,7 @@
       handleAdd(num) {
         if (num == 1) {
           this.$refs.departModal.add()
-          this.$refs.departModal.title = '新增'
+          this.$refs.departModal.title = 'New'
         } else if (num == 2) {
           let key = this.currSelected.key
           if (!key) {
@@ -501,10 +501,10 @@
             return false
           }
           this.$refs.departModal.add(this.selectedKeys)
-          this.$refs.departModal.title = '新增'
+          this.$refs.departModal.title = 'New'
         } else {
           this.$refs.departModal.add(this.rightClickSelectedKey)
-          this.$refs.departModal.title = '新增'
+          this.$refs.departModal.title = 'New'
         }
       },
       handleDelete() {
@@ -519,7 +519,7 @@
                 that.checkedKeys.splice(that.checkedKeys.findIndex(key => key === that.rightClickSelectedKey), 1);
                 that.$message.success('删除成功!')
                 that.loadTree()
-                //删除后同步清空右侧基本信息内容
+                //删除后同步clear右侧基本信息内容
                 let orgCode=that.form.getFieldValue("orgCode");
                 if(orgCode && orgCode === that.rightClickSelectedOrgCode){
                   that.onClearSelected()

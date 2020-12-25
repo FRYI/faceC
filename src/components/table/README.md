@@ -7,7 +7,7 @@ Table 重封装组件说明
 
 >  基础的使用方式与 API 与 [官方版(Table)](https://vuecomponent.github.io/ant-design-vue/components/table-cn/) 本一致，在其基础上，封装了加载数据的方法。
 >
-> 你无需在你是用表格的页面进行分页逻辑处理，仅需向 Table 组件传递绑定 `:data="Promise"` 对象即可
+> 你无需在你是用表格的page面进行分page逻辑处理，仅需向 Table 组件传递绑定 `:data="Promise"` 对象即可
 
 
 
@@ -97,7 +97,7 @@ Table 重封装组件说明
     :data="loadData"
   >
     <span slot="action" slot-scope="text, record">
-      <a>编辑</a>
+      <a>Edit</a>
       <a-divider type="vertical"/>
       <a-dropdown>
         <a class="ant-dropdown-link">
@@ -195,11 +195,11 @@ Table 重封装组件说明
 
 
 
-注意事项
+注意事item
 ----
 
 > 你可能需要为了与后端提供的接口返回结果一致而去修改以下代码：
-(需要注意的是，这里的修改是全局性的，意味着整个项目所有使用该 table 组件都需要遵守这个返回结果定义的字段。)
+(需要注意的是，这里的修改是全局性的，意味着整个item目所有使用该 table 组件都需要遵守这个返回结果定义的字段。)
 
 修改 `@/components/table/index.js`  第 106 行起
 
@@ -208,7 +208,7 @@ Table 重封装组件说明
 ```javascript
 result.then(r => {
   this.localPagination = Object.assign({}, this.localPagination, {
-    current: r.pageNo,  // 返回结果中的当前分页数
+    current: r.pageNo,  // 返回结果中的当前分page数
     total: r.totalCount, // 返回结果中的总记录数
     showSizeChanger: this.showSizeChanger,
     pageSize: (pagination && pagination.pageSize) ||

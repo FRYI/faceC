@@ -8,7 +8,7 @@
 
           <a-col :md="6" :sm="12">
             <a-form-item label="账号">
-              <!--<a-input placeholder="请输入账号查询" v-model="queryParam.username"></a-input>-->
+              <!--<a-input placeholder="please enter 账号查询" v-model="queryParam.username"></a-input>-->
               <j-input placeholder="输入账号模糊查询" v-model="queryParam.username"></j-input>
             </a-form-item>
           </a-col>
@@ -27,13 +27,13 @@
           <template v-if="toggleSearchStatus">
             <a-col :md="6" :sm="8">
               <a-form-item label="真实名字">
-                <a-input placeholder="请输入真实名字" v-model="queryParam.realname"></a-input>
+                <a-input placeholder="please enter 真实名字" v-model="queryParam.realname"></a-input>
               </a-form-item>
             </a-col>
 
             <a-col :md="6" :sm="8">
               <a-form-item label="手机号码">
-                <a-input placeholder="请输入手机号码查询" v-model="queryParam.phone"></a-input>
+                <a-input placeholder="please enter 手机号码查询" v-model="queryParam.phone"></a-input>
               </a-form-item>
             </a-col>
 
@@ -75,7 +75,7 @@
         <a-menu slot="overlay" @click="handleMenuClick">
           <a-menu-item key="1">
             <a-icon type="delete" @click="batchDel"/>
-            删除
+            Delete
           </a-menu-item>
           <a-menu-item key="2">
             <a-icon type="lock" @click="batchFrozen('2')"/>
@@ -96,8 +96,8 @@
     <!-- table区域-begin -->
     <div>
       <div class="ant-alert ant-alert-info" style="margin-bottom: 16px;">
-        <i class="anticon anticon-info-circle ant-alert-icon"></i>已选择&nbsp;<a style="font-weight: 600">{{ selectedRowKeys.length }}</a>项&nbsp;&nbsp;
-        <a style="margin-left: 24px" @click="onClearSelected">清空</a>
+        <i class="anticon anticon-info-circle ant-alert-icon"></i>selected&nbsp;<a style="font-weight: 600">{{ selectedRowKeys.length }}</a>item&nbsp;&nbsp;
+        <a style="margin-left: 24px" @click="onClearSelected">clear</a>
       </div>
 
       <a-table
@@ -119,8 +119,8 @@
         </template>
 
         <span slot="action" slot-scope="text, record">
-         <!-- <a @click="handleEdit(record)" v-has="'user:edit'">编辑</a>-->
-          <a @click="handleEdit(record)">编辑</a>
+         <!-- <a @click="handleEdit(record)" v-has="'user:edit'">Edit</a>-->
+          <a @click="handleEdit(record)">Edit</a>
 
           <a-divider type="vertical"/>
 
@@ -138,8 +138,8 @@
               </a-menu-item>
 
               <a-menu-item>
-                <a-popconfirm title="confirm删除吗?" @confirm="() => handleDelete(record.id)">
-                  <a>删除</a>
+                <a-popconfirm title="Are you sure you want to delete it?" @confirm="() => handleDelete(record.id)">
+                  <a>Delete</a>
                 </a-popconfirm>
               </a-menu-item>
 
@@ -202,7 +202,7 @@
     },
     data() {
       return {
-        description: '这是用户管理页面',
+        description: '这是用户管理page面',
         queryParam: {},
         recycleBinVisible: false,
         columns: [
@@ -373,7 +373,7 @@
         this.$refs.sysUserAgentModal.title = "用户代理人设置";
       },
       passwordModalOk() {
-        //TODO 密码修改完成 不需要刷新页面，可以把datasource中的数据更新一下
+        //TODO 密码修改完成 不需要刷新page面，可以把datasource中的数据更新一下
       }
     }
 

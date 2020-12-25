@@ -77,7 +77,7 @@
     },
     data() {
       return {
-        description: '档案统计页面',
+        description: '档案统计page面',
         // 查询条件
         queryParam: {},
         // 数据集

@@ -26,7 +26,7 @@
           </li>
         </ul>
       </a-tab-pane>
-      <a-tab-pane tab="编辑类图标" key="3">
+      <a-tab-pane tab="Edit类图标" key="3">
         <ul>
           <li v-for="icon in icons.editIcons" :key="icon">
             <a-icon :type="icon" :title="icon" @click="chooseIcon(icon)" :class="{'active':activeIndex === icon}"/>

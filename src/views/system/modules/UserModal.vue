@@ -23,12 +23,12 @@
       <a-form :form="form">
 
         <a-form-item label="用户账号" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input placeholder="请输入用户账号" v-decorator.trim="[ 'username', validatorRules.username]" :readOnly="!!model.id"/>
+          <a-input placeholder="please enter 用户账号" v-decorator.trim="[ 'username', validatorRules.username]" :readOnly="!!model.id"/>
         </a-form-item>
 
         <template v-if="!model.id">
           <a-form-item label="登陆密码" :labelCol="labelCol" :wrapperCol="wrapperCol" >
-            <a-input type="password" placeholder="请输入登陆密码" v-decorator="[ 'password', validatorRules.password]" />
+            <a-input type="password" placeholder="please enter 登陆密码" v-decorator="[ 'password', validatorRules.password]" />
           </a-form-item>
 
           <a-form-item label="确认密码" :labelCol="labelCol" :wrapperCol="wrapperCol" >
@@ -37,11 +37,11 @@
         </template>
 
         <a-form-item label="用户姓名" :labelCol="labelCol" :wrapperCol="wrapperCol" >
-          <a-input placeholder="请输入用户姓名" v-decorator.trim="[ 'realname', validatorRules.realname]" />
+          <a-input placeholder="please enter 用户姓名" v-decorator.trim="[ 'realname', validatorRules.realname]" />
         </a-form-item>
 
         <a-form-item label="工号" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input placeholder="请输入工号" v-decorator.trim="[ 'workNo', validatorRules.workNo]" />
+          <a-input placeholder="please enter 工号" v-decorator.trim="[ 'workNo', validatorRules.workNo]" />
         </a-form-item>
 
         <a-form-item label="职务" :labelCol="labelCol" :wrapperCol="wrapperCol">
@@ -117,15 +117,15 @@
         </a-form-item>
 
         <a-form-item label="邮箱" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input placeholder="请输入邮箱" v-decorator="[ 'email', validatorRules.email]" />
+          <a-input placeholder="please enter 邮箱" v-decorator="[ 'email', validatorRules.email]" />
         </a-form-item>
 
         <a-form-item label="手机号码" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input placeholder="请输入手机号码" :disabled="isDisabledAuth('user:form:phone')" v-decorator="[ 'phone', validatorRules.phone]" />
+          <a-input placeholder="please enter 手机号码" :disabled="isDisabledAuth('user:form:phone')" v-decorator="[ 'phone', validatorRules.phone]" />
         </a-form-item>
 
         <a-form-item label="座机" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input placeholder="请输入座机" v-decorator="[ 'telephone', validatorRules.telephone]"/>
+          <a-input placeholder="please enter 座机" v-decorator="[ 'telephone', validatorRules.telephone]"/>
         </a-form-item>
 
         <a-form-item label="工作流引擎" :labelCol="labelCol" :wrapperCol="wrapperCol">
@@ -137,7 +137,7 @@
     <depart-window ref="departWindow" @ok="modalFormOk"></depart-window>
 
     <div class="drawer-bootom-button" v-show="!disableSubmit">
-      <a-popconfirm title="confirm放弃编辑？" @confirm="handleCancel" okText="confirm" cancelText="cancel">
+      <a-popconfirm title="Are you sure you're giving up editing?？" @confirm="handleCancel" okText="confirm" cancelText="cancel">
         <a-button style="margin-right: .8rem">cancel</a-button>
       </a-popconfirm>
       <a-button @click="handleSubmit" type="primary" :loading="confirmLoading">提交</a-button>
@@ -168,8 +168,8 @@
     },
     data () {
       return {
-        departDisabled: false, //是否是我的部门调用该页面
-        roleDisabled: false, //是否是角色维护调用该页面
+        departDisabled: false, //是否是我的部门调用该page面
+        roleDisabled: false, //是否是角色维护调用该page面
         modalWidth:800,
         drawerWidth:700,
         modaltoggleFlag:true,
@@ -186,7 +186,7 @@
         validatorRules:{
           username:{
             rules: [{
-              required: true, message: '请输入用户账号!'
+              required: true, message: 'please enter 用户账号!'
             },{
               validator: this.validateUsername,
             }]
@@ -207,7 +207,7 @@
               validator: this.compareToFirstPassword,
             }],
           },
-          realname:{rules: [{ required: true, message: '请输入用户名称!' }]},
+          realname:{rules: [{ required: true, message: 'please enter 用户名称!' }]},
           phone:{rules: [{validator: this.validatePhone}]},
           email:{
             rules: [{
@@ -218,13 +218,13 @@
           //  sex:{initialValue:((!this.model.sex)?"": (this.model.sex+""))}
           workNo: {
             rules: [
-              { required: true, message: '请输入工号' },
+              { required: true, message: 'please enter 工号' },
               { validator: this.validateWorkNo }
             ]
           },
           telephone: {
             rules: [
-              { pattern: /^0\d{2,3}-[1-9]\d{6,7}$/, message: '请输入正确的座机号码' },
+              { pattern: /^0\d{2,3}-[1-9]\d{6,7}$/, message: 'please enter 正确的座机号码' },
             ]
           }
         },
@@ -491,7 +491,7 @@
               }
             })
           }else{
-            callback("请输入正确格式的手机号码!");
+            callback("please enter 正确格式的手机号码!");
           }
         }
       },
@@ -515,7 +515,7 @@
               }
             })
           }else{
-            callback("请输入正确格式的邮箱!")
+            callback("please enter 正确格式的邮箱!")
           }
         }
       },

@@ -5,7 +5,7 @@
     :title="title"
     @ok="handleSubmit"
     @cancel="close"
-    cancelText="关闭"
+    cancelText="close"
     style="margin-top: -70px"
     wrapClassName="ant-modal-cust-warp"
   >
@@ -30,7 +30,7 @@
           用户账号:
           <a-input-search
             :style="{width:'150px',marginBottom:'15px'}"
-            placeholder="请输入账号"
+            placeholder="please enter 账号"
             v-model="queryParam.username"
             @search="onSearch"
           ></a-input-search>
@@ -114,7 +114,7 @@
           pageSize: 10,
           pageSizeOptions: ['10', '20', '30'],
           showTotal: (total, range) => {
-            return range[0] + '-' + range[1] + ' 共' + total + '条'
+            return range[0] + '-' + range[1] + ' total' + total + ' number'
           },
           showQuickJumper: true,
           showSizeChanger: true,

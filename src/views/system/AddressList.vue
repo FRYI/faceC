@@ -18,7 +18,7 @@
     components: { AddressListLeft, AddressListRight },
     data() {
       return {
-        description: '通讯录页面',
+        description: '通讯录page面',
         currentOrgCode: ''
       }
     },

@@ -17,14 +17,14 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="角色名称">
-          <a-input placeholder="请输入角色名称" v-decorator.trim="[ 'roleName', validatorRules.roleName]" />
+          <a-input placeholder="please enter 角色名称" v-decorator.trim="[ 'roleName', validatorRules.roleName]" />
         </a-form-item>
 
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="角色编码">
-          <a-input placeholder="请输入角色编码" :disabled="roleDisabled" v-decorator.trim="[ 'roleCode', validatorRules.roleCode]" />
+          <a-input placeholder="please enter 角色编码" :disabled="roleDisabled" v-decorator.trim="[ 'roleCode', validatorRules.roleCode]" />
         </a-form-item>
 
         <a-form-item
@@ -64,12 +64,12 @@
         validatorRules:{
           roleName:{
             rules: [
-              { required: true, message: '请输入角色名称!' },
+              { required: true, message: 'please enter 角色名称!' },
               { min: 2, max: 30, message: '长度在 2 到 30 个字符', trigger: 'blur' }
             ]},
           roleCode:{
             rules: [
-              { required: true, message: '请输入角色名称!'},
+              { required: true, message: 'please enter 角色名称!'},
               { min: 0, max: 64, message: '长度不超过 64 个字符', trigger: 'blur' },
               { validator: this.validateRoleCode}
             ]},
@@ -91,7 +91,7 @@
         this.model = Object.assign({}, record);
         this.visible = true;
 
-        //编辑页面禁止修改角色编码
+        //Editpage面禁止修改角色编码
         if(this.model.id){
           this.roleDisabled = true;
         }else{

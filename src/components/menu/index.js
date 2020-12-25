@@ -115,7 +115,7 @@ export default {
       if (menu.children && menu.alwaysShow) {
         // 把有子菜单的 并且 父菜单是要隐藏子菜单的
         // 都给子菜单增加一个 hidden 属性
-        // 用来给刷新页面时， selectedKeys 做控制用
+        // 用来给刷新page面时， selectedKeys 做控制用
         menu.children.forEach(item => {
           item.meta = Object.assign(item.meta, { hidden: true })
         })

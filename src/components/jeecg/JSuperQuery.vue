@@ -9,7 +9,7 @@
       <template slot="title">
         <span>已有高级查询条件生效</span>
         <a-divider type="vertical"/>
-        <a @click="handleReset">清空</a>
+        <a @click="handleReset">clear</a>
       </template>
       <a-button-group>
         <a-button type="primary" @click="handleOpen">
@@ -58,10 +58,10 @@
 
             <a-row style="margin-bottom: 12px;">
               <a-col :md="12" :xs="24">
-                <a-form-item label="过滤条件匹配" :labelCol="{md: 6,xs:24}" :wrapperCol="{md: 18,xs:24}" style="width: 100%;">
+                <a-form-item label="The condition" :labelCol="{md: 6,xs:24}" :wrapperCol="{md: 18,xs:24}" style="width: 100%;">
                   <a-select v-model="matchType" :getPopupContainer="node=>node.parentNode" style="width: 100%;">
-                    <a-select-option value="and">AND（所有条件都要求匹配）</a-select-option>
-                    <a-select-option value="or">OR（条件中的任意一个匹配）</a-select-option>
+                    <a-select-option value="and">AND</a-select-option>
+                    <a-select-option value="or">OR</a-select-option>
                   </a-select>
                 </a-form-item>
               </a-col>
@@ -144,8 +144,8 @@
                 <j-date v-else-if=" item.type=='date' " v-model="item.val" placeholder="请选择日期" style="width: 100%"></j-date>
                 <j-date v-else-if=" item.type=='datetime' " v-model="item.val" placeholder="请选择时间" :show-time="true" date-format="YYYY-MM-DD HH:mm:ss" style="width: 100%"></j-date>
                 <a-time-picker v-else-if="item.type==='time'" :value="item.val ? moment(item.val,'HH:mm:ss') : null" format="HH:mm:ss" style="width: 100%" @change="(time,value)=>item.val=value"/>
-                <a-input-number v-else-if=" item.type=='int'||item.type=='number' " style="width: 100%" placeholder="请输入数值" v-model="item.val"/>
-                <a-input v-else v-model="item.val" placeholder="请输入值"/>
+                <a-input-number v-else-if=" item.type=='int'||item.type=='number' " style="width: 100%" placeholder="please enter 数值" v-model="item.val"/>
+                <a-input v-else v-model="item.val" placeholder="Please enter the value"/>
               </a-col>
 
               <a-col :md="4" :xs="0" style="margin-bottom: 12px;">
@@ -170,7 +170,7 @@
               Saved query
             </div>
 
-            <a-empty v-if="saveTreeData.length === 0" class="j-super-query-history-empty" description="没有保存任何查询"/>
+            <a-empty v-if="saveTreeData.length === 0" class="j-super-query-history-empty" description="no query saved"/>
             <a-tree
               v-else
               class="j-super-query-history-tree"
@@ -189,7 +189,7 @@
 
     </a-spin>
 
-    <a-modal title="请输入保存的名称" :visible="prompt.visible" @cancel="prompt.visible=false" @ok="handlePromptOk">
+    <a-modal title="Please enter the name of the save" :visible="prompt.visible" @cancel="prompt.visible=false" @ok="handlePromptOk">
       <a-input v-model="prompt.value"></a-input>
     </a-modal>
 

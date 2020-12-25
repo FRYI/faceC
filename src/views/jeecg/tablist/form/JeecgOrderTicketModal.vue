@@ -7,7 +7,7 @@
     :confirmLoading="confirmLoading"
     @ok="handleOk"
     @cancel="handleCancel"
-    cancelText="关闭">
+    cancelText="close">
 
     <a-spin :spinning="confirmLoading">
       <a-form :form="form">
@@ -18,16 +18,16 @@
           label="航班号"
           hasFeedback>
           <a-input
-            placeholder="请输入航班号"
+            placeholder="please enter 航班号"
             :readOnly="disableSubmit"
-            v-decorator="['ticketCode', {rules:[{ required: true,message: '请输入航班号!'}]}]"/>
+            v-decorator="['ticketCode', {rules:[{ required: true,message: 'please enter 航班号!'}]}]"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="航班时间"
           hasFeedback>
-          <j-date :trigger-change="true"  v-decorator="['tickectDate',{rules:[{ required: true,message: '请输入航班号!'}]}]"></j-date>
+          <j-date :trigger-change="true"  v-decorator="['tickectDate',{rules:[{ required: true,message: 'please enter 航班号!'}]}]"></j-date>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"

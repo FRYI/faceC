@@ -6,7 +6,7 @@
     :confirmLoading="confirmLoading"
     @ok="handleOk"
     @cancel="handleCancel"
-    cancelText="关闭"
+    cancelText="close"
   >
     <a-spin :spinning="confirmLoading">
       <a-form :form="form">
@@ -14,22 +14,22 @@
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
-          label="旧密码">
-          <a-input type="password" placeholder="请输入旧密码" v-decorator="[ 'oldpassword', validatorRules.oldpassword]" />
+          label="old password">
+          <a-input type="password" placeholder="please enter old password" v-decorator="[ 'oldpassword', validatorRules.oldpassword]" />
         </a-form-item>
 
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
-          label="新密码">
-          <a-input type="password" placeholder="请输入新密码" v-decorator="[ 'password', validatorRules.password]" />
+          label="new password">
+          <a-input type="password" placeholder="please enter new password" v-decorator="[ 'password', validatorRules.password]" />
         </a-form-item>
 
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
-          label="确认新密码">
-          <a-input type="password" @blur="handleConfirmBlur" placeholder="请确认新密码" v-decorator="[ 'confirmpassword', validatorRules.confirmpassword]"/>
+          label="confirm the new password">
+          <a-input type="password" @blur="handleConfirmBlur" placeholder="confirm the new password" v-decorator="[ 'confirmpassword', validatorRules.confirmpassword]"/>
         </a-form-item>
 
       </a-form>
@@ -45,26 +45,26 @@
     name: "UserPassword",
     data () {
       return {
-        title:"修改密码",
+        title:"change password",
         modalWidth:800,
         visible: false,
         confirmLoading: false,
         validatorRules:{
           oldpassword:{
             rules: [{
-              required: true, message: '请输入旧密码!',
+              required: true, message: 'please enter old password!',
             }],
           },
           password:{
             rules: [{
-              required: true, message: '请输入新密码!',
+              required: true, message: 'please enter new password!',
             }, {
               validator: this.validateToNextPassword,
             }],
           },
           confirmpassword:{
             rules: [{
-              required: true, message: '请确认新密码!',
+              required: true, message: 'please confirm new password!',
             }, {
               validator: this.compareToFirstPassword,
             }],
@@ -88,7 +88,7 @@
     methods: {
       show(uname){
         if(!uname){
-          this.$message.warning("当前系统无登陆用户!");
+          this.$message.warning("no user logged in in the current system!");
           return
         }else{
           this.username = uname
@@ -137,7 +137,7 @@
       compareToFirstPassword  (rule, value, callback) {
         const form = this.form;
         if (value && value !== form.getFieldValue('password')) {
-          callback('两次输入的密码不一样！');
+          callback('the two passwords entered are not the same！');
         } else {
           callback()
         }

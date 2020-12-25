@@ -61,7 +61,7 @@ export const JEditableTableMixin = {
       if (typeof this.addAfter === 'function') this.addAfter(this.model)
       this.edit({})
     },
-    /** 当点击了编辑（修改）按钮时调用此方法 */
+    /** 当点击了Edit（修改）按钮时调用此方法 */
     edit(record) {
       if (typeof this.editBefore === 'function') this.editBefore(record)
       this.visible = true
@@ -121,7 +121,7 @@ export const JEditableTableMixin = {
 
     /* --- handle 事件 --- */
 
-    /** ATab 选项卡切换事件 */
+    /** ATab 选item卡切换事件 */
     handleChangeTabs(key) {
       // 自动重置scrollTop状态，防止出现白屏
       getRefPromise(this, key).then(editableTable => {

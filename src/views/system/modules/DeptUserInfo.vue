@@ -7,12 +7,12 @@
         <a-row :gutter="10">
           <a-col :md="10" :sm="12">
             <a-form-item label="用户账号" style="margin-left:8px">
-              <a-input placeholder="请输入账号" v-model="queryParam.username"></a-input>
+              <a-input placeholder="please enter 账号" v-model="queryParam.username"></a-input>
             </a-form-item>
           </a-col>
           <!--<a-col :md="8" :sm="8">-->
           <!--<a-form-item label="用户名称" :labelCol="{span: 5}" :wrapperCol="{span: 18, offset: 1}">-->
-          <!--<a-input placeholder="请输入名称查询" v-model="queryParam.realname"></a-input>-->
+          <!--<a-input placeholder="please enter 名称查询" v-model="queryParam.realname"></a-input>-->
           <!--</a-form-item>-->
           <!--</a-col>-->
           <span style="float: left;overflow: hidden;" class="table-page-search-submitButtons">
@@ -26,7 +26,7 @@
     </div>
     <!-- 操作按钮区域 -->
     <div class="table-operator" :md="24" :sm="24" style="margin-top: -15px">
-      <!--<a-button @click="handleEdit" type="primary" icon="edit" style="margin-top: 16px">用户编辑</a-button>-->
+      <!--<a-button @click="handleEdit" type="primary" icon="edit" style="margin-top: 16px">用户Edit</a-button>-->
       <a-button @click="handleAddUserDepart" type="primary" icon="plus">添加已有用户</a-button>
       <a-button @click="handleAdd" type="primary" icon="plus" style="margin-top: 16px">新建用户</a-button>
 
@@ -46,9 +46,9 @@
     <!-- table区域-begin -->
     <div>
       <div class="ant-alert ant-alert-info" style="margin-bottom: 16px;">
-        <i class="anticon anticon-info-circle ant-alert-icon"></i> 已选择 <a style="font-weight: 600">{{
-        selectedRowKeys.length }}</a>项
-        <a style="margin-left: 24px" @click="onClearSelected">清空</a>
+        <i class="anticon anticon-info-circle ant-alert-icon"></i> Selected<a style="font-weight: 600">{{
+        selectedRowKeys.length }}</a>item
+        <a style="margin-left: 24px" @click="onClearSelected">clear</a>
       </div>
 
       <a-table
@@ -66,7 +66,7 @@
 
 
         <span slot="action" slot-scope="text, record">
-          <a @click="handleEdit(record)">编辑</a>
+          <a @click="handleEdit(record)">Edit</a>
 
           <a-divider type="vertical"/>
 
@@ -177,7 +177,7 @@
           this.$message.error("请设置url.list属性!")
           return
         }
-        //加载数据 若传入参数1则加载第一页的内容
+        //加载数据 若传入参数1则加载第一page的内容
         if (arg === 1) {
           this.ipagination.current = 1;
         }
@@ -281,7 +281,7 @@
         }
       },
       handleEdit: function (record) {
-        this.$refs.modalForm.title = "编辑";
+        this.$refs.modalForm.title = "Edit";
         this.$refs.modalForm.departDisabled = true;
         this.$refs.modalForm.disableSubmit = false;
         this.$refs.modalForm.edit(record);
@@ -293,7 +293,7 @@
           this.$refs.modalForm.departDisabled = true;
           this.$refs.modalForm.userDepartModel.departIdList = [this.currentDeptId];  //传入一个部门id
           this.$refs.modalForm.add();
-          this.$refs.modalForm.title = "新增";
+          this.$refs.modalForm.title = "New";
         }
       },
       selectOK(data) {

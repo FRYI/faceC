@@ -5,9 +5,9 @@
 
         <a-form layout="vertical">
           <a-form-item
-            label="昵称"
+            label="nickname"
           >
-            <a-input placeholder="给自己起个名字" />
+            <a-input placeholder="give yourself a name" />
           </a-form-item>
           <a-form-item
             label="Bio"
@@ -16,13 +16,13 @@
           </a-form-item>
 
           <a-form-item
-            label="电子邮件"
+            label="e-mail"
             :required="false"
           >
             <a-input placeholder="exp@admin.com"/>
           </a-form-item>
           <a-form-item
-            label="加密方式"
+            label="encryption"
             :required="false"
           >
             <a-select defaultValue="aes-256-cfb">
@@ -32,21 +32,21 @@
             </a-select>
           </a-form-item>
           <a-form-item
-            label="连接密码"
+            label="connection password"
             :required="false"
           >
             <a-input placeholder="h3gSbecd"/>
           </a-form-item>
           <a-form-item
-            label="登陆密码"
+            label="login password"
             :required="false"
           >
-            <a-input placeholder="密码"/>
+            <a-input placeholder="password"/>
           </a-form-item>
 
           <a-form-item>
-            <a-button type="primary">提交</a-button>
-            <a-button style="margin-left: 8px">保存</a-button>
+            <a-button type="primary">submit</a-button>
+            <a-button style="margin-left: 8px">save</a-button>
           </a-form-item>
         </a-form>
 

@@ -269,7 +269,7 @@
         }
       },
       goPage(){
-        this.$message.success("请根据具体业务跳转页面")
+        this.$message.success("请根据具体业务跳转page面")
         //this.$router.push({ path: '/comp/mytask' })
       },
       mock(){

@@ -24,7 +24,7 @@
     <!-- table区域-begin -->
     <div>
       <div class="ant-alert ant-alert-info" style="margin-bottom: 16px;">
-        <i class="anticon anticon-info-circle ant-alert-icon"></i> 已选择 <a style="font-weight: 600">{{ selectedRowKeys.length }}</a>项
+        <i class="anticon anticon-info-circle ant-alert-icon"></i> Selected<a style="font-weight: 600">{{ selectedRowKeys.length }}</a>item
         <a style="margin-left: 24px" @click="onClearSelected">Clear Selected</a>
       </div>
 
@@ -316,7 +316,7 @@
       return {
         loading: false,
         imgdata:"",
-        description: 'torder管理页面',
+        description: 'torder管理page面',
         fieldList: superQueryFieldList,
         // 表头
         columns: [
@@ -612,6 +612,8 @@
             workbook.xlsx.load(buffer).then(async (wb)=> {
               console.log("readFile success");
               let worksheet1 = wb.getWorksheet(1)
+
+
               worksheet1.getImages().forEach((item) =>{
                 let img = wb.getImage(Number(item.imageId))
                 let base64 = vm.uint8arrayToBase64(img.buffer)
@@ -714,24 +716,36 @@
           ll.model = Object.assign({}, obj);
           ls ={'client':obj.client,'contact':obj.contact,'tel':obj.tel,'email':obj.email,'website':obj.website,'city':obj.city,'address':obj.address,'zipCode':obj.zipCode}
         }else if (name =="product") {
-          ll= this.$refs.modalFormp
+          ll = this.$refs.modalFormp
           ll.model = Object.assign({}, obj);
-          ls ={'season':obj.season,'sku':obj.sku,'project':obj.project,'productName':obj.productName,'supplier':obj.supplier,'paramData':obj.paramData,'description':obj.description,'photoString':obj.photoString}
+          ls = {
+            'season': obj.season,
+            'sku': obj.sku,
+            'project': obj.project,
+            'productName': obj.productName,
+            'supplier': obj.supplier,
+            'paramData': obj.paramData,
+            'description': obj.description,
+            'photoString': obj.photoString
+          }
           console.log(ll)
-          ll.array =JSON.parse(obj.paramData)
-          console.log(ll.array)
           ll.imgsrc = obj.photoString
-          var json2 = JSON.parse(obj.paramData)
-          Object.keys(json2).map((obj, idx) => (
-            setTimeout(()=>{
+          console.log(obj.paramData)
+          if (obj.paramData != null && !obj.paramData.match(".*null.*")) {
 
-              var cs = "paramData["+obj+"]".toString()
-              // this.form.setFieldsValue({ ["paramData[color]"]:json2[obj]});
-              ll.form.setFieldsValue({ [cs]:json2[obj]});
-            },1000)
-          ))
-
-
+            ll.array = JSON.parse(obj.paramData)
+            console.log(ll.array)
+            var json2 = JSON.parse(obj.paramData)
+            Object.keys(json2).map((obj, idx) => (
+              setTimeout(() => {
+                var cs = "paramData[" + obj + "]".toString()
+                // this.form.setFieldsValue({ ["paramData[color]"]:json2[obj]});
+                ll.form.setFieldsValue({[cs]: json2[obj]});
+              }, 1000)
+            ))
+          }else {
+            ll.form.setFieldsValue({["paramData[color]"]:""});
+          }
         }
 
         ll.form.resetFields();

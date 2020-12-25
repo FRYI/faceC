@@ -20,7 +20,7 @@
     </a-upload>
 
     <template slot="footer">
-      <a-button @click="handleClose">关闭</a-button>
+      <a-button @click="handleClose">close</a-button>
       <a-button
         type="primary"
         @click="handleImport"

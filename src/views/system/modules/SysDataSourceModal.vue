@@ -15,13 +15,13 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="数据源编码">
-          <a-input placeholder="请输入数据源编码" :disabled="!!model.id" v-decorator="['code', validatorRules.code]"/>
+          <a-input placeholder="please enter 数据源编码" :disabled="!!model.id" v-decorator="['code', validatorRules.code]"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="数据源名称">
-          <a-input placeholder="请输入数据源名称" v-decorator="['name', validatorRules.name]"/>
+          <a-input placeholder="please enter 数据源名称" v-decorator="['name', validatorRules.name]"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
@@ -33,25 +33,25 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="驱动类">
-          <a-input placeholder="请输入驱动类" v-decorator="['dbDriver', validatorRules.dbDriver]"/>
+          <a-input placeholder="please enter 驱动类" v-decorator="['dbDriver', validatorRules.dbDriver]"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="数据源地址">
-          <a-input placeholder="请输入数据源地址" v-decorator="['dbUrl', validatorRules.dbUrl]"/>
+          <a-input placeholder="please enter 数据源地址" v-decorator="['dbUrl', validatorRules.dbUrl]"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="数据库名称">
-          <a-input placeholder="请输入数据库名称" v-decorator="['dbName', validatorRules.dbName]"/>
+          <a-input placeholder="please enter 数据库名称" v-decorator="['dbName', validatorRules.dbName]"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="用户名">
-          <a-input placeholder="请输入用户名" v-decorator="['dbUsername', validatorRules.dbUsername]"/>
+          <a-input placeholder="please enter 用户名" v-decorator="['dbUsername', validatorRules.dbUsername]"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
@@ -59,7 +59,7 @@
           label="密码">
           <a-row :gutter="8">
             <a-col :span="21">
-              <a-input-password placeholder="请输入密码" v-decorator="['dbPassword', validatorRules.dbPassword]"/>
+              <a-input-password placeholder="please enter 密码" v-decorator="['dbPassword', validatorRules.dbPassword]"/>
             </a-col>
             <a-col :span="3">
               <a-button type="primary" size="small" style="width: 100%" @click="handleTest">测试</a-button>
@@ -70,7 +70,7 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="备注">
-          <a-textarea placeholder="请输入备注" v-decorator="['remark', {}]"/>
+          <a-textarea placeholder="please enter 备注" v-decorator="['remark', {}]"/>
         </a-form-item>
       </a-form>
     </a-spin>
@@ -105,7 +105,7 @@
           code: {
             validateFirst: true,
             rules: [
-              { required: true, message: '请输入数据源编码!' },
+              { required: true, message: 'please enter 数据源编码!' },
               {
                 validator: (rule, value, callback) => {
                   let pattern = /^[a-z|A-Z][a-z|A-Z\d_-]{0,}$/
@@ -118,13 +118,13 @@
               }
             ]
           },
-          name: { rules: [{ required: true, message: '请输入数据源名称!' }] },
+          name: { rules: [{ required: true, message: 'please enter 数据源名称!' }] },
           dbType: { rules: [{ required: true, message: '请选择数据库类型!' }] },
-          dbDriver: { rules: [{ required: true, message: '请输入驱动类!' }] },
-          dbUrl: { rules: [{ required: true, message: '请输入数据源地址!' }] },
-          dbName: { rules: [{ required: true, message: '请输入数据库名称!' }] },
-          dbUsername: { rules: [{ required: true, message: '请输入用户名!' }] },
-          dbPassword: { rules: [{ required: true, message: '请输入密码!' }] }
+          dbDriver: { rules: [{ required: true, message: 'please enter 驱动类!' }] },
+          dbUrl: { rules: [{ required: true, message: 'please enter 数据源地址!' }] },
+          dbName: { rules: [{ required: true, message: 'please enter 数据库名称!' }] },
+          dbUsername: { rules: [{ required: true, message: 'please enter 用户名!' }] },
+          dbPassword: { rules: [{ required: true, message: 'please enter 密码!' }] }
         },
         url: {
           add: '/sys/dataSource/add',

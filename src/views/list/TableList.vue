@@ -12,7 +12,7 @@
             <a-form-item label="使用状态">
               <a-select v-model="queryParam.status" placeholder="请选择" default-value="0">
                 <a-select-option value="0">全部</a-select-option>
-                <a-select-option value="1">关闭</a-select-option>
+                <a-select-option value="1">close</a-select-option>
                 <a-select-option value="2">运行中</a-select-option>
               </a-select>
             </a-form-item>
@@ -25,14 +25,14 @@
             </a-col>
             <a-col :md="8" :sm="24">
               <a-form-item label="更新日期">
-                <a-date-picker v-model="queryParam.date" style="width: 100%" placeholder="请输入更新日期"/>
+                <a-date-picker v-model="queryParam.date" style="width: 100%" placeholder="please enter 更新日期"/>
               </a-form-item>
             </a-col>
             <a-col :md="8" :sm="24">
               <a-form-item label="使用状态">
                 <a-select v-model="queryParam.useStatus" placeholder="请选择" default-value="0">
                   <a-select-option value="0">全部</a-select-option>
-                  <a-select-option value="1">关闭</a-select-option>
+                  <a-select-option value="1">close</a-select-option>
                   <a-select-option value="2">运行中</a-select-option>
                 </a-select>
               </a-form-item>
@@ -41,7 +41,7 @@
               <a-form-item label="使用状态">
                 <a-select placeholder="请选择" default-value="0">
                   <a-select-option value="0">全部</a-select-option>
-                  <a-select-option value="1">关闭</a-select-option>
+                  <a-select-option value="1">close</a-select-option>
                   <a-select-option value="2">运行中</a-select-option>
                 </a-select>
               </a-form-item>
@@ -65,7 +65,7 @@
       <a-button type="primary" icon="plus" @click="() => this.handleModalVisible(true)">新建</a-button>
       <a-dropdown v-if="selectedRowKeys.length > 0">
         <a-menu slot="overlay">
-          <a-menu-item key="1"><a-icon type="delete" />删除</a-menu-item>
+          <a-menu-item key="1"><a-icon type="delete" />Delete</a-menu-item>
           <!-- lock | unlock -->
           <a-menu-item key="2"><a-icon type="lock" />锁定</a-menu-item>
         </a-menu>
@@ -84,7 +84,7 @@
       @onSelect="onChange"
     >
       <span slot="action" slot-scope="text, record">
-        <a @click="handleEdit(record)">编辑</a>
+        <a @click="handleEdit(record)">Edit</a>
         <a-divider type="vertical" />
         <a-dropdown>
           <a class="ant-dropdown-link">
@@ -98,7 +98,7 @@
               <a href="javascript:;">禁用</a>
             </a-menu-item>
             <a-menu-item>
-              <a href="javascript:;">删除</a>
+              <a href="javascript:;">Delete</a>
             </a-menu-item>
           </a-menu>
         </a-dropdown>
@@ -178,8 +178,8 @@
     <a-modal title="新建规则" destroyOnClose :visible="visibleCreateModal" @ok="handleCreateModalOk" @cancel="handleCreateModalCancel">
       <!---->
       <a-form style="margin-top: 8px" :autoFormCreate="(form)=>{this.createForm = form}">
-        <a-form-item :labelCol="{ span: 5 }" :wrapperCol="{ span: 15 }" label="描述" fieldDecoratorId="description" :fieldDecoratorOptions="{rules: [{ required: true, message: '请输入至少五个字符的规则描述！', min: 5 }]}">
-          <a-input placeholder="请输入" />
+        <a-form-item :labelCol="{ span: 5 }" :wrapperCol="{ span: 15 }" label="描述" fieldDecoratorId="description" :fieldDecoratorOptions="{rules: [{ required: true, message: 'please enter 至少五个字符的规则描述！', min: 5 }]}">
+          <a-input placeholder="please enter " />
         </a-form-item>
       </a-form>
     </a-modal>

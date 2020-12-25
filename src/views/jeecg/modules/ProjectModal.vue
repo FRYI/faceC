@@ -7,7 +7,7 @@
     switchFullscreen
     @ok="handleOk"
     @cancel="handleCancel"
-    cancelText="关闭">
+    cancelText="close">
     <a-spin :spinning="confirmLoading">
       <a-form :form="form">
 
@@ -15,7 +15,7 @@
           <a-input v-decorator="['projectName']" placeholder="projectName"></a-input>
         </a-form-item>
         <a-form-item label="paramData" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['paramData']" placeholder="请输入paramData"></a-input>
+          <a-input v-decorator="['paramData']" placeholder="please enter paramData"></a-input>
         </a-form-item>
 
       </a-form>

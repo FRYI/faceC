@@ -8,7 +8,7 @@ Overview
 
 基于 [Ant Design of Vue](https://vuecomponent.github.io/ant-design-vue/docs/vue/introduce-cn/) 实现的 Ant Design Pro  Vue 版
 Jeecg-boot 的前段UI框架，采用前后端分离方案，提供强大代码生成器的快速开发平台。
-前端页面代码和后端功能代码一键生成，不需要写任何代码，保持jeecg一贯的强大！！
+前端page面代码和后端功能代码一键生成，不需要写任何代码，保持jeecg一贯的强大！！
 
 
 
@@ -27,10 +27,10 @@ Jeecg-boot 的前段UI框架，采用前后端分离方案，提供强大代码�
 
 
 
-项目下载和运行
+item目下载和运行
 ----
 
-- 拉取项目代码
+- 拉取item目代码
 ```bash
 git clone https://github.com/zhangdaiscott/jeecg-boot.git
 cd  jeecg-boot/ant-design-jeecg-vue
@@ -46,7 +46,7 @@ yarn install
 yarn run serve
 ```
 
-- 编译项目
+- 编译item目
 ```
 yarn run build
 ```
@@ -61,7 +61,7 @@ yarn run lint
 其他说明
 ----
 
-- 项目使用的 [vue-cli3](https://cli.vuejs.org/guide/), 请更新您的 cli
+- item目使用的 [vue-cli3](https://cli.vuejs.org/guide/), 请更新您的 cli
 
 - 关闭 Eslint (不推荐) 移除 `package.json` 中 `eslintConfig` 整个节点代码
 
@@ -95,7 +95,7 @@ yarn run lint
 
 - [路由/菜单说明](https://github.com/zhangdaiscott/jeecg-boot/tree/master/ant-design-jeecg-vue/src/router/README.md)
 
-- [ANTD 默认配置项](https://github.com/zhangdaiscott/jeecg-boot/tree/master/ant-design-jeecg-vue/src/defaultSettings.js)
+- [ANTD 默认配置item](https://github.com/zhangdaiscott/jeecg-boot/tree/master/ant-design-jeecg-vue/src/defaultSettings.js)
 
 - 其他待补充...
 

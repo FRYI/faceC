@@ -18,8 +18,8 @@
               :wrapperCol="wrapperCol"
               label="订单号">
               <a-input
-                placeholder="请输入订单号"
-                v-decorator="['orderCode', {rules: [{ required: true, message: '请输入订单号!' }]}]"/>
+                placeholder="please enter 订单号"
+                v-decorator="['orderCode', {rules: [{ required: true, message: 'please enter 订单号!' }]}]"/>
             </a-form-item>
           </a-col>
           <a-col :lg="8">
@@ -48,7 +48,7 @@
               :labelCol="labelCol"
               :wrapperCol="wrapperCol"
               label="订单金额">
-              <a-input-number placeholder="请输入订单金额" style="width: 100%" v-decorator="[ 'orderMoney', {}]"/>
+              <a-input-number placeholder="please enter 订单金额" style="width: 100%" v-decorator="[ 'orderMoney', {}]"/>
             </a-form-item>
           </a-col>
           <a-col :lg="8">
@@ -56,7 +56,7 @@
               :labelCol="labelCol"
               :wrapperCol="wrapperCol"
               label="订单备注">
-              <a-input placeholder="请输入订单备注" v-decorator="['content', {}]"/>
+              <a-input placeholder="please enter 订单备注" v-decorator="['content', {}]"/>
             </a-form-item>
           </a-col>
         </a-row>
@@ -138,7 +138,7 @@
               width: '24%',
               type: FormTypes.input,
               defaultValue: '',
-              placeholder: '请输入${title}',
+              placeholder: 'please enter ${title}',
               validateRules: [{ required: true, message: '${title}不能为空' }]
             },
             {
@@ -146,7 +146,7 @@
               key: 'sex',
               width: '18%',
               type: FormTypes.select,
-              options: [ // 下拉选项
+              options: [ // 下拉选item
                 { title: '男', value: '1' },
                 { title: '女', value: '2' }
               ],
@@ -159,7 +159,7 @@
               width: '24%',
               type: FormTypes.input,
               defaultValue: '',
-              placeholder: '请输入${title}',
+              placeholder: 'please enter ${title}',
               validateRules: [{
                 pattern: '^\\d{6}(18|19|20)?\\d{2}(0[1-9]|1[012])(0[1-9]|[12]\\d|3[01])\\d{3}(\\d|[xX])$',
                 message: '${title}格式不正确'
@@ -171,7 +171,7 @@
               width: '24%',
               type: FormTypes.input,
               defaultValue: '',
-              placeholder: '请输入${title}',
+              placeholder: 'please enter ${title}',
               validateRules: [{
                 pattern: '^1(3|4|5|7|8)\\d{9}$',
                 message: '${title}格式不正确'
@@ -190,7 +190,7 @@
               width: '40%',
               type: FormTypes.input,
               defaultValue: '',
-              placeholder: '请输入${title}',
+              placeholder: 'please enter ${title}',
               validateRules: [{ required: true, message: '${title}不能为空' }]
             },
             {
@@ -275,7 +275,7 @@
       handleCancel() {
         this.close()
       },
-      /** ATab 选项卡切换事件 */
+      /** ATab 选item卡切换事件 */
       handleChangeTabs(key) {
         getRefPromise(this, `editableTable${key}`).then(editableTable => {
           editableTable.resetScrollTop()

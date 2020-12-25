@@ -86,7 +86,7 @@
   import GlobalFooter from '@/components/page/GlobalFooter'
   // update-start---- author:os_chengtgen -- date:20190830 --  for:issues/463 -编译主题颜色已生效，但还一直转圈，显示主题 正在编译 ------
   // import SettingDrawer from '@/components/setting/SettingDrawer'
-  // 注释这个因为在个人设置模块已经加载了SettingDrawer页面
+  // 注释这个因为在个人设置模块已经加载了SettingDrawerpage面
   // update-end ---- author:os_chengtgen -- date:20190830 --  for:issues/463 -编译主题颜色已生效，但还一直转圈，显示主题 正在编译 ------
 
   import { triggerWindowResizeEvent } from '@/utils/util'
@@ -101,7 +101,7 @@
       GlobalFooter,
       // update-start---- author:os_chengtgen -- date:20190830 --  for:issues/463 -编译主题颜色已生效，但还一直转圈，显示主题 正在编译 ------
       // // SettingDrawer
-      // 注释这个因为在个人设置模块已经加载了SettingDrawer页面
+      // 注释这个因为在个人设置模块已经加载了SettingDrawerpage面
       // update-end ---- author:os_chengtgen -- date:20190830 --  for:issues/463 -编译主题颜色已生效，但还一直转圈，显示主题 正在编译 ------
 
     },

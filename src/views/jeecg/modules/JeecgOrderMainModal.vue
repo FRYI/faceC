@@ -16,7 +16,7 @@
               :labelCol="labelCol"
               :wrapperCol="wrapperCol"
               label="订单号">
-              <a-input placeholder="请输入订单号" v-decorator="['orderCode', {rules: [{ required: true, message: '请输入订单号!' }]}]" />
+              <a-input placeholder="please enter 订单号" v-decorator="['orderCode', {rules: [{ required: true, message: 'please enter 订单号!' }]}]" />
             </a-form-item>
           </a-col>
           <a-col :lg="8">
@@ -24,7 +24,7 @@
               :labelCol="labelCol"
               :wrapperCol="wrapperCol"
               label="订单类型">
-              <a-select placeholder="请输入订单类型" v-decorator="['ctype',{}]">
+              <a-select placeholder="please enter 订单类型" v-decorator="['ctype',{}]">
                 <a-select-option value="1">国内订单</a-select-option>
                 <a-select-option value="2">国际订单</a-select-option>
               </a-select>
@@ -53,7 +53,7 @@
               :labelCol="labelCol"
               :wrapperCol="wrapperCol"
               label="订单备注">
-              <a-input placeholder="请输入订单备注" v-decorator="['content', {}]" />
+              <a-input placeholder="please enter 订单备注" v-decorator="['content', {}]" />
             </a-form-item>
           </a-col>
         </a-row>
@@ -73,7 +73,7 @@
               <a-row type="flex" style="margin-bottom:10px" :gutter="16" v-for="(item, index) in orderMainModel.jeecgOrderCustomerList" :key="index">
                 <a-col :span="5">
                   <a-form-item>
-                    <a-input placeholder="客户名" v-decorator="['jeecgOrderCustomerList['+index+'].name', {'initialValue':item.name,rules: [{ required: true, message: '请输入用户名!' }]}]" />
+                    <a-input placeholder="客户名" v-decorator="['jeecgOrderCustomerList['+index+'].name', {'initialValue':item.name,rules: [{ required: true, message: 'please enter 用户名!' }]}]" />
                   </a-form-item>
                 </a-col>
                 <a-col :span="5">
@@ -114,7 +114,7 @@
               <a-row type="flex" style="margin-bottom:10px" :gutter="16" v-for="(item, index) in orderMainModel.jeecgOrderTicketList" :key="index">
                 <a-col :span="6">
                   <a-form-item>
-                    <a-input placeholder="航班号" v-decorator="['jeecgOrderTicketList['+index+'].ticketCode', {'initialValue':item.ticketCode,rules: [{ required: true, message: '请输入航班号!' }]}]" />
+                    <a-input placeholder="航班号" v-decorator="['jeecgOrderTicketList['+index+'].ticketCode', {'initialValue':item.ticketCode,rules: [{ required: true, message: 'please enter 航班号!' }]}]" />
                   </a-form-item>
                 </a-col>
                 <a-col :span="6">
@@ -299,7 +299,7 @@
   .ant-form .ant-form-item {
     margin-bottom: 10px;
   }
-  /** Tab页面行间距 */
+  /** Tabpage面行间距 */
   .ant-tabs-content .ant-form-item {
     margin-bottom: 0px;
   }

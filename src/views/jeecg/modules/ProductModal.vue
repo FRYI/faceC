@@ -7,12 +7,12 @@
     switchFullscreen
     @ok="handleOk"
     @cancel="handleCancel"
-    cancelText="关闭">
+    cancelText="close">
     <a-spin :spinning="confirmLoading">
       <a-form :form="form">
 
         <a-form-item label="season" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-model="objseason" v-decorator="['season']" placeholder="请输入season"></a-input>
+          <a-input v-model="objseason" v-decorator="['season']" placeholder="please enter season"></a-input>
         </a-form-item>
 <!--        <a-form-item label="season" :labelCol="labelCol" :wrapperCol="wrapperCol"  has-feedback>-->
 <!--          <a-select-->
@@ -26,10 +26,10 @@
 <!--          </a-select>-->
 <!--        </a-form-item>-->
         <a-form-item label="sku" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['sku']" placeholder="请输入sku"></a-input>
+          <a-input v-decorator="['sku']" placeholder="please enter sku"></a-input>
         </a-form-item>
 <!--        <a-form-item label="project" :labelCol="labelCol" :wrapperCol="wrapperCol">-->
-<!--          <a-input v-decorator="['project', validatorRules.project]" placeholder="请输入project"></a-input>-->
+<!--          <a-input v-decorator="['project', validatorRules.project]" placeholder="please enter project"></a-input>-->
 <!--        </a-form-item>-->
 
         <a-form-item label="project" :labelCol="labelCol" :wrapperCol="wrapperCol"  @click.native="clickP()" has-feedback>
@@ -48,7 +48,7 @@
 
 
         <a-form-item label="productName" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['productName']" placeholder="请输入productName"></a-input>
+          <a-input v-decorator="['productName']" placeholder="please enter productName"></a-input>
         </a-form-item>
 
 <!--        <a-form-item label="supplier" :labelCol="labelCol" :wrapperCol="wrapperCol">-->
@@ -95,7 +95,7 @@
 
 
         <a-form-item label="description" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['description']" placeholder="请输入description"></a-input>
+          <a-input v-decorator="['description']" placeholder="please enter description"></a-input>
         </a-form-item>
         <a-form-item label="photo" :labelCol="labelCol" :wrapperCol="wrapperCol">
           <ImageIterm v-decorator="['photo']"  ref="image" @imagedatapost="imgget" > </ImageIterm>

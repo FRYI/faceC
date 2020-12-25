@@ -23,7 +23,7 @@
                 </a-list-item-meta>
               </a-list-item>
               <a-list-item>
-                <a-list-item-meta title="这种模板可以区分多种通知类型" description="一年前">
+                <a-list-item-meta title="这种模板可以区分多种notice类型" description="一年前">
                   <a-avatar style="background-color: white" slot="avatar" src="https://gw.alipayobjects.com/zos/rmsportal/kISTdvpyTAhtGxpovNWd.png"/>
                 </a-list-item-meta>
               </a-list-item>
@@ -41,7 +41,7 @@
                 </div>
               </a-list-item>
               <div style="margin-top: 5px;text-align: center">
-                <a-button @click="toMyAnnouncement()" type="dashed" block>查看更多</a-button>
+                <a-button @click="toMyAnnouncement()" type="dashed" block>show more</a-button>
               </div>
             </a-list>
           </a-tab-pane>
@@ -59,7 +59,7 @@
                 </div>
               </a-list-item>
               <div style="margin-top: 5px;text-align: center">
-                <a-button @click="toMyAnnouncement()" type="dashed" block>查看更多</a-button>
+                <a-button @click="toMyAnnouncement()" type="dashed" block>show more</a-button>
               </div>
             </a-list>
           </a-tab-pane>
@@ -102,7 +102,7 @@
         announcement2:[],
         msg1Count:"0",
         msg2Count:"0",
-        msg1Title:"通知(0)",
+        msg1Title:"notice(0)",
         msg2Title:"",
         stopTimer:false,
         websock: null,
@@ -123,7 +123,7 @@
       this.initWebSocket();
      // this.heartCheckFun();
     },
-    destroyed: function () { // 离开页面生命周期函数
+    destroyed: function () { // 离开page面生命周期函数
       this.websocketclose();
     },
     methods: {
@@ -140,24 +140,24 @@
       },
       loadData (){
         try {
-          // 获取系统消息
+          // 获取system information
           getAction(this.url.listCementByUser).then((res) => {
             if (res.success) {
               this.announcement1 = res.result.anntMsgList;
               this.msg1Count = res.result.anntMsgTotal;
-              this.msg1Title = "通知(" + res.result.anntMsgTotal + ")";
+              this.msg1Title = "notice(" + res.result.anntMsgTotal + ")";
               this.announcement2 = res.result.sysMsgList;
               this.msg2Count = res.result.sysMsgTotal;
-              this.msg2Title = "系统消息(" + res.result.sysMsgTotal + ")";
+              this.msg2Title = "system information(" + res.result.sysMsgTotal + ")";
             }
           }).catch(error => {
-            console.log("系统消息通知异常",error);//这行打印permissionName is undefined
+            console.log("system informationnotice异常",error);//这行打印permissionName is undefined
             this.stopTimer = true;
             console.log("清理timer");
           });
         } catch (err) {
           this.stopTimer = true;
-          console.log("通知异常",err);
+          console.log("notice异常",err);
         }
       },
       fetchNotice () {
@@ -222,7 +222,7 @@
         console.log("-----接收消息-------",e.data);
         var data = eval("(" + e.data + ")"); //解析对象
         if(data.cmd == "topic"){
-            //系统通知
+            //系统notice
           this.loadData();
         }else if(data.cmd == "user"){
             //用户消息

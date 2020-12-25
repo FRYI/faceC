@@ -31,7 +31,7 @@
 
     <a-card :bordered="false" title="流程进度">
       <a-steps :direction="isMobile() && 'vertical' || 'horizontal'" :current="1" progressDot>
-        <a-step title="创建项目">
+        <a-step title="创建item目">
         </a-step>
         <a-step title="部门初审">
         </a-step>
@@ -80,7 +80,7 @@
     </a-card>
 
     <a-card style="margin-top: 24px" :bordered="false" title="用户近半年来电记录">
-      <div class="no-data"><a-icon type="frown-o"/>暂无数据</div>
+      <div class="no-data"><a-icon type="frown-o"/>No data temporarily</div>
     </a-card>
 
     <!-- 操作 -->

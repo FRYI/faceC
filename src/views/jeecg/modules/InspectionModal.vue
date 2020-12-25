@@ -7,35 +7,35 @@
     switchFullscreen
     @ok="handleOk"
     @cancel="handleCancel"
-    cancelText="关闭">
+    cancelText="close">
     <a-spin :spinning="confirmLoading">
       <a-form :form="form">
         <a-form-item label="season" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input  v-decorator="['season']" placeholder="请输入season"></a-input>
+          <a-input  v-decorator="['season']" placeholder="please enter season"></a-input>
         </a-form-item>
         <a-form-item label="ordernumber" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['ordernumber']" placeholder="请输入ordernumber"></a-input>
+          <a-input v-decorator="['ordernumber']" placeholder="please enter ordernumber"></a-input>
         </a-form-item>
         <a-form-item label="supplier" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['supplier']" placeholder="请输入supplier"></a-input>
+          <a-input v-decorator="['supplier']" placeholder="please enter supplier"></a-input>
         </a-form-item>
         <a-form-item label="inspector" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['inspector']" placeholder="请输入inspector"></a-input>
+          <a-input v-decorator="['inspector']" placeholder="please enter inspector"></a-input>
         </a-form-item>
         <a-form-item label="depositeDate" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <j-date placeholder="请选择depositeDate" v-decorator="['depositeDate']" :trigger-change="true" style="width: 100%"/>
+          <j-date placeholder="please enter deposite Date" v-decorator="['depositeDate']" :trigger-change="true" style="width: 100%"/>
         </a-form-item>
         <a-form-item label="comfirmDate" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <j-date placeholder="请选择comfirmDate" v-decorator="['comfirmDate']" :trigger-change="true" style="width: 100%"/>
+          <j-date placeholder="please enter comfirm Date" v-decorator="['comfirmDate']" :trigger-change="true" style="width: 100%"/>
         </a-form-item>
         <a-form-item label="inspection Date" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <j-date placeholder="请选择inspection Date" v-decorator="['inspectionDate']" :trigger-change="true" style="width: 100%"/>
+          <j-date placeholder="please enter inspection Date" v-decorator="['inspectionDate']" :trigger-change="true" style="width: 100%"/>
         </a-form-item>
         <a-form-item label="deliveryDate" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <j-date placeholder="请选择deliveryDate" v-decorator="['deliveryDate']" :trigger-change="true" style="width: 100%"/>
+          <j-date placeholder="please enter delivery Date" v-decorator="['deliveryDate']" :trigger-change="true" style="width: 100%"/>
         </a-form-item>
         <a-form-item label="amount" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['amount']" placeholder="请输入amount"></a-input>
+          <a-input v-decorator="['amount']" placeholder="please enter amount"></a-input>
         </a-form-item>
 
       </a-form>

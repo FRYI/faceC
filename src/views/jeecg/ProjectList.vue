@@ -25,7 +25,7 @@
     <!-- table区域-begin -->
     <div>
       <div class="ant-alert ant-alert-info" style="margin-bottom: 16px;">
-        <i class="anticon anticon-info-circle ant-alert-icon"></i> 已选择 <a style="font-weight: 600">{{ selectedRowKeys.length }}</a>项
+        <i class="anticon anticon-info-circle ant-alert-icon"></i> Selected<a style="font-weight: 600">{{ selectedRowKeys.length }}</a>item
         <a style="margin-left: 24px" @click="onClearSelected">Clear Selected</a>
       </div>
 
@@ -141,7 +141,7 @@
     },
     data () {
       return {
-        description: 'project管理页面',
+        description: 'project管理page面',
         fieldList: superQueryFieldList,
         // 表头
         columns: [

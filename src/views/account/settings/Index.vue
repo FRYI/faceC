@@ -12,34 +12,35 @@
           >
             <a-menu-item key="/account/settings/base">
               <router-link :to="{ name: 'account-settings-base' }">
-                基本设置
+                basic settings
               </router-link>
             </a-menu-item>
             <a-menu-item key="/account/settings/security">
               <router-link :to="{ name: 'account-settings-security' }">
-                安全设置
+                security settings
               </router-link>
             </a-menu-item>
             <a-menu-item key="/account/settings/custom">
               <router-link :to="{ name: 'account-settings-custom' }">
-                个性化
+                personalise
               </router-link>
             </a-menu-item>
             <a-menu-item key="/account/settings/binding">
               <router-link :to="{ name: 'account-settings-binding' }">
-                账户绑定
+                account binding
               </router-link>
             </a-menu-item>
             <a-menu-item key="/account/settings/notification">
               <router-link :to="{ name: 'account-settings-notification' }">
-                新消息通知
+                new news notice
               </router-link>
             </a-menu-item>
           </a-menu>
         </div>
         <div class="account-settings-info-right">
           <div class="account-settings-info-title">
-            <span>{{ $route.meta.title }}</span>
+<!--            <span>{{ $route.meta.title }}</span>-->
+            <span>setting</span>
           </div>
           <route-view></route-view>
         </div>

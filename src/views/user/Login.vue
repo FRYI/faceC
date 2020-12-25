@@ -11,7 +11,7 @@
               size="large"
               v-decorator="['username',{initialValue:'', rules: validatorRules.username.rules}]"
               type="text"
-              placeholder="请输入帐户名 / admin">
+              placeholder="Please enter account name / admin">
               <a-icon slot="prefix" type="user" :style="{ color: 'rgba(0,0,0,.25)' }"/>
             </a-input>
           </a-form-item>
@@ -22,7 +22,7 @@
               size="large"
               type="password"
               autocomplete="false"
-              placeholder="密码 / 123456">
+              placeholder="password / 123456">
               <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
             </a-input>
           </a-form-item>
@@ -35,7 +35,7 @@
                   size="large"
                   type="text"
                   @change="inputCodeChange"
-                  placeholder="请输入验证码">
+                  placeholder="please enter verification code">
                   <a-icon slot="prefix" type="smile" :style="{ color: 'rgba(0,0,0,.25)' }"/>
                 </a-input>
               </a-form-item>
@@ -48,13 +48,13 @@
 
 
         </a-tab-pane>
-        <a-tab-pane key="tab2" tab="手机号登陆">
+        <a-tab-pane key="tab2" tab="Mobile phone number to log in">
           <a-form-item>
             <a-input
               v-decorator="['mobile',validatorRules.mobile]"
               size="large"
               type="text"
-              placeholder="手机号">
+              placeholder="phone number">
               <a-icon slot="prefix" type="mobile" :style="{ color: 'rgba(0,0,0,.25)' }"/>
             </a-input>
           </a-form-item>
@@ -66,7 +66,7 @@
                   v-decorator="['captcha',validatorRules.captcha]"
                   size="large"
                   type="text"
-                  placeholder="请输入验证码">
+                  placeholder="please enter verification code">
                   <a-icon slot="prefix" type="mail" :style="{ color: 'rgba(0,0,0,.25)' }"/>
                 </a-input>
               </a-form-item>
@@ -77,19 +77,19 @@
                 tabindex="-1"
                 :disabled="state.smsSendBtn"
                 @click.stop.prevent="getCaptcha"
-                v-text="!state.smsSendBtn && '获取验证码' || (state.time+' s')"></a-button>
+                v-text="!state.smsSendBtn && 'get verification code' || (state.time+' s')"></a-button>
             </a-col>
           </a-row>
         </a-tab-pane>
       </a-tabs>
 
       <a-form-item>
-        <a-checkbox v-decorator="['rememberMe', {initialValue: true, valuePropName: 'checked'}]" >自动登陆</a-checkbox>
+        <a-checkbox v-decorator="['rememberMe', {initialValue: true, valuePropName: 'checked'}]" >Automatic login</a-checkbox>
         <router-link :to="{ name: 'alteration'}" class="forge-password" style="float: right;">
-          忘记密码
+          forget password
         </router-link>
        <router-link :to="{ name: 'register'}" class="forge-password" style="float: right;margin-right: 10px" >
-          注册账户
+         register account
         </router-link>
       </a-form-item>
 
@@ -106,10 +106,10 @@
       </a-form-item>
 
       <div class="user-login-other">
-        <span>其他登陆方式</span>
+        <span>Other login methods</span>
         <a @click="onThirdLogin('github')" title="github"><a-icon class="item-icon" type="github"></a-icon></a>
-        <a @click="onThirdLogin('wechat_enterprise')" title="企业微信"><a-icon class="item-icon" type="wechat"></a-icon></a>
-        <a @click="onThirdLogin('dingtalk')" title="钉钉"><a-icon class="item-icon" type="dingding"></a-icon></a>
+        <a @click="onThirdLogin('wechat_enterprise')" title="Enterprise WeChat"><a-icon class="item-icon" type="wechat"></a-icon></a>
+        <a @click="onThirdLogin('dingtalk')" title="Nailed"><a-icon class="item-icon" type="dingding"></a-icon></a>
       </div>
     </a-form>
 
@@ -120,14 +120,14 @@
       @cancel="stepCaptchaCancel"></two-step-captcha>
 
     <a-modal
-      title="登录部门选择"
+      title="Login department selection"
       :width="450"
       :visible="departVisible"
       :closable="false"
       :maskClosable="false">
 
       <template slot="footer">
-        <a-button type="primary" @click="departOk">确认</a-button>
+        <a-button type="primary" @click="departOk">confirm</a-button>
       </template>
 
       <a-form>
@@ -138,11 +138,11 @@
           :validate-status="validate_status">
           <a-tooltip placement="topLeft" >
             <template slot="title">
-              <span>您隶属于多部门，请选择登录部门</span>
+              <span>You belong to multiple departments, please select login department</span>
             </template>
             <a-avatar style="backgroundColor:#87d068" icon="gold" />
           </a-tooltip>
-          <a-select @change="departChange" :class="{'valid-error':validate_status=='error'}" placeholder="请选择登录部门" style="margin-left:10px;width: 80%">
+          <a-select @change="departChange" :class="{'valid-error':validate_status=='error'}" placeholder="please select login department" style="margin-left:10px;width: 80%">
             <a-icon slot="suffixIcon" type="gold" />
             <a-select-option
               v-for="d in departList"
@@ -196,11 +196,11 @@
           smsSendBtn: false,
         },
         validatorRules:{
-          username:{rules: [{ required: true, message: '请输入用户名!'},{validator: this.handleUsernameOrEmail}]},
-          password:{rules: [{ required: true, message: '请输入密码!',validator: 'click'}]},
+          username:{rules: [{ required: true, message: 'please enter user name!'},{validator: this.handleUsernameOrEmail}]},
+          password:{rules: [{ required: true, message: 'Please enter password!',validator: 'click'}]},
           mobile:{rules: [{validator:this.validateMobile}]},
-          captcha:{rule: [{ required: true, message: '请输入验证码!'}]},
-          inputCode:{rules: [{ required: true, message: '请输入验证码!'}]}
+          captcha:{rule: [{ required: true, message: 'please enter verification code!'}]},
+          inputCode:{rules: [{ required: true, message: 'please enter verification code!'}]}
         },
         verifiedCode:"",
         inputCodeContent:"",
@@ -314,7 +314,7 @@
         let that = this;
         this.form.validateFields([ 'mobile' ], { force: true },(err,values) => {
             if(!values.mobile){
-              that.cmsFailed("请输入手机号");
+              that.cmsFailed("Please enter phone number");
             }else if (!err) {
               this.state.smsSendBtn = true;
               let interval = window.setInterval(() => {
@@ -325,7 +325,7 @@
                 }
               }, 1000);
 
-              const hide = this.$message.loading('验证码发送中..', 0);
+              const hide = this.$message.loading('Verification code sending..', 0);
               let smsParams = {};
                   smsParams.mobile=values.mobile;
                   smsParams.smsmode="0";
@@ -378,21 +378,21 @@
         // update-end- author:sunjianlei --- date:20190812 --- for: 登录成功后不解除禁用按钮，防止多次点击
         this.$router.push({ path: "/dashboard/analysis" })
         this.$notification.success({
-          message: '欢迎',
-          description: `${timeFix()}，欢迎回来`,
+          message: 'Welcome',
+          description: `${timeFix()}，Welcome Back`,
         });
       },
       cmsFailed(err){
         this.$notification[ 'error' ]({
-          message: "登录失败",
+          message: "Login failed",
           description:err,
           duration: 4,
         });
       },
       requestFailed (err) {
         this.$notification[ 'error' ]({
-          message: '登录失败',
-          description: ((err.response || {}).data || {}).message || err.message || "请求出现错误，请稍后再试",
+          message: 'Login failed',
+          description: ((err.response || {}).data || {}).message || err.message || "There was an error in the request, please try again later",
           duration: 4,
         });
         this.loginBtn = false;
@@ -401,7 +401,7 @@
         if (!value || new RegExp(/^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/).test(value)){
           callback();
         }else{
-          callback("您的手机号码格式不正确!");
+          callback("Your phone number format is incorrect!");
         }
 
       },
@@ -409,7 +409,7 @@
         if(!value || this.verifiedCode==this.inputCodeContent){
           callback();
         }else{
-          callback("您输入的验证码不正确!");
+          callback("The code you entered is incorrect!");
         }
       },
       generateCode(value){
@@ -425,8 +425,8 @@
           if(multi_depart==0){
             this.loginSuccess()
             this.$notification.warn({
-              message: '提示',
-              description: `您尚未归属部门,请确认账号信息`,
+              message: 'prompt',
+              description: `You have not belonged to a department, please confirm account information`,
               duration:3
             });
           }else if(multi_depart==2){

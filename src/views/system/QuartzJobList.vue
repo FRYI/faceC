@@ -8,7 +8,7 @@
 
           <a-col :md="6" :sm="10">
             <a-form-item label="任务类名">
-              <a-input placeholder="请输入任务类名" v-model="queryParam.jobClassName"></a-input>
+              <a-input placeholder="please enter 任务类名" v-model="queryParam.jobClassName"></a-input>
             </a-form-item>
           </a-col>
           <a-col :md="6" :sm="10">
@@ -34,14 +34,14 @@
 
     <!-- 操作按钮区域 -->
     <div class="table-operator">
-      <a-button @click="handleAdd" type="primary" icon="plus">新增</a-button>
+      <a-button @click="handleAdd" type="primary" icon="plus">New</a-button>
       <a-button type="primary" icon="download" @click="handleExportXls('定时任务信息')">导出</a-button>
       <a-upload name="file" :showUploadList="false" :multiple="false" :headers="tokenHeader" :action="importExcelUrl" @change="handleImportExcel">
         <a-button type="primary" icon="import">导入</a-button>
       </a-upload>
       <a-dropdown v-if="selectedRowKeys.length > 0">
         <a-menu slot="overlay">
-          <a-menu-item key="1" @click="batchDel"><a-icon type="delete"/>删除</a-menu-item>
+          <a-menu-item key="1" @click="batchDel"><a-icon type="delete"/>Delete</a-menu-item>
         </a-menu>
         <a-button style="margin-left: 8px"> Bulk Operations <a-icon type="down" /></a-button>
       </a-dropdown>
@@ -50,8 +50,8 @@
     <!-- table区域-begin -->
     <div>
       <div class="ant-alert ant-alert-info" style="margin-bottom: 16px;">
-        <i class="anticon anticon-info-circle ant-alert-icon"></i> 已选择 <a style="font-weight: 600">{{ selectedRowKeys.length }}</a>项
-        <a style="margin-left: 24px" @click="onClearSelected">清空</a>
+        <i class="anticon anticon-info-circle ant-alert-icon"></i> Selected<a style="font-weight: 600">{{ selectedRowKeys.length }}</a>item
+        <a style="margin-left: 24px" @click="onClearSelected">clear</a>
       </div>
 
       <a-table
@@ -83,10 +83,10 @@
           <a-dropdown>
             <a class="ant-dropdown-link">更多 <a-icon type="down" /></a>
             <a-menu slot="overlay">
-              <a-menu-item><a @click="handleEdit(record)">编辑</a></a-menu-item>
+              <a-menu-item><a @click="handleEdit(record)">Edit</a></a-menu-item>
               <a-menu-item>
-                <a-popconfirm title="confirm删除吗?" @confirm="() => handleDelete(record.id)">
-                  <a>删除</a>
+                <a-popconfirm title="confirmDelete吗?" @confirm="() => handleDelete(record.id)">
+                  <a>Delete</a>
                 </a-popconfirm>
               </a-menu-item>
             </a-menu>
@@ -205,7 +205,7 @@
 
       //筛选需要重写handleTableChange
       handleTableChange(pagination, filters, sorter) {
-        //分页、排序、筛选变化时触发
+        //分page、排序、筛选变化时触发
         //TODO 筛选
         if (Object.keys(sorter).length > 0) {
           this.isorter.column = sorter.field;

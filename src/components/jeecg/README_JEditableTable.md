@@ -4,7 +4,7 @@
 
 | 参数         | 类型    | 必填 | 说明                                                                            |
 |--------------|---------|------|---------------------------------------------------------------------------------|
-| columns      | array   | ✔️    | 表格列的配置描述，具体项见下表                                                  |
+| columns      | array   | ✔️    | 表格列的配置描述，具体item见下表                                                  |
 | dataSource   | array   | ✔️    | 表格数据                                                                        |
 | loading      | boolean |      | 是否正在加载，加载中不会显示任何行，默认false                                   |
 | actionButton | boolean |      | 是否显示操作按钮，包括"新增"、"删除"，默认false                                 |
@@ -13,7 +13,7 @@
 | dragSort     | boolean |      | 是否可拖动排序，默认false                                                       |
 | dragSortKey  | string  |      | 拖动排序存储的Key，无需定义在columns内也能在getValues()时获取到值，默认orderNum |
 | maxHeight    | number  |      | 设定最大高度(px)，默认400                                                       |
-| disabledRows | object  |      | 设定禁用的行，被禁用的行无法被选择和编辑，配置方法可以查看示例                  |
+| disabledRows | object  |      | 设定禁用的行，被禁用的行无法被选择和Edit，配置方法可以查看示例                  |
 | disabled     | boolean |      | 是否禁用所有行，默认false                                                       |
 
 ### columns 参数详解
@@ -21,7 +21,7 @@
 | 参数          | 类型    | 必填 | 说明                                                                                                                                                   |
 |---------------|---------|------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | title         | string  | ✔️    | 表格列头显示的问题                                                                                                                                     |
-| key           | string  | ✔️    | 列数据在数据项中对应的 key，必须是唯一的                                                                                                               |
+| key           | string  | ✔️    | 列数据在数据item中对应的 key，必须是唯一的                                                                                                               |
 | type          | string  | ✔️    | 表单的类型，可以通过`JEditableTableUtil.FormTypes`赋值                                                                                                 |
 | width         | string  |      | 列的宽度，可以是百分比，也可以是`px`或其他单位，建议设置为百分比，且每一列的宽度加起来不应超过100%，否则可能会不能达到预期的效果。留空会自动计算百分比 |
 | placeholder   | string  |      | 表单预期值的提示信息，可以使用`${...}`变量替换文本（详见`${...} 变量使用方式`）                                                                        |
@@ -41,7 +41,7 @@
 
 | 参数       | 类型    | 必填 | 说明                                               |
 |------------|---------|------|----------------------------------------------------|
-| options    | array   | ✔️    | 下拉选项列表，详见下表                             |
+| options    | array   | ✔️    | 下拉选item列表，详见下表                             |
 | allowInput | boolean |      | 是否允许用户输入内容，并创建新的内容               |
 | dictCode   | String  |      | 数据字典Code，若options也有值，则拼接在options后面 |
 
@@ -69,7 +69,7 @@
 
 ### validateRules 配置规则
 
-`validateRules` 需要的是一个数组，数组里每项都是一个规则，规则是object类型，规则的各个参数如下
+`validateRules` 需要的是一个数组，数组里每item都是一个规则，规则是object类型，规则的各个参数如下
 
 - `required` 是否必填，可选值为`true`or`false`
 - `pattern` 正则表达式验证，只有成功匹配该正则的值才能成功通过验证
@@ -92,7 +92,7 @@
 
 ### initialize
 
-用于初始化表格（清空表格）
+用于初始化表格（clear表格）
 
 - `参数:` 无
 - `返回值:` 无
@@ -105,7 +105,7 @@
 
 | 参数名 | 类型   | 必填 | 说明                                                                                                   |
 |--------|--------|------|--------------------------------------------------------------------------------------------------------|
-| top    | number |      | 新top位置，留空则滚动到上次记录的位置，用于解决切换tab选项卡时导致白屏以及自动将滚动条滚动到顶部的问题 |
+| top    | number |      | 新top位置，留空则滚动到上次记录的位置，用于解决切换tab选item卡时导致白屏以及自动将滚动条滚动到顶部的问题 |
 
 - `返回值:` 无
 
@@ -164,7 +164,7 @@
 
 | 参数名  | 类型   | 必填 | 说明                   |
 |---------|--------|------|------------------------|
-| options | object |      | 选项，详见下方所需参数 |
+| options | object |      | 选item，详见下方所需参数 |
 
 - - `options` 所需参数
 
@@ -230,7 +230,7 @@ if (error === 0) {
 
 | 参数名 | 类型  | 必填 | 说明                                                       |
 |--------|-------|------|------------------------------------------------------------|
-| values | array |      | 传入一个数组，数组中的每项都是一行的新值，具体见下面的示例 |
+| values | array |      | 传入一个数组，数组中的每item都是一行的新值，具体见下面的示例 |
 
 - `返回值:` 无
 - `示例：`
@@ -255,7 +255,7 @@ setValues([
 ```
 ### clearSelection
 
-主动清空选择的行
+主动clear选择的行
 
 - `参数:` 无
 - `返回值:` 无
@@ -270,7 +270,7 @@ setValues([
 ## ${...} 变量使用方式
 
 在`placeholder`和`message`这两个属性中可以使用`${...}`变量来替换文本
-在[示例二](#示例二)中，配置了`title`为`名称`的一列，而`placeholder`配置成了`请输入${title}`，那么最终显示效果为`请输入名称`
+在[示例二](#示例二)中，配置了`title`为`名称`的一列，而`placeholder`配置成了`please enter ${title}`，那么最终显示效果为`please enter 名称`
 这就是`${...}`变量的使用方式，在`${}`中可以使用的变量有`title`、`key`、`defaultValue`这三个属性的值
 
 ## JEditableTableUtil 使用说明
@@ -301,13 +301,13 @@ setValues([
 
 #### validateTables
 
-当你的页面中存在多个JEditableTable实例的时候，如果要获取每个实例的值、判断表单验证是否通过，就会让代码变得极其冗余、繁琐，于是我们就将该操作封装成了一个函数供你调用，它可以同时获取并验证多个JEditableTable实例的值，只有当所有实例的表单验证都通过后才会返回值，否则将会告诉你具体哪个实例没有通过验证。具体使用方法请看下面的示例
+当你的page面中存在多个JEditableTable实例的时候，如果要获取每个实例的值、判断表单验证是否通过，就会让代码变得极其冗余、繁琐，于是我们就将该操作封装成了一个函数供你调用，它可以同时获取并验证多个JEditableTable实例的值，只有当所有实例的表单验证都通过后才会返回值，否则将会告诉你具体哪个实例没有通过验证。具体使用方法请看下面的示例
 
 - `参数:`
 
 | 参数名 | 类型  | 必填 | 说明                                                   |
 |--------|-------|------|--------------------------------------------------------|
-| cases  | array |      | 传入一个数组，数组中的每项都是一个JEditableTable的实例 |
+| cases  | array |      | 传入一个数组，数组中的每item都是一个JEditableTable的实例 |
 
 - `返回值:` Promise
 - `示例：`
@@ -323,7 +323,7 @@ cases.push(this.$refs.editableTable4)
 cases.push(this.$refs.editableTable5)
 // 同时验证并获取多个实例的值
 validateTables(cases).then((all) => {
-    // all 是一个数组，每项都对应传入cases的下标，包含values和deleteIds
+    // all 是一个数组，每item都对应传入cases的下标，包含values和deleteIds
     console.log('所有实例的值：', all)
 }).catch((e = {}) => {
     // 判断表单验证是否未通过
@@ -354,7 +354,7 @@ validateTables(cases).then((all) => {
 
 该功能已封装到组件中，你只需要将 `actionButton` 设置为 `true` 即可，当然你也可以在代码中主动调用新增方法或修改，具体见上方的方法介绍。
 
-### 为什么使用了ATab组件后，切换选项卡会导致白屏或滚动条位置会归零？
+### 为什么使用了ATab组件后，切换选item卡会导致白屏或滚动条位置会归零？
 
 在ATab组件中确实会导致滚动条位置归零，且不会触发`onscroll`方法，所以无法动态加载行，导致白屏的问题出现。
 解决方法是在ATab组件的`onChange`事件触发时执行实例提供的`resetScrollTop()`方法即可，但是需要注意的是：代码主动改变ATab的`activeKey`不会触发`onChange`事件，还需要你手动调用下。
@@ -386,7 +386,7 @@ validateTables(cases).then((all) => {
 /*--- 忽略部分代码片段 ---*/
 methods: {
 
-      /** 切换tab选项卡的时候重置editableTable的滚动条状态 */
+      /** 切换tab选item卡的时候重置editableTable的滚动条状态 */
       handleChangeTab(key) {
         this.$refs[`editableTable${key}`].resetScrollTop()
       }
@@ -428,7 +428,7 @@ columns: [
         title: '名称',
         key: 'name',
         type: FormTypes.input,
-        placeholder: '请输入${title}',
+        placeholder: 'please enter ${title}',
         defaultValue: '称名',
         // 表单验证规则
         validateRules: [
@@ -446,7 +446,7 @@ columns: [
         title: '年龄',
         key: 'age',
         type: FormTypes.inputNumber,
-        placeholder: '请输入${title}',
+        placeholder: 'please enter ${title}',
         defaultValue: 18,
         validateRules: [{required: true, message: '${title}不能为空'}]
     }
@@ -545,7 +545,7 @@ columns: [
                     // callback(flag, message) 方法必须执行且只能执行一次
                     //          flag = 是否通过了校验，不填写或者填写 null 代表不进行任何操作
                     //          message = 提示的类型，默认使用配置的 message
-                    // target 行编辑的实例对象
+                    // target 行Edit的实例对象
 
                     if (type === 'blur') {
 

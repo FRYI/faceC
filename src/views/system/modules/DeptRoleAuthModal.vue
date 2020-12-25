@@ -45,7 +45,7 @@
           树操作 <a-icon type="up" />
         </a-button>
       </a-dropdown>
-      <a-popconfirm title="confirm放弃编辑？" @confirm="close" okText="confirm" cancelText="cancel">
+      <a-popconfirm title="confirm放弃Edit？" @confirm="close" okText="confirm" cancelText="cancel">
         <a-button style="margin-right: .8rem">cancel</a-button>
       </a-popconfirm>
       <a-button @click="handleSubmit(false)" type="primary" :loading="loading" ghost style="margin-right: 0.8rem">仅保存</a-button>

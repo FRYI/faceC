@@ -18,7 +18,7 @@
           label="机构名称"
           :hidden="false"
           hasFeedback >
-          <a-input id="departName" placeholder="请输入机构/部门名称" v-decorator="['departName', validatorRules.departName ]"/>
+          <a-input id="departName" placeholder="please enter 机构/部门名称" v-decorator="['departName', validatorRules.departName ]"/>
         </a-form-item>
         <a-form-item :labelCol="labelCol" :wrapperCol="wrapperCol" :hidden="seen" label="上级部门" hasFeedback>
         <a-tree-select
@@ -56,19 +56,19 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="电话">
-          <a-input placeholder="请输入电话" v-decorator="['mobile',validatorRules.mobile]" />
+          <a-input placeholder="please enter 电话" v-decorator="['mobile',validatorRules.mobile]" />
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="传真">
-          <a-input placeholder="请输入传真" v-decorator="['fax', {}]"  />
+          <a-input placeholder="please enter 传真" v-decorator="['fax', {}]"  />
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="地址">
-          <a-input placeholder="请输入地址" v-decorator="['address', {}]"  />
+          <a-input placeholder="please enter 地址" v-decorator="['address', {}]"  />
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
@@ -80,7 +80,7 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="备注">
-          <a-textarea placeholder="请输入备注" v-decorator="['memo', {}]"  />
+          <a-textarea placeholder="please enter 备注" v-decorator="['memo', {}]"  />
         </a-form-item>
 
       </a-form>
@@ -122,8 +122,8 @@
         confirmLoading: false,
         form: this.$form.createForm(this),
         validatorRules:{
-        departName:{rules: [{ required: true, message: '请输入机构/部门名称!' }]},
-        orgCode:{rules: [{ required: true, message: '请输入机构编码!' }]},
+        departName:{rules: [{ required: true, message: 'please enter 机构/部门名称!' }]},
+        orgCode:{rules: [{ required: true, message: 'please enter 机构编码!' }]},
          mobile:{rules: [{validator:this.validateMobile}]}
         },
         url: {

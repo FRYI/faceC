@@ -25,7 +25,7 @@
     },
     data() {
       return {
-        description: '存放位置设置表管理页面',
+        description: '存放位置设置表管理page面',
         levelNum:{},
         gridNum:0,
         boxNum:0,

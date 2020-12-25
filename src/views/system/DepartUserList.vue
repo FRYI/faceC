@@ -3,7 +3,7 @@
     <a-col :md="8" :sm="24">
       <a-card :bordered="false">
         <div style="background: #fff;padding-left:16px;height: 100%; margin-top: 5px">
-          <a-input-search @search="onSearch" style="width:100%;margin-top: 10px" placeholder="请输入部门名称"/>
+          <a-input-search @search="onSearch" style="width:100%;margin-top: 10px" placeholder="please enter 部门名称"/>
           <!-- 树-->
 
           <template v-if="userIdentity === '2' && departTree.length>0">

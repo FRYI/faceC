@@ -11,10 +11,10 @@
       <a-form :form="form">
 
         <a-form-item label="类目" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['projectName']" placeholder="请输入类目"></a-input>
+          <a-input v-decorator="['projectName']" placeholder="please enter 类目"></a-input>
         </a-form-item>
         <a-form-item label="类目产品参数" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['paramData']" placeholder="请输入类目产品参数"></a-input>
+          <a-input v-decorator="['paramData']" placeholder="please enter 类目产品参数"></a-input>
         </a-form-item>
         
       </a-form>

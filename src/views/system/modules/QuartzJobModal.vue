@@ -17,31 +17,31 @@
           :wrapperCol="wrapperCol"
           label="任务类名"
           hasFeedback >
-          <a-input placeholder="请输入任务类名" v-decorator="['jobClassName', {rules: [{ required: true, message: '请输入任务类名!' }]}]" />
+          <a-input placeholder="please enter 任务类名" v-decorator="['jobClassName', {rules: [{ required: true, message: 'please enter 任务类名!' }]}]" />
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="cron表达式">
-<!--                    <a-input placeholder="请输入cron表达式" v-decorator="['cronExpression', {'initialValue':'0/1 * * * * ?',rules: [{ required: true, message: '请输入任务类名!' }]}]" />-->
+<!--                    <a-input placeholder="please enter cron表达式" v-decorator="['cronExpression', {'initialValue':'0/1 * * * * ?',rules: [{ required: true, message: 'please enter 任务类名!' }]}]" />-->
 <!--                    <a target="_blank" href="http://cron.qqe2.com/">-->
 <!--                      <a-icon type="share-alt" />-->
 <!--                      在线cron表达式生成-->
 <!--                    </a>-->
-<!--          <j-cron ref="innerVueCron" v-decorator="['cronExpression', {'initialValue':'0/1 * * * * ?',rules: [{ required: true, message: '请输入cron表达式!' }]}]"  @change="setCorn"></j-cron>-->
+<!--          <j-cron ref="innerVueCron" v-decorator="['cronExpression', {'initialValue':'0/1 * * * * ?',rules: [{ required: true, message: 'please enter cron表达式!' }]}]"  @change="setCorn"></j-cron>-->
           <j-cron ref="innerVueCron" v-decorator="['cronExpression', { initialValue: '* * * * * ? *' }]" @change="setCorn"></j-cron>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="参数">
-          <a-textarea placeholder="请输入参数" :rows="5" v-decorator="['parameter', {}]" />
+          <a-textarea placeholder="please enter 参数" :rows="5" v-decorator="['parameter', {}]" />
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="描述">
-          <a-textarea placeholder="请输入描述" :rows="3" v-decorator="['description', {}]" />
+          <a-textarea placeholder="please enter 描述" :rows="3" v-decorator="['description', {}]" />
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
@@ -88,7 +88,7 @@
         validatorRules: {
           cron: {
             rules: [{
-              required: true, message: '请输入cron表达式!'
+              required: true, message: 'please enter cron表达式!'
             }]
           }
         },
@@ -126,7 +126,7 @@
           console.log('values',values)
           if (!err) {
             if (typeof values.cronExpression == "undefined" || Object.keys(values.cronExpression).length==0 ) {
-              this.$message.warning('请输入cron表达式!');
+              this.$message.warning('please enter cron表达式!');
               return false;
             }
 
@@ -170,14 +170,14 @@
 
         // console.log(Object.keys(data).length==0);
         if (Object.keys(data).length==0) {
-          this.$message.warning('请输入cron表达式!');
+          this.$message.warning('please enter cron表达式!');
         }
       },
       validateCron(rule, value, callback){
         if(!value){
           callback()
         }else if (Object.keys(value).length==0) {
-          callback("请输入cron表达式!");
+          callback("please enter cron表达式!");
         }
       },
 

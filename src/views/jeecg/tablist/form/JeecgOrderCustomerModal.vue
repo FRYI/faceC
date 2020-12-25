@@ -7,9 +7,9 @@
     :okButtonProps="{ props: {disabled: disableSubmit} }"
     @ok="handleOk"
     @cancel="handleCancel"
-    cancelText="关闭">
+    cancelText="close">
 
-    <!-- 编辑 -->
+    <!-- Edit -->
     <a-spin :spinning="confirmLoading" v-if="editStatus">
       <a-form :form="form">
 
@@ -18,7 +18,7 @@
           :wrapperCol="wrapperCol"
           label="客户姓名"
           hasFeedback>
-          <a-input placeholder="请输入客户姓名" v-decorator="['name', {rules: [{ required: true, message: '请输入客户姓名!' }]}]"
+          <a-input placeholder="please enter 客户姓名" v-decorator="['name', {rules: [{ required: true, message: 'please enter 客户姓名!' }]}]"
                    :readOnly="disableSubmit"/>
         </a-form-item>
         <a-form-item
@@ -36,7 +36,7 @@
           :wrapperCol="wrapperCol"
           label="身份证号码"
           hasFeedback>
-          <a-input placeholder="请输入身份证号码" v-decorator="['idcard', validatorRules.idcard]" :readOnly="disableSubmit"/>
+          <a-input placeholder="please enter 身份证号码" v-decorator="['idcard', validatorRules.idcard]" :readOnly="disableSubmit"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"

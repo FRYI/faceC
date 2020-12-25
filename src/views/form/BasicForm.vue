@@ -8,7 +8,7 @@
         <a-input
           v-decorator="[
             'name',
-            {rules: [{ required: true, message: '请输入标题' }]}
+            {rules: [{ required: true, message: 'please enter 标题' }]}
           ]"
           name="name"
           placeholder="给目标起个名字" />
@@ -31,10 +31,10 @@
         :wrapperCol="{lg: {span: 10}, sm: {span: 17} }">
         <a-textarea
           rows="4"
-          placeholder="请输入你阶段性工作目标"
+          placeholder="please enter 你阶段性工作目标"
           v-decorator="[
             'description',
-            {rules: [{ required: true, message: '请输入目标描述' }]}
+            {rules: [{ required: true, message: 'please enter 目标描述' }]}
           ]" />
       </a-form-item>
       <a-form-item
@@ -43,10 +43,10 @@
         :wrapperCol="{lg: {span: 10}, sm: {span: 17} }">
         <a-textarea
           rows="4"
-          placeholder="请输入衡量标准"
+          placeholder="please enter 衡量标准"
           v-decorator="[
             'type',
-            {rules: [{ required: true, message: '请输入衡量标准' }]}
+            {rules: [{ required: true, message: 'please enter 衡量标准' }]}
           ]" />
       </a-form-item>
       <a-form-item
@@ -113,7 +113,7 @@
     name: 'BaseForm',
     data () {
       return {
-        description: '表单页用于向用户收集或验证信息，基础表单常见于数据项较少的表单场景。',
+        description: '表单page用于向用户收集或验证信息，基础表单常见于数据item较少的表单场景。',
         value: 1,
 
         // form

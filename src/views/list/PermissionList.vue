@@ -5,14 +5,14 @@
         <a-row :gutter="48">
           <a-col :md="8" :sm="24">
             <a-form-item label="角色ID">
-              <a-input placeholder="请输入"/>
+              <a-input placeholder="please enter "/>
             </a-form-item>
           </a-col>
           <a-col :md="8" :sm="24">
             <a-form-item label="状态">
               <a-select placeholder="请选择" default-value="0">
                 <a-select-option value="0">全部</a-select-option>
-                <a-select-option value="1">关闭</a-select-option>
+                <a-select-option value="1">close</a-select-option>
                 <a-select-option value="2">运行中</a-select-option>
               </a-select>
             </a-form-item>
@@ -38,7 +38,7 @@
       </span>
 
       <span slot="action" slot-scope="text, record">
-        <a @click="handleEdit(record)">编辑</a>
+        <a @click="handleEdit(record)">Edit</a>
         <a-divider type="vertical" />
         <a-dropdown>
           <a class="ant-dropdown-link">
@@ -52,7 +52,7 @@
               <a href="javascript:;">禁用</a>
             </a-menu-item>
             <a-menu-item>
-              <a href="javascript:;">删除</a>
+              <a href="javascript:;">Delete</a>
             </a-menu-item>
           </a-menu>
         </a-dropdown>
@@ -157,7 +157,7 @@
         form: null,
         mdl: {},
 
-        // 高级搜索 展开/关闭
+        // 高级搜索 展开/close
         advanced: false,
         // 查询参数
         queryParam: {},
@@ -225,11 +225,11 @@
         // permissionList
         new Promise((resolve => {
           const data = [
-            { label: '新增', value: 'add', defaultChecked: false },
+            { label: 'New', value: 'add', defaultChecked: false },
             { label: '查询', value: 'get', defaultChecked: false },
             { label: '修改', value: 'update', defaultChecked: false },
             { label: '列表', value: 'query', defaultChecked: false },
-            { label: '删除', value: 'delete', defaultChecked: false },
+            { label: 'Delete', value: 'delete', defaultChecked: false },
             { label: '导入', value: 'import', defaultChecked: false },
             { label: '导出', value: 'export', defaultChecked: false }
           ]

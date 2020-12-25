@@ -33,7 +33,7 @@
   }
 </script>
 <style lang="less" scoped>
-  /*缩小首页布 局顶部的高度*/
+  /*缩小首page布 局顶部的高度*/
   @height: 59px;
 
   .sider {

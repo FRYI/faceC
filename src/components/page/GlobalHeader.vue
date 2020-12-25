@@ -142,7 +142,7 @@
       buildTopMenuStyle() {
         if (this.mode === 'topmenu') {
           if (this.device === 'mobile') {
-            // 手机端需要清空样式，否则显示会错乱
+            // 手机端需要clear样式，否则显示会错乱
             this.topMenuStyle.topNavHeader = {}
             this.topMenuStyle.topSmenuStyle = {}
             this.topMenuStyle.headerIndexRight = {}
@@ -162,7 +162,7 @@
 </script>
 
 <style lang="less" scoped>
-  /* update_begin author:scott date:20190220 for: 缩小首页布局顶部的高度*/
+  /* update_begin author:scott date:20190220 for: 缩小首page布局顶部的高度*/
 
   @height: 59px;
 
@@ -213,6 +213,6 @@
     line-height: @height;
   }
 
-  /* update_end author:scott date:20190220 for: 缩小首页布局顶部的高度*/
+  /* update_end author:scott date:20190220 for: 缩小首page布局顶部的高度*/
 
 </style>

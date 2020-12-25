@@ -6,8 +6,8 @@
     :closable="false"
     :maskClosable="closable">
     <template slot="footer">
-      <a-button v-if="closable" @click="close">关闭</a-button>
-      <a-button type="primary" @click="departOk">确认</a-button>
+      <a-button v-if="closable" @click="close">close</a-button>
+      <a-button type="primary" @click="departOk">ok</a-button>
     </template>
 
     <a-form>
@@ -18,11 +18,11 @@
         :validate-status="validate_status">
         <a-tooltip placement="topLeft" >
           <template slot="title">
-            <span>您隶属于多部门，请选择当前所在部门</span>
+            <span>You belong to multiple departments, please select the current department</span>
           </template>
           <a-avatar style="backgroundColor:#87d068" icon="gold" />
         </a-tooltip>
-        <a-select v-model="departSelected" :class="{'valid-error':validate_status=='error'}" placeholder="请选择登录部门" style="margin-left:10px;width: 80%">
+        <a-select v-model="departSelected" :class="{'valid-error':validate_status=='error'}" placeholder="Please select login department" style="margin-left:10px;width: 80%">
           <a-icon slot="suffixIcon" type="gold" />
           <a-select-option
             v-for="d in departList"
@@ -50,7 +50,7 @@
     props:{
       title:{
         type:String,
-        default:"部门选择",
+        default:"Department selection",
         required:false
       },
       closable:{
@@ -104,7 +104,7 @@
               this.departSelected = orgCode
               this.departList  = departs
               if(this.currDepartName){
-                this.currTitle ="部门切换（当前部门 : "+this.currDepartName+"）"
+                this.currTitle ="Department switch（current department : "+this.currDepartName+"）"
               }
 
             }
@@ -139,7 +139,7 @@
         this.loadDepartList().then(()=>{
           this.visible=true
           if(!this.departList || this.departList.length<=0){
-            this.$message.warning("您尚未设置部门信息!")
+            this.$message.warning("You have not set department information!")
             this.departClear()
           }
         })

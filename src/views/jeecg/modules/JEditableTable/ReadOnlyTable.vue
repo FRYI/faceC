@@ -24,7 +24,7 @@
             title: '输入框',
             key: 'input',
             type: FormTypes.input,
-            placeholder: '清输入'
+            placeholder: 'please enter '
           },
           {
             title: '下拉框',

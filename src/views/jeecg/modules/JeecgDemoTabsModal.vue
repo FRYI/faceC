@@ -6,7 +6,7 @@
     :confirmLoading="confirmLoading"
     @ok="handleOk"
     @cancel="handleCancel"
-    cancelText="关闭">
+    cancelText="close">
 
     <a-spin :spinning="confirmLoading">
       <a-form :form="form">
@@ -15,12 +15,12 @@
           <a-row class="form-row" :gutter="16">
             <a-col :lg="8">
               <a-form-item label="任务名">
-                <a-input placeholder="请输入任务名称"  v-decorator="[ 'task.name', {rules: [{ required: true, message: '请输入任务名称', whitespace: true}]} ]"/>
+                <a-input placeholder="please enter 任务名称"  v-decorator="[ 'task.name', {rules: [{ required: true, message: 'please enter 任务名称', whitespace: true}]} ]"/>
               </a-form-item>
             </a-col>
             <a-col :lg="8">
               <a-form-item label="任务描述">
-                <a-input placeholder="请输入任务描述"  v-decorator="['task.description', {rules: [{ required: true, message: '请输入任务描述', whitespace: true}]} ]"/>
+                <a-input placeholder="please enter 任务描述"  v-decorator="['task.description', {rules: [{ required: true, message: 'please enter 任务描述', whitespace: true}]} ]"/>
               </a-form-item>
             </a-col>
             <a-col :lg="8">
@@ -63,7 +63,7 @@
 
             <a-table :columns="columns" :dataSource="data" :pagination="false" size="middle">
               <template v-for="(col, i) in ['name', 'workId', 'department']" :slot="col" slot-scope="text, record, index">
-                <a-tooltip  title="必填项" :defaultVisible="false" overlayStyle="{ color: 'red' }">
+                <a-tooltip  title="必填item" :defaultVisible="false" overlayStyle="{ color: 'red' }">
                   <a-input :key="col" v-if="record.editable" style="margin: -5px 0"  :value="text" :placeholder="columns[i].title" @change="e => handlerRowChange(e.target.value, record.key, col)"/>
                 <template v-else>{{ text }}</template>
                 </a-tooltip>
@@ -73,7 +73,7 @@
                   <span v-if="record.isNew">
                     <a @click="saveRow(record.key)">添加</a>
                     <a-divider type="vertical"/>
-                    <a-popconfirm title="是否要删除此行？" @confirm="removeRow(record.key)"><a>删除</a></a-popconfirm>
+                    <a-popconfirm title="Whether you want to delete this line？" @confirm="removeRow(record.key)"><a>Delete</a></a-popconfirm>
                   </span>
                   <span v-else>
                     <a @click="saveRow(record.key)">保存</a>
@@ -82,14 +82,14 @@
                   </span>
                 </template>
                 <span v-else>
-                  <a @click="editRow(record.key)">编辑</a>
+                  <a @click="editRow(record.key)">Edit</a>
                   <a-divider type="vertical"/>
-                  <a-popconfirm title="是否要删除此行？" @confirm="removeRow(record.key)"><a>删除</a></a-popconfirm>
+                  <a-popconfirm title="Whether you want to delete this line？" @confirm="removeRow(record.key)"><a>Delete</a></a-popconfirm>
                 </span>
               </template>
             </a-table>
 
-            <a-button style="width: 100%; margin-top: 16px; margin-bottom: 8px" type="dashed" icon="plus" @click="newRow">新增成员</a-button>
+            <a-button style="width: 100%; margin-top: 16px; margin-bottom: 8px" type="dashed" icon="plus" @click="newRow">New成员</a-button>
           </a-tab-pane>
           <a-tab-pane tab="Tab 2" key="2" forceRender>
             Content of Tab Pane 2

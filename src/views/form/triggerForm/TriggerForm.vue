@@ -31,8 +31,8 @@
               <span v-if="record.isNew">
                 <a @click="saveRow(record.key)">添加</a>
                 <a-divider type="vertical" />
-                <a-popconfirm title="是否要删除此行？" @confirm="remove(record.key)">
-                  <a>删除</a>
+                <a-popconfirm title="Whether you want to delete this line？" @confirm="remove(record.key)">
+                  <a>Delete</a>
                 </a-popconfirm>
               </span>
               <span v-else>
@@ -42,15 +42,15 @@
               </span>
             </template>
             <span v-else>
-              <a @click="toggle(record.key)">编辑</a>
+              <a @click="toggle(record.key)">Edit</a>
               <a-divider type="vertical" />
-              <a-popconfirm title="是否要删除此行？" @confirm="remove(record.key)">
-                <a>删除</a>
+              <a-popconfirm title="Whether you want to delete this line？" @confirm="remove(record.key)">
+                <a>Delete</a>
               </a-popconfirm>
             </span>
           </template>
         </a-table>
-        <a-button style="width: 100%; margin-top: 16px; margin-bottom: 8px" type="dashed" icon="plus" @click="newMember">新增成员</a-button>
+        <a-button style="width: 100%; margin-top: 16px; margin-bottom: 8px" type="dashed" icon="plus" @click="newMember">New成员</a-button>
       </form>
     </a-card>
 
@@ -176,7 +176,7 @@
         }
       },
 
-      // 最终全页面提交
+      // 最终全page面提交
       validate () {
         this.$refs.repository.form.validateFields((err, values) => {
           if (!err) {

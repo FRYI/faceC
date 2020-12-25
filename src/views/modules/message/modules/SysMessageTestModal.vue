@@ -26,7 +26,7 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="测试数据">
-          <a-textarea placeholder="请输入json格式测试数据" v-model="testData" :autosize="{ minRows: 5, maxRows: 8 }"/>
+          <a-textarea placeholder="please enter json格式测试数据" v-model="testData" :autosize="{ minRows: 5, maxRows: 8 }"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
@@ -41,7 +41,7 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="消息接收方">
-          <a-input placeholder="请输入消息接收方" v-model="receiver"/>
+          <a-input placeholder="please enter 消息接收方" v-model="receiver"/>
         </a-form-item>
       </a-form>
     </a-spin>

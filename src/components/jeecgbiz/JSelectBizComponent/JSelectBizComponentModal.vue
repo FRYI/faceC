@@ -6,7 +6,7 @@
     :visible="visible"
     @ok="handleOk"
     @cancel="close"
-    cancelText="关闭">
+    cancelText="close">
 
     <a-row :gutter="18">
       <a-col :span="16">
@@ -17,7 +17,7 @@
 
               <a-col :span="14">
                 <a-form-item :label="(queryParamText||name)">
-                  <a-input v-model="queryParam[queryParamCode||valueKey]" :placeholder="'请输入' + (queryParamText||name)" @pressEnter="searchQuery"/>
+                  <a-input v-model="queryParam[queryParamCode||valueKey]" :placeholder="'please enter ' + (queryParamText||name)" @pressEnter="searchQuery"/>
                 </a-form-item>
               </a-col>
               <a-col :span="8">
@@ -139,7 +139,7 @@
     data() {
       return {
         innerValue: [],
-        // 已选择列表
+        // selected列表
         selectedTable: {
           pagination: false,
           scroll: { y: 240 },
@@ -154,7 +154,7 @@
         },
         renderEllipsis: (value) => (<ellipsis length={this.ellipsisLength}>{value}</ellipsis>),
         url: { list: this.listUrl },
-        /* 分页参数 */
+        /* 分page参数 */
         ipagination: {
           current: 1,
           pageSize: 5,
@@ -299,7 +299,7 @@
         this.close()
       },
 
-      /** 删除已选择的 */
+      /** 删除selected的 */
       handleDeleteSelected(record, index) {
         this.selectedRowKeys.splice(this.selectedRowKeys.indexOf(record[this.rowKey]), 1)
         this.selectedTable.dataSource.splice(index, 1)

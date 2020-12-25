@@ -17,12 +17,12 @@
           <a-row :gutter="12">
             <a-col :md="8" :sm="8">
               <a-form-item label="规则名称" :labelCol="{span: 8}" :wrapperCol="{span: 14, offset: 1}">
-                <a-input placeholder="请输入规则名称" v-model="queryParam.ruleName"></a-input>
+                <a-input placeholder="please enter 规则名称" v-model="queryParam.ruleName"></a-input>
               </a-form-item>
             </a-col>
             <a-col :md="8" :sm="8">
               <a-form-item label="规则值" :labelCol="{span: 8}" :wrapperCol="{span: 14, offset: 1}">
-                <a-input placeholder="请输入规则值" v-model="queryParam.ruleValue"></a-input>
+                <a-input placeholder="please enter 规则值" v-model="queryParam.ruleValue"></a-input>
               </a-form-item>
             </a-col>
             <a-col :md="7" :sm="8">
@@ -49,11 +49,11 @@
           :rowClassName="getRowClassname">
           <span slot="action" slot-scope="text, record">
             <a @click="handleEdit(record)">
-              <a-icon type="edit"/>编辑
+              <a-icon type="edit"/>Edit
             </a>
             <a-divider type="vertical"/>
-            <a-popconfirm title="confirm删除吗?" @confirm="() => handleDelete(record.id)">
-              <a>删除</a>
+            <a-popconfirm title="Are you sure you want to delete it?" @confirm="() => handleDelete(record.id)">
+              <a>Delete</a>
             </a-popconfirm>
           </span>
         </a-table>
@@ -143,7 +143,7 @@
       },
       addPermissionRule() {
         this.$refs.modalForm.add(this.permId)
-        this.$refs.modalForm.title = '新增'
+        this.$refs.modalForm.title = 'New'
       },
       searchQuery() {
         var params = this.getQueryParams();

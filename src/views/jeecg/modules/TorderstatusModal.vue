@@ -7,18 +7,18 @@
     switchFullscreen
     @ok="handleOk"
     @cancel="handleCancel"
-    cancelText="关闭">
+    cancelText="close">
     <a-spin :spinning="confirmLoading">
       <a-form :form="form">
 
         <a-form-item label="torder" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['torder']" placeholder="请输入torder"></a-input>
+          <a-input v-decorator="['torder']" placeholder="please enter torder"></a-input>
         </a-form-item>
         <a-form-item label="date" :labelCol="labelCol" :wrapperCol="wrapperCol">
           <j-date placeholder="请选择date" v-decorator="['date']" :trigger-change="true" style="width: 100%"/>
         </a-form-item>
         <a-form-item label="status" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['status']" placeholder="请输入status"></a-input>
+          <a-input v-decorator="['status']" placeholder="please enter status"></a-input>
         </a-form-item>
 
       </a-form>

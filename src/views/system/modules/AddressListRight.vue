@@ -6,14 +6,14 @@
 
           <a-col :md="6" :sm="12">
             <a-form-item label="姓名" style="margin-left:8px">
-              <a-input placeholder="请输入姓名查询" v-model="queryParam.realname"></a-input>
+              <a-input placeholder="please enter 姓名查询" v-model="queryParam.realname"></a-input>
             </a-form-item>
           </a-col>
 
 
           <a-col :md="6" :sm="12">
             <a-form-item label="工号" style="margin-left:8px">
-              <a-input placeholder="请输入工号查询" v-model="queryParam.workNo"></a-input>
+              <a-input placeholder="please enter 工号查询" v-model="queryParam.workNo"></a-input>
             </a-form-item>
           </a-col>
 
@@ -149,7 +149,7 @@
             })
           // update-end- --- author:wangshuai ------ date:20200102 ---- for:传过来的部门编码为空全查
         }else{
-        //加载数据 若传入参数1则加载第一页的内容
+        //加载数据 若传入参数1则加载第一page的内容
         getAction(this.url.list, {
           orgCode,
           ...this.getQueryParams()

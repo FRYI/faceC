@@ -15,14 +15,14 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="名称">
-          <a-input placeholder="请输入名称" v-decorator.trim="['itemText', validatorRules.itemText]"/>
+          <a-input placeholder="please enter 名称" v-decorator.trim="['itemText', validatorRules.itemText]"/>
         </a-form-item>
 
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="数据值">
-          <a-input placeholder="请输入数据值" v-decorator.trim="['itemValue', validatorRules.itemValue]"/>
+          <a-input placeholder="please enter 数据值" v-decorator.trim="['itemValue', validatorRules.itemValue]"/>
         </a-form-item>
 
         <a-form-item
@@ -78,8 +78,8 @@
         confirmLoading: false,
         form: this.$form.createForm(this),
         validatorRules: {
-          itemText: {rules: [{required: true, message: '请输入名称!'}]},
-          itemValue: {rules: [{required: true, message: '请输入数据值!'}]},
+          itemText: {rules: [{required: true, message: 'please enter 名称!'}]},
+          itemValue: {rules: [{required: true, message: 'please enter 数据值!'}]},
         },
       }
     },

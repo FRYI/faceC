@@ -11,22 +11,22 @@
       <a-form :form="form">
 
         <a-form-item label="sku" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['sku']" placeholder="请输入sku"></a-input>
+          <a-input v-decorator="['sku']" placeholder="please enter sku"></a-input>
         </a-form-item>
         <a-form-item label="project" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['project']" placeholder="请输入project"></a-input>
+          <a-input v-decorator="['project']" placeholder="please enter project"></a-input>
         </a-form-item>
         <a-form-item label="productName" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['productName']" placeholder="请输入productName"></a-input>
+          <a-input v-decorator="['productName']" placeholder="please enter productName"></a-input>
         </a-form-item>
         <a-form-item label="supplier" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['supplier']" placeholder="请输入supplier"></a-input>
+          <a-input v-decorator="['supplier']" placeholder="please enter supplier"></a-input>
         </a-form-item>
         <a-form-item label="paramData" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['paramData']" placeholder="请输入paramData"></a-input>
+          <a-input v-decorator="['paramData']" placeholder="please enter paramData"></a-input>
         </a-form-item>
         <a-form-item label="description" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['description']" placeholder="请输入description"></a-input>
+          <a-input v-decorator="['description']" placeholder="please enter description"></a-input>
         </a-form-item>
         <a-form-item label="photo" :labelCol="labelCol" :wrapperCol="wrapperCol">
           <j-image-upload isMultiple v-decorator="['photo']"></j-image-upload>

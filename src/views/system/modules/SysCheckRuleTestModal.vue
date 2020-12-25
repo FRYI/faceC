@@ -8,7 +8,7 @@
   >
     <a-form :form="form">
       <a-form-item label="功能测试">
-        <a-input placeholder="请输入" v-decorator="['test', validatorRules.test]" @change="e=>testValue=e.target.value"/>
+        <a-input placeholder="please enter " v-decorator="['test', validatorRules.test]" @change="e=>testValue=e.target.value"/>
       </a-form-item>
     </a-form>
     <a-row type="flex" :gutter="8">

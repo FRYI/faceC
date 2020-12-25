@@ -65,7 +65,7 @@
     },
     data() {
       return {
-        description: '图片预览页面',
+        description: '图片预览page面',
         spinning:false,
         //数据集
         dataSource: [{

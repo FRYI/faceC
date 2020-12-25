@@ -16,13 +16,13 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="职务编码">
-          <a-input placeholder="请输入职务编码" v-decorator="['code', validatorRules.code]"/>
+          <a-input placeholder="please enter 职务编码" v-decorator="['code', validatorRules.code]"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="职务名称">
-          <a-input placeholder="请输入职务名称" v-decorator="['name', validatorRules.name]"/>
+          <a-input placeholder="please enter 职务名称" v-decorator="['name', validatorRules.name]"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
@@ -40,7 +40,7 @@
         <!--  :labelCol="labelCol"-->
         <!--  :wrapperCol="wrapperCol"-->
         <!--  label="公司id">-->
-        <!--  <a-input placeholder="请输入公司id" v-decorator="['companyId', {}]"/>-->
+        <!--  <a-input placeholder="please enter 公司id" v-decorator="['companyId', {}]"/>-->
         <!--</a-form-item>-->
 
       </a-form>
@@ -77,7 +77,7 @@
         validatorRules: {
           code: {
             rules: [
-              { required: true, message: '请输入职务编码' },
+              { required: true, message: 'please enter 职务编码' },
               {
                 validator: (rule, value, callback) => {
                   // 函数消抖的简单实现，防止一段时间内发送多次请求
@@ -103,7 +103,7 @@
               }
             ]
           },
-          name: { rules: [{ required: true, message: '请输入职务名称' }] },
+          name: { rules: [{ required: true, message: 'please enter 职务名称' }] },
           postRank: { rules: [{ required: true, message: '请选择职级' }] },
         },
         url: {

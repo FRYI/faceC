@@ -5,7 +5,7 @@ import onlineCommons from '@jeecg/antd-online-beta220'
 export function timeFix() {
   const time = new Date()
   const hour = time.getHours()
-  return hour < 9 ? '早上好' : (hour <= 11 ? '上午好' : (hour <= 13 ? '中午好' : (hour < 20 ? '下午好' : '晚上好')))
+  return hour < 9 ? 'good morning' : (hour <= 11 ? 'good morning' : (hour <= 13 ? 'good afternoon' : (hour < 20 ? 'good afternoon' : 'Good evening')))
 }
 
 export function welcome() {
@@ -79,7 +79,7 @@ export function formatDate(value, fmt) {
   }
 }
 
-// 生成首页路由
+// 生成首page路由
 export function generateIndexRouter(data) {
 let indexRouter = [{
           path: '/',
@@ -262,7 +262,7 @@ export function showDealBtn(bpmStatus){
 }
 
 /**
- * 增强CSS，可以在页面上输出全局css
+ * 增强CSS，可以在page面上输出全局css
  * @param css 要增强的css
  * @param id style标签的id，可以用来清除旧样式
  */

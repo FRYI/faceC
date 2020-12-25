@@ -6,13 +6,13 @@
    -->
     <!-- 操作按钮区域 -->
     <div class="table-operator">
-      <a-button @click="handleAdd" type="primary" icon="plus">新增</a-button>
+      <a-button @click="handleAdd" type="primary" icon="plus">New</a-button>
 
       <a-dropdown v-if="selectedRowKeys.length > 0">
         <a-menu slot="overlay">
           <a-menu-item key="1" @click="batchDel">
             <a-icon type="delete"/>
-            删除
+            Delete
           </a-menu-item>
         </a-menu>
         <a-button style="margin-left: 8px"> Bulk Operations
@@ -24,8 +24,8 @@
     <!-- table区域-begin -->
     <div>
       <div class="ant-alert ant-alert-info" style="margin-bottom: 16px;">
-        <i class="anticon anticon-info-circle ant-alert-icon"></i> 已选择 <a style="font-weight: 600">{{ selectedRowKeys.length }}</a>项
-        <a style="margin-left: 24px" @click="onClearSelected">清空</a>
+        <i class="anticon anticon-info-circle ant-alert-icon"></i> Selected <a style="font-weight: 600">{{ selectedRowKeys.length }}</a>item
+        <a style="margin-left: 24px" @click="onClearSelected">Clear Selected</a>
       </div>
       <a-table
         ref="table"
@@ -40,7 +40,7 @@
         @change="handleTableChange">
 
         <span slot="action" slot-scope="text, record">
-          <a @click="handleEdit(record)">编辑</a>
+          <a @click="handleEdit(record)">Edit</a>
 
           <a-divider type="vertical"/>
           <a-dropdown>
@@ -50,8 +50,8 @@
                 <a href="javascript:;" @click="handleDetail(record)">详情</a>
               </a-menu-item>
               <a-menu-item>
-                <a-popconfirm title="confirm删除吗?" @confirm="() => handleDelete(record.id)">
-                  <a>删除</a>
+                <a-popconfirm title="Are you sure you want to delete it?" @confirm="() => handleDelete(record.id)">
+                  <a>Delete</a>
                 </a-popconfirm>
               </a-menu-item>
             </a-menu>
@@ -121,14 +121,14 @@
     },
     data() {
       return {
-        description: 'jeecg 生成SysDepart代码管理页面',
+        description: 'jeecg 生成SysDepart代码管理page面',
         // 查询条件
         queryParam: {},
         //数据集
         factories: '',
         dataSource: [],
         columns: columns,
-        // 分页参数
+        // 分page参数
         /*        ipagination:{
                   current: 1,
                   pageSize: 5,
@@ -231,14 +231,14 @@
       },
       handleEdit: function (record) {
         this.$refs.sysDepartModal.edit(record);
-        this.$refs.sysDepartModal.title = "编辑";
+        this.$refs.sysDepartModal.title = "Edit";
       },
       handleAdd() {
         this.$refs.sysDepartModal.add();
-        this.$refs.sysDepartModal.title = "新增";
+        this.$refs.sysDepartModal.title = "New";
       },
       handleTableChange(pagination, filters, sorter) {
-        //分页、排序、筛选变化时触发
+        //分page、排序、筛选变化时触发
         console.log(sorter);
         //TODO 筛选
         if (Object.keys(sorter).length > 0) {

@@ -42,14 +42,14 @@
         default: 'default'
       },
       /**
-       * 要显示的最大项目
+       * 要显示的最大item目
        */
       maxLength: {
         type: Number,
         default: 0
       },
       /**
-       * 多余的项目风格
+       * 多余的item目风格
        */
       excessItemsStyle: {
         type: Object,

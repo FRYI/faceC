@@ -7,12 +7,12 @@
         <a-row :gutter="24">
           <a-col :md="6" :sm="8">
             <a-form-item label="规则名称">
-              <a-input placeholder="请输入规则名称" v-model="queryParam.ruleName"></a-input>
+              <a-input placeholder="please enter 规则名称" v-model="queryParam.ruleName"></a-input>
             </a-form-item>
           </a-col>
           <a-col :md="6" :sm="8">
             <a-form-item label="规则Code">
-              <a-input placeholder="请输入规则Code" v-model="queryParam.ruleCode"></a-input>
+              <a-input placeholder="please enter 规则Code" v-model="queryParam.ruleCode"></a-input>
             </a-form-item>
           </a-col>
           <a-col :md="6" :sm="8">
@@ -27,7 +27,7 @@
 
     <!-- 操作按钮区域 -->
     <div class="table-operator">
-      <a-button @click="handleAdd" type="primary" icon="plus">新增</a-button>
+      <a-button @click="handleAdd" type="primary" icon="plus">New</a-button>
       <a-button type="primary" icon="download" @click="handleExportXls('填值规则')">导出</a-button>
       <a-upload name="file" :showUploadList="false" :multiple="false" :headers="tokenHeader" :action="importExcelUrl" @change="handleImportExcel">
         <a-button type="primary" icon="import">导入</a-button>
@@ -36,7 +36,7 @@
         <a-menu slot="overlay">
           <a-menu-item key="1" @click="batchDel">
             <a-icon type="delete"/>
-            删除
+            Delete
           </a-menu-item>
         </a-menu>
         <a-button style="margin-left: 8px"> Bulk Operations
@@ -48,12 +48,12 @@
     <!-- table区域-begin -->
     <a-alert type="info" showIcon style="margin-bottom: 16px;">
       <template slot="message">
-        <span>已选择</span>
+        <span>Selected</span>
         <a style="font-weight: 600;padding: 0 4px;">{{ selectedRowKeys.length }}</a>
-        <span>项</span>
+        <span>item</span>
         <template v-if="selectedRowKeys.length>0">
           <a-divider type="vertical"/>
-          <a @click="onClearSelected">清空</a>
+          <a @click="onClearSelected">Clear Selected</a>
         </template>
       </template>
     </a-alert>
@@ -71,7 +71,7 @@
       @change="handleTableChange">
 
         <span slot="action" slot-scope="text, record">
-          <a @click="handleEdit(record)">编辑</a>
+          <a @click="handleEdit(record)">Edit</a>
           <a-divider type="vertical"/>
           <a-dropdown>
             <a class="ant-dropdown-link">更多 <a-icon type="down"/></a>
@@ -80,8 +80,8 @@
                 功能测试
               </a-menu-item>
               <a-menu-item>
-                <a-popconfirm title="confirm删除吗?" @confirm="() => handleDelete(record.id)">
-                  <a>删除</a>
+                <a-popconfirm title="Are you sure you want to delete it?" @confirm="() => handleDelete(record.id)">
+                  <a>Delete</a>
                 </a-popconfirm>
               </a-menu-item>
             </a-menu>
@@ -107,7 +107,7 @@
     components: { SysFillRuleModal },
     data() {
       return {
-        description: '填值规则管理页面',
+        description: '填值规则管理page面',
         // 表头
         columns: [
           {

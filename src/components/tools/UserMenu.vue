@@ -6,12 +6,12 @@
       <a-icon type="search"></a-icon>
     </span>
     <!-- update-begin author:sunjianlei date:20200219 for: 菜单搜索改为动态组件，在手机端呈现出弹出框 -->
-    <component :is="searchMenuComp" v-show="searchMenuVisible || isMobile()" class="borders" :visible="searchMenuVisible" title="搜索菜单" :footer="null" @cancel="searchMenuVisible=false">
+    <component :is="searchMenuComp" v-show="searchMenuVisible || isMobile()" class="borders" :visible="searchMenuVisible" title="search menu" :footer="null" @cancel="searchMenuVisible=false">
       <a-select
         class="search-input"
         showSearch
         :showArrow="false"
-        placeholder="搜索菜单"
+        placeholder="search menu"
         optionFilterProp="children"
         :filterOption="filterOption"
         :open="isMobile()?true:null"
@@ -41,26 +41,26 @@
         <a-menu-item key="0">
           <router-link :to="{ name: 'account-center' }">
             <a-icon type="user"/>
-            <span>个人中心</span>
+            <span>Personal center</span>
           </router-link>
         </a-menu-item>
         <a-menu-item key="1">
           <router-link :to="{ name: 'account-settings-base' }">
             <a-icon type="setting"/>
-            <span>账户设置</span>
+            <span>account settings</span>
           </router-link>
         </a-menu-item>
         <a-menu-item key="3"  @click="systemSetting">
            <a-icon type="tool"/>
-           <span>系统设置</span>
+           <span>System settings</span>
         </a-menu-item>
         <a-menu-item key="4" @click="updatePassword">
           <a-icon type="setting"/>
-          <span>密码修改</span>
+          <span>change Password</span>
         </a-menu-item>
         <a-menu-item key="5" @click="updateCurrentDepart">
           <a-icon type="cluster"/>
-          <span>切换部门</span>
+          <span>Switch department</span>
         </a-menu-item>
        <!-- <a-menu-item key="2" disabled>
           <a-icon type="setting"/>

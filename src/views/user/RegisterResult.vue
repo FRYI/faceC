@@ -5,7 +5,7 @@
     :title="email">
 
     <template slot="action">
-      <a-button size="large" style="margin-left: 8px" @click="goHomeHandle">返回首页</a-button>
+      <a-button size="large" style="margin-left: 8px" @click="goHomeHandle">返回首page</a-button>
     </template>
 
   </result>

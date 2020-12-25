@@ -29,7 +29,7 @@
     },
     data () {
       return {
-        title:"通知消息",
+        title:"notice消息",
         record: {},
         labelCol: {
           xs: { span: 24 },

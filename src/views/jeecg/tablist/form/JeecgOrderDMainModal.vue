@@ -16,15 +16,15 @@
           label="订单号"
           hasFeedback>
           <a-input
-            placeholder="请输入订单号"
-            v-decorator="['orderCode', {rules: [{ required: true, message: '请输入订单号!' }]}]"
+            placeholder="please enter 订单号"
+            v-decorator="['orderCode', {rules: [{ required: true, message: 'please enter 订单号!' }]}]"
           />
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="订单类型">
-          <a-select placeholder="请输入订单类型" v-decorator="['ctype',{}]">
+          <a-select placeholder="please enter 订单类型" v-decorator="['ctype',{}]">
             <a-select-option value="1">国内订单</a-select-option>
             <a-select-option value="2">国际订单</a-select-option>
           </a-select>
@@ -45,7 +45,7 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="订单备注">
-          <a-input placeholder="请输入订单备注" v-decorator="['content', {}]"/>
+          <a-input placeholder="please enter 订单备注" v-decorator="['content', {}]"/>
         </a-form-item>
       </a-form>
     </a-spin>
@@ -169,7 +169,7 @@
     margin-bottom: 10px;
   }
 
-  /** Tab页面行间距 */
+  /** Tabpage面行间距 */
   .ant-tabs-content .ant-form-item {
     margin-bottom: 0px;
   }

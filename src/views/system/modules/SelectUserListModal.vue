@@ -13,7 +13,7 @@
 
           <a-col :span="6">
             <a-form-item label="账号">
-              <a-input placeholder="请输入账号" v-model="queryParam.username"></a-input>
+              <a-input placeholder="please enter 账号" v-model="queryParam.username"></a-input>
             </a-form-item>
           </a-col>
 
@@ -31,13 +31,13 @@
           <template v-if="toggleSearchStatus">
             <a-col :span="6">
               <a-form-item label="邮箱">
-                <a-input placeholder="请输入邮箱" v-model="queryParam.email"></a-input>
+                <a-input placeholder="please enter 邮箱" v-model="queryParam.email"></a-input>
               </a-form-item>
             </a-col>
 
             <a-col :span="6">
               <a-form-item label="手机号码">
-                <a-input placeholder="请输入手机号码" v-model="queryParam.phone"></a-input>
+                <a-input placeholder="please enter 手机号码" v-model="queryParam.phone"></a-input>
               </a-form-item>
             </a-col>
 
@@ -66,7 +66,7 @@
         </a-row>
       </a-form>
     </div>
- <!--    update-begin author:kangxiaolin   date:20190921   for:系统发送通知 用户多选失败 #513  -->
+ <!--    update-begin author:kangxiaolin   date:20190921   for:系统发送notice 用户多选失败 #513  -->
     <a-table
       ref="table"
       rowKey="id"
@@ -76,7 +76,7 @@
       :rowSelection="{selectedRowKeys: selectedRowKeys, onChange: onSelectChange,onSelect:onSelect}"
       @change="handleTableChange"
     >
-<!--     update-end   author:kangxiaolin  date:20190921     for:系统发送通知 用户多选失败 #513 -->
+<!--     update-end   author:kangxiaolin  date:20190921     for:系统发送notice 用户多选失败 #513 -->
     </a-table>
   </a-modal>
 </template>
@@ -203,12 +203,12 @@
       getQueryParams(){
         let param = Object.assign({}, this.queryParam,this.isorter);
         param.field = this.getQueryField();
-        //--update-begin----author:scott---date:20190818------for:新建公告时指定特定用户翻页错误SelectUserListModal #379----
+        //--update-begin----author:scott---date:20190818------for:新建公告时指定特定用户翻page错误SelectUserListModal #379----
         // param.current = this.ipagination.current;
         // param.pageSize = this.ipagination.pageSize;
         param.pageNo = this.ipagination.current;
         param.pageSize = this.ipagination.pageSize;
-        //--update-end----author:scott---date:20190818------for:新建公告时指定特定用户翻页错误SelectUserListModal #379---
+        //--update-end----author:scott---date:20190818------for:新建公告时指定特定用户翻page错误SelectUserListModal #379---
         return filterObj(param);
       },
       getQueryField(){
@@ -218,7 +218,7 @@
         }
         return str;
       },
-      //--update-begin----author:kangxiaolin---date:20190921------for:系统发送通知 用户多选失败 #513----
+      //--update-begin----author:kangxiaolin---date:20190921------for:系统发送notice 用户多选失败 #513----
       onSelectChange (selectedRowKeys) {
         this.selectedRowKeys = selectedRowKeys;
       },
@@ -232,7 +232,7 @@
             }
           })
         }
-        //--update-end----author:kangxiaolin---date:20190921------for:系统发送通知 用户多选失败 #513----
+        //--update-end----author:kangxiaolin---date:20190921------for:系统发送notice 用户多选失败 #513----
       },
 
       searchReset(){

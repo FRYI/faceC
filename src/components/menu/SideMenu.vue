@@ -144,7 +144,7 @@
 
 </style>
 
-<!-- update_begin author:sunjianlei date:20190530 for: 选中首页的时候不显示背景颜色 -->
+<!-- update_begin author:sunjianlei date:20190530 for: 选中首page的时候不显示背景颜色 -->
 <style lang="less">
   .ant-menu.ant-menu-root {
     & > .ant-menu-item:first-child {
@@ -174,4 +174,4 @@
     }
   }
 </style>
-<!-- update_end author:sunjianlei date:20190530 for: 选中首页的时候不显示背景颜色 -->
+<!-- update_end author:sunjianlei date:20190530 for: 选中首page的时候不显示背景颜色 -->

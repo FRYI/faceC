@@ -15,7 +15,7 @@
 
           <a-col :md="6" :sm="8">
             <a-form-item label="搜索日志">
-              <a-input placeholder="请输入搜索关键词" v-model="queryParam.keyWord"></a-input>
+              <a-input placeholder="please enter 搜索关键词" v-model="queryParam.keyWord"></a-input>
             </a-form-item>
           </a-col>
 
@@ -85,7 +85,7 @@
     },
     data () {
       return {
-        description: '这是日志管理页面',
+        description: '这是日志管理page面',
         // 查询条件
         queryParam: {
           ipInfo:'',
@@ -194,7 +194,7 @@
       searchReset(){
         var that = this;
         var logType = that.queryParam.logType;
-        that.queryParam = {}; //清空查询区域参数
+        that.queryParam = {}; //clear查询区域参数
         that.queryParam.logType = logType;
         that.loadData(this.ipagination.current);
       },

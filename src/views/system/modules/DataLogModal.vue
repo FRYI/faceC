@@ -14,13 +14,13 @@
           <a-row class="form-row" :gutter="24">
             <a-col :md="12" :sm="8">
               <a-form-item label="数据库表名"  :label-col="{ span: 6 }" :wrapper-col="{ span: 15 }">
-                <a-input placeholder="请输入数据库表名" v-decorator="[ 'dataTale', {}]" @blur="handleTableBlur" disabled/>
+                <a-input placeholder="please enter 数据库表名" v-decorator="[ 'dataTale', {}]" @blur="handleTableBlur" disabled/>
               </a-form-item>
             </a-col>
 
             <a-col :md="12" :sm="8">
               <a-form-item label="数据ID"  :label-col="{ span: 5 }" :wrapper-col="{ span: 15 }">
-                <a-input placeholder="请输入数据ID" v-decorator="[ 'dataId', {}]" @blur="handleIdBlur" disabled/>
+                <a-input placeholder="please enter 数据ID" v-decorator="[ 'dataId', {}]" @blur="handleIdBlur" disabled/>
               </a-form-item>
             </a-col>
           </a-row>

@@ -2,13 +2,13 @@
 ----
 - 从字典表获取数据,dictCode格式说明: 字典code
 ```html
-<j-dict-select-tag  v-model="queryParam.sex" placeholder="请输入用户性别"
+<j-dict-select-tag  v-model="queryParam.sex" placeholder="please enter 用户性别"
                   dictCode="sex"/>
 ```
 
 v-decorator用法：
 ```html
-<j-dict-select-tag  v-decorator="['sex', {}]" :triggerChange="true" placeholder="请输入用户性别"
+<j-dict-select-tag  v-decorator="['sex', {}]" :triggerChange="true" placeholder="please enter 用户性别"
                   dictCode="sex"/>
 ```
 
@@ -34,7 +34,7 @@ v-decorator用法：
       this.initDictConfig();
 ```
       
-- 第三步: 实现initDictConfig方法，加载列表所需要的字典(列表上有多个字典项，就执行多次initDictOptions方法)
+- 第三步: 实现initDictConfig方法，加载列表所需要的字典(列表上有多个字典item，就执行多次initDictOptions方法)
       
 ```html
       initDictConfig() {
@@ -66,7 +66,7 @@ v-decorator用法：
 | disabled      |Boolean   | | 是否禁用 |
 | type      |string   | | 多选类型 select/checkbox 默认是select |
 | dictCode      |string   | | 数据字典编码或者表名,显示字段名,存储字段名拼接而成的字符串,如果提供了options参数 则此参数可不填|
-| options      |Array   | | 多选项,如果dictCode参数未提供,可以设置此参数加载多选项 |
+| options      |Array   | | 多选item,如果dictCode参数未提供,可以设置此参数加载多选item |
 
 使用示例
 ----
@@ -102,13 +102,13 @@ v-decorator用法：
         selectValue:"",
         checkboxValue:"",
         dictOptions:[{
-          label:"选项一",
+          label:"选item一",
           value:"1"
         },{
-          label:"选项二",
+          label:"选item二",
           value:"2"
         },{
-          label:"选项三",
+          label:"选item三",
           value:"3"
         }]
       }
@@ -126,7 +126,7 @@ v-decorator用法：
 | placeholder      |string   | | placeholder |
 | disabled      |Boolean   | | 是否禁用 |
 | dict      |string   | | 表名,显示字段名,存储字段名拼接而成的字符串,如果提供了dictOptions参数 则此参数可不填|
-| dictOptions      |Array   | | 多选项,如果dict参数未提供,可以设置此参数加载多选项 |
+| dictOptions      |Array   | | 多选item,如果dict参数未提供,可以设置此参数加载多选item |
 | async      |Boolean   | | 是否支持异步加载,设置成true,则通过输入的内容加载远程数据,否则在本地过滤数据,默认false|
 
 使用示例
@@ -164,13 +164,13 @@ v-decorator用法：
         selectValue:"",
         asyncSelectValue:"",
         dictOptions:[{
-          text:"选项一",
+          text:"选item一",
           value:"1"
         },{
-          text:"选项二",
+          text:"选item二",
           value:"2"
         },{
-          text:"选项三",
+          text:"选item三",
           value:"3"
         }]
       }

@@ -1,5 +1,5 @@
 /**
- * 新增修改完成调用 modalFormOk方法 编辑弹框组件ref定义为modalForm
+ * 新增修改完成调用 modalFormOk方法 Edit弹框组件ref定义为modalForm
  * 高级查询按钮调用 superQuery方法  高级查询组件ref定义为superQueryModal
  * data中url定义 list为查询列表  delete为删除单条记录  deleteBatch为批量删除
  */
@@ -17,13 +17,13 @@ export const JeecgListMixin = {
       queryParam: {},
       /* 数据源 */
       dataSource:[],
-      /* 分页参数 */
+      /* 分page参数 */
       ipagination:{
         current: 1,
         pageSize: 10,
         pageSizeOptions: ['10', '20', '30'],
         showTotal: (total, range) => {
-          return range[0] + "-" + range[1] + " 共" + total + "条"
+          return range[0] + "-" + range[1] + " total " + total + " number "
         },
         showQuickJumper: true,
         showSizeChanger: true,
@@ -56,7 +56,7 @@ export const JeecgListMixin = {
       if(!this.disableMixinCreated){
         console.log(' -- mixin created -- ')
         this.loadData();
-        //初始化字典配置 在自己页面定义
+        //初始化字典配置 在自己page面定义
         this.initDictConfig();
       }
   },
@@ -66,7 +66,7 @@ export const JeecgListMixin = {
         this.$message.error("请设置url.list属性!")
         return
       }
-      //加载数据 若传入参数1则加载第一页的内容
+      //加载数据 若传入参数1则加载第一page的内容
       if (arg === 1) {
         this.ipagination.current = 1;
       }
@@ -191,16 +191,16 @@ export const JeecgListMixin = {
     },
     handleEdit: function (record) {
       this.$refs.modalForm.edit(record);
-      this.$refs.modalForm.title = "编辑";
+      this.$refs.modalForm.title = "Edit";
       this.$refs.modalForm.disableSubmit = false;
     },
     handleAdd: function () {
       this.$refs.modalForm.add();
-      this.$refs.modalForm.title = "新增";
+      this.$refs.modalForm.title = "New";
       this.$refs.modalForm.disableSubmit = false;
     },
     handleTableChange(pagination, filters, sorter) {
-      //分页、排序、筛选变化时触发
+      //分page、排序、筛选变化时触发
       //TODO 筛选
       if (Object.keys(sorter).length > 0) {
         this.isorter.column = sorter.field;

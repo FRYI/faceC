@@ -24,8 +24,8 @@
     <!-- table区域-begin -->
     <div>
       <div class="ant-alert ant-alert-info" style="margin-bottom: 16px;">
-        <i class="anticon anticon-info-circle ant-alert-icon"></i> 已选择 <a style="font-weight: 600">{{ selectedRowKeys.length }}</a>项
-        <a style="margin-left: 24px" @click="onClearSelected">清空</a>
+        <i class="anticon anticon-info-circle ant-alert-icon"></i> Selected<a style="font-weight: 600">{{ selectedRowKeys.length }}</a>item
+        <a style="margin-left: 24px" @click="onClearSelected">Clear Selected</a>
       </div>
 
       <a-table
@@ -173,7 +173,7 @@
             }
           },
           {
-            title:'season',
+            title:'Season',
             align:"center",
             dataIndex: 'season'
           },
@@ -202,6 +202,7 @@
             align:"center",
             dataIndex: 'paramData',
             customRender:function (text) {
+              console.log(text)
               var json2 = JSON.parse(text)
              if(json2 == null){
                return text

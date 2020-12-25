@@ -8,12 +8,12 @@
 
           <a-col :span="6">
             <a-form-item label="标题">
-              <a-input placeholder="请输入标题" v-model="queryParam.titile"></a-input>
+              <a-input placeholder="please enter 标题" v-model="queryParam.titile"></a-input>
             </a-form-item>
           </a-col>
           <!--<a-col :span="6">
             <a-form-item label="内容">
-              <a-input placeholder="请输入内容" v-model="queryParam.msgContent"></a-input>
+              <a-input placeholder="please enter 内容" v-model="queryParam.msgContent"></a-input>
             </a-form-item>
           </a-col>-->
 
@@ -30,7 +30,7 @@
 
     <!-- 操作按钮区域 -->
     <div class="table-operator">
-      <a-button @click="handleAdd" type="primary" icon="plus">新增</a-button>
+      <a-button @click="handleAdd" type="primary" icon="plus">New</a-button>
       <a-button type="primary" icon="download" @click="handleExportXls('系统通告')">导出</a-button>
       <a-upload name="file" :showUploadList="false" :multiple="false" :headers="tokenHeader" :action="importExcelUrl" @change="handleImportExcel">
         <a-button type="primary" icon="import">导入</a-button>
@@ -39,7 +39,7 @@
         <a-menu slot="overlay">
           <a-menu-item key="1" @click="batchDel">
             <a-icon type="delete"/>
-            删除
+            Delete
           </a-menu-item>
         </a-menu>
         <a-button style="margin-left: 8px"> Bulk Operations
@@ -51,8 +51,8 @@
     <!-- table区域-begin -->
     <div>
       <div class="ant-alert ant-alert-info" style="margin-bottom: 16px;">
-        <i class="anticon anticon-info-circle ant-alert-icon"></i> 已选择 <a style="font-weight: 600">{{ selectedRowKeys.length }}</a>项
-        <a style="margin-left: 24px" @click="onClearSelected">清空</a>
+        <i class="anticon anticon-info-circle ant-alert-icon"></i> Selected<a style="font-weight: 600">{{ selectedRowKeys.length }}</a>item
+        <a style="margin-left: 24px" @click="onClearSelected">clear</a>
       </div>
 
       <a-table
@@ -68,15 +68,15 @@
         @change="handleTableChange">
 
         <span slot="action" slot-scope="text, record">
-          <a  v-if="record.sendStatus == 0" @click="handleEdit(record)">编辑</a>
+          <a  v-if="record.sendStatus == 0" @click="handleEdit(record)">Edit</a>
 
           <a-divider type="vertical" v-if="record.sendStatus == 0"/>
           <a-dropdown>
             <a class="ant-dropdown-link">更多 <a-icon type="down"/></a>
             <a-menu slot="overlay">
               <a-menu-item v-if="record.sendStatus != 1">
-                <a-popconfirm title="confirm删除吗?" @confirm="() => handleDelete(record.id)">
-                  <a>删除</a>
+                <a-popconfirm title="Are you sure you want to delete it?" @confirm="() => handleDelete(record.id)">
+                  <a>Delete</a>
                 </a-popconfirm>
               </a-menu-item>
               <a-menu-item v-if="record.sendStatus == 0">
@@ -119,7 +119,7 @@
     },
     data() {
       return {
-        description: '系统通告表管理页面',
+        description: '系统通告表管理page面',
         // 查询条件
         queryParam: {},
         // 表头
@@ -146,9 +146,9 @@
             dataIndex: 'msgCategory',
             customRender: function (text) {
               if (text == '1') {
-                return "通知公告";
+                return "notice公告";
               } else if (text == "2") {
-                return "系统消息";
+                return "system information";
               } else {
                 return text;
               }

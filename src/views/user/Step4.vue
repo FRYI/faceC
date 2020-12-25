@@ -1,9 +1,9 @@
 <template>
   <div>
       <a-form style="margin: 40px auto 0;">
-      <result title="更改密码成功" :is-success="true">
+      <result title="Password changed successfully" :is-success="true">
         <div class="toLogin">
-          <h3>将在<span>{{time}}</span>秒后返回登录页面.</h3>
+          <h3>Will return to login page in<span>{{time}}</span>seconds.</h3>
         </div>
       </result>
 

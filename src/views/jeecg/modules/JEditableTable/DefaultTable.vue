@@ -25,7 +25,7 @@
       @selectRowChange="handleSelectRowChange">
 
       <template v-slot:action="props">
-        <a @click="handleDelete(props)">删除</a>
+        <a @click="handleDelete(props)">Delete</a>
       </template>
 
     </j-editable-table>
@@ -53,11 +53,11 @@
             width: '300px',
             type: FormTypes.input,
             defaultValue: '',
-            placeholder: '请输入${title}',
+            placeholder: 'please enter ${title}',
             validateRules: [
               {
                 required: true, // 必填
-                message: '请输入${title}' // 显示的文本
+                message: 'please enter ${title}' // 显示的文本
               },
               {
                 pattern: /^[a-z|A-Z][a-z|A-Z\d_-]{0,}$/, // 正则
@@ -74,7 +74,7 @@
                   // callback(flag, message) 方法必须执行且只能执行一次
                   //          flag = 是否通过了校验，不填写或者填写 null 代表不进行任何操作
                   //          message = 提示的类型，默认使用配置的 message
-                  // target 行编辑的实例对象
+                  // target 行Edit的实例对象
 
                   if (type === 'blur') {
                     if (value === 'abc') {
@@ -107,7 +107,7 @@
             // width: '18%',
             width: '300px',
             type: FormTypes.select,
-            options: [ // 下拉选项
+            options: [ // 下拉选item
               { title: 'String', value: 'string' },
               { title: 'Integer', value: 'int' },
               { title: 'Double', value: 'double' },
@@ -141,7 +141,7 @@
               { title: 'Double', value: 'double' },
               { title: 'Boolean', value: 'boolean' }
             ],
-            defaultValue: ['int', 'boolean'], // 多个默认项
+            defaultValue: ['int', 'boolean'], // 多个默认item
             // defaultValue: 'string,double,int', // 也可使用这种方式
             placeholder: '这里可以多选',
             validateRules: [{ required: true, message: '请选择${title}' }]
@@ -156,7 +156,7 @@
             placeholder: '${title}',
             // 是否是统计列，只有 inputNumber 才能设置统计列
             statistics: true,
-            validateRules: [{ required: true, message: '请输入${title}' }]
+            validateRules: [{ required: true, message: 'please enter ${title}' }]
           },
           {
             title: '日期',

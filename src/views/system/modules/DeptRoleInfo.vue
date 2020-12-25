@@ -7,7 +7,7 @@
         <a-row :gutter="10">
           <a-col :md="10" :sm="12">
             <a-form-item label="部门角色名称" style="margin-left:8px">
-              <a-input placeholder="请输入部门角色" v-model="queryParam.roleName"></a-input>
+              <a-input placeholder="please enter 部门角色" v-model="queryParam.roleName"></a-input>
             </a-form-item>
           </a-col>
           <span style="float: left;overflow: hidden;" class="table-page-search-submitButtons">
@@ -32,9 +32,9 @@
     <!-- table区域-begin -->
     <div>
       <div class="ant-alert ant-alert-info" style="margin-bottom: 16px;">
-        <i class="anticon anticon-info-circle ant-alert-icon"></i> 已选择 <a style="font-weight: 600">
-          {{selectedRowKeys.length }}</a>项
-        <a style="margin-left: 24px" @click="onClearSelected">清空</a>
+        <i class="anticon anticon-info-circle ant-alert-icon"></i> Selected<a style="font-weight: 600">
+          {{selectedRowKeys.length }}</a>item
+        <a style="margin-left: 24px" @click="onClearSelected">clear</a>
       </div>
       <a-table
         ref="table"
@@ -48,7 +48,7 @@
         :rowSelection="{selectedRowKeys: selectedRowKeys, onChange: onSelectChange}"
         @change="handleTableChange">
         <span slot="action" slot-scope="text, record">
-          <a @click="handleEdit(record)">编辑</a>
+          <a @click="handleEdit(record)">Edit</a>
           <a-divider type="vertical"/>
           <a-dropdown>
             <a class="ant-dropdown-link">
@@ -59,7 +59,7 @@
                 <a @click="handlePerssion(record)">授权</a>
               </a-menu-item>
               <a-menu-item>
-                <a-popconfirm title="确定删除吗?" @confirm="() => handleDelete(record.id)">
+                <a-popconfirm title="Are you sure you want to delete it?" @confirm="() => handleDelete(record.id)">
                   <a>删除</a>
                 </a-popconfirm>
               </a-menu-item>
@@ -136,7 +136,7 @@
           this.$message.error("请设置url.list属性!")
           return
         }
-        //加载数据 若传入参数1则加载第一页的内容
+        //加载数据 若传入参数1则加载第一page的内容
         if (arg === 1) {
           this.ipagination.current = 1;
         }
@@ -165,7 +165,7 @@
         return true;
       },
       handleEdit: function (record) {
-        this.$refs.modalForm.title = "编辑";
+        this.$refs.modalForm.title = "Edit";
         this.$refs.modalForm.departDisabled = true;
         this.$refs.modalForm.disableSubmit = false;
         this.$refs.modalForm.edit(record,record.departId);
@@ -176,7 +176,7 @@
         } else {
           this.$refs.modalForm.departDisabled = true;
           this.$refs.modalForm.add(this.currentDeptId);
-          this.$refs.modalForm.title = "新增";
+          this.$refs.modalForm.title = "New";
         }
       },
       handlePerssion: function(record){

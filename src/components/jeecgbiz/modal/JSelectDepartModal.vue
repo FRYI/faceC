@@ -6,9 +6,9 @@
     :confirmLoading="confirmLoading"
     @ok="handleSubmit"
     @cancel="handleCancel"
-    cancelText="关闭">
+    cancelText="close">
     <a-spin tip="Loading..." :spinning="false">
-      <a-input-search style="margin-bottom: 1px" placeholder="请输入部门名称按回车进行搜索" @search="onSearch" />
+      <a-input-search style="margin-bottom: 1px" placeholder="please enter 部门名称按回车进行搜索" @search="onSearch" />
       <a-tree
         checkable
         :treeData="treeData"

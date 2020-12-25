@@ -8,12 +8,12 @@
 
           <a-col :md="6" :sm="24">
             <a-form-item label="订单号">
-              <a-input placeholder="请输入订单号" v-model="queryParam.orderCode"></a-input>
+              <a-input placeholder="please enter 订单号" v-model="queryParam.orderCode"></a-input>
             </a-form-item>
           </a-col>
           <a-col :md="6" :sm="24">
             <a-form-item label="订单类型">
-              <a-select placeholder="请输入订单类型" v-model="queryParam.ctype">
+              <a-select placeholder="please enter 订单类型" v-model="queryParam.ctype">
                 <a-select-option value="1">国内订单</a-select-option>
                 <a-select-option value="2">国际订单</a-select-option>
               </a-select>
@@ -34,13 +34,13 @@
 
     <!-- 操作按钮区域 -->
     <div class="table-operator">
-      <a-button @click="handleAdd" type="primary" icon="plus">新增</a-button>
+      <a-button @click="handleAdd" type="primary" icon="plus">New</a-button>
 
       <a-dropdown v-if="selectedRowKeys.length > 0">
         <a-menu slot="overlay">
           <a-menu-item key="1" @click="batchDel">
             <a-icon type="delete"/>
-            删除
+            Delete
           </a-menu-item>
         </a-menu>
         <a-button style="margin-left: 8px"> Bulk Operations
@@ -52,8 +52,8 @@
     <!-- table区域-begin -->
     <div>
       <div class="ant-alert ant-alert-info" style="margin-bottom: 16px;">
-        <i class="anticon anticon-info-circle ant-alert-icon"></i> 已选择 <a style="font-weight: 600">{{ selectedRowKeys.length }}</a>项
-        <a style="margin-left: 24px" @click="onClearSelected">清空</a>
+        <i class="anticon anticon-info-circle ant-alert-icon"></i> Selected<a style="font-weight: 600">{{ selectedRowKeys.length }}</a>item
+        <a style="margin-left: 24px" @click="onClearSelected">Clear Selected</a>
       </div>
 
       <a-table
@@ -72,10 +72,10 @@
       >
 
         <span slot="action" slot-scope="text, record">
-          <a @click="handleEdit(record)">编辑</a>
+          <a @click="handleEdit(record)">Edit</a>
           <a-divider type="vertical"/>
-          <a-popconfirm title="确定删除吗?" @confirm="() => handleDelete(record.id)">
-            <a>删除</a>
+          <a-popconfirm title="Are you sure you want to delete it?" @confirm="() => handleDelete(record.id)">
+            <a>Delete</a>
           </a-popconfirm>
         </span>
 
@@ -119,8 +119,8 @@
     },
     data() {
       return {
-        description: '订单管理页面',
-        /* 分页参数 */
+        description: '订单管理page面',
+        /* 分page参数 */
         ipagination:{
           current: 1,
           pageSize: 5,
@@ -183,7 +183,7 @@
             align: "center",
             scopedSlots: {customRender: 'action'},
           }],
-        // 分页参数
+        // 分page参数
         type: "radio",
         url: {
           list: "/test/order/orderList",

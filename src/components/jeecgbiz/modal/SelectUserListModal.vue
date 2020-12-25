@@ -86,7 +86,7 @@
       open() {
         this.visible = true;
 
-        //Step.1 清空选中用户
+        //Step.1 clear选中用户
         this.selectedRowKeys = []
         this.selectedRows = []
       },

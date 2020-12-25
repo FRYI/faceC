@@ -7,12 +7,12 @@
 
           <a-col :span="6">
             <a-form-item label="标题">
-              <a-input placeholder="请输入标题" v-model="queryParam.titile"></a-input>
+              <a-input placeholder="please enter 标题" v-model="queryParam.titile"></a-input>
             </a-form-item>
           </a-col>
           <a-col :span="6">
             <a-form-item label="发布人">
-              <a-input placeholder="请输入发布人" v-model="queryParam.sender"></a-input>
+              <a-input placeholder="please enter 发布人" v-model="queryParam.sender"></a-input>
             </a-form-item>
           </a-col>
 
@@ -66,7 +66,7 @@
     },
     data () {
       return {
-        description: '系统通告表管理页面',
+        description: '系统通告表管理page面',
         queryParam: {},
         columns: [{
           title: '标题',
@@ -78,9 +78,9 @@
           dataIndex: 'msgCategory',
           customRender: function (text) {
             if (text == '1') {
-              return "通知公告";
+              return "notice公告";
             } else if (text == "2") {
-              return "系统消息";
+              return "system information";
             } else {
               return text;
             }

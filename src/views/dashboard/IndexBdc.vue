@@ -378,7 +378,7 @@
     },
     methods:{
       goPage(){
-        this.$message.success("根据业务自行处理跳转页面!")
+        this.$message.success("根据业务自行处理跳转page面!")
       },
       changeRegisterType(e){
         this.indexRegisterType = e.target.value

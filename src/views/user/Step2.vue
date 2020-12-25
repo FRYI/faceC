@@ -24,7 +24,7 @@
           autocomplete="false"
           :style="{width:'310px'}"
           v-decorator="['phone',{initialValue: defaultPhone, rules: validatorRules.phone.rule}]"
-          placeholder="请输入手机号">
+          placeholder="please enter 手机号">
           <a-icon slot="prefix" type="phone" :style="{ color: 'rgba(0,0,0,.25)'}"/>
         </a-input>
       </a-form-item>
@@ -83,8 +83,8 @@
           mobile: "",
         },
         validatorRules: {
-          captcha: {rule: [{required: true, message: '请输入短信验证码!'}, {validator: this.validateCaptcha}]},
-          phone: {rule: [{required: true, message: '请输入手机号码!'}]},
+          captcha: {rule: [{required: true, message: 'please enter 短信验证码!'}, {validator: this.validateCaptcha}]},
+          phone: {rule: [{required: true, message: 'please enter 手机号码!'}]},
         },
       }
     },
@@ -105,7 +105,7 @@
           if (!err) {
             if (that.dropList == "0") {
               if (values.captcha == undefined) {
-                this.cmsFailed("请输入短信验证码!");
+                this.cmsFailed("please enter 短信验证码!");
               } else {
                 var params = {}
                 params.phone = this.userList.phone;

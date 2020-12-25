@@ -33,7 +33,7 @@
         <!-- 操作按钮区域 -->
         <div class="table-operator" style="margin: 5px 0 10px 2px">
           <a-button @click="handleAdd" type="primary" icon="plus">新建角色</a-button>
-          <!--<a-button @click="handleEdit(model1)" type="primary" icon="plus">角色编辑</a-button>-->
+          <!--<a-button @click="handleEdit(model1)" type="primary" icon="plus">角色Edit</a-button>-->
           <a-upload name="file" :showUploadList="false" :multiple="false" :headers="tokenHeader" :action="importExcelUrl" @change="handleImportExcel">
             <a-button type="primary" icon="import">导入</a-button>
           </a-upload>
@@ -42,8 +42,8 @@
 
         <div class="ant-alert ant-alert-info" style="margin-bottom: 16px;">
           <i class="anticon anticon-info-circle ant-alert-icon">
-          </i> 已选择 <a><b>{{ selectedRowKeys1.length }}</b></a>项
-          <a style="margin-left: 24px" @click="onClearSelected1">清空</a>
+          </i> Selected<a><b>{{ selectedRowKeys1.length }}</b></a>item
+          <a style="margin-left: 24px" @click="onClearSelected1">clear</a>
         </div>
 
         <div style="margin-top: 15px">
@@ -73,11 +73,11 @@
                   <a @click="handlePerssion(record.id)">授权</a>
                 </a-menu-item>
                 <a-menu-item>
-                  <a @click="handleEdit(record)">编辑</a>
+                  <a @click="handleEdit(record)">Edit</a>
                 </a-menu-item>
                 <a-menu-item>
-                  <a-popconfirm title="confirm删除吗?" @confirm="() => handleDelete1(record.id)">
-                    <a>删除</a>
+                  <a-popconfirm title="Are you sure you want to delete it?" @confirm="() => handleDelete1(record.id)">
+                    <a>Delete</a>
                   </a-popconfirm>
                 </a-menu-item>
               </a-menu>
@@ -117,15 +117,15 @@
         </div>
         <!-- 操作按钮区域 -->
         <div class="table-operator" :md="24" :sm="24">
-          <a-button @click="handleAdd2" type="primary" icon="plus" style="margin-top: 16px">新增用户</a-button>
-          <!--<a-button @click="handleEdit2" type="primary" icon="edit" style="margin-top: 16px">用户编辑</a-button>-->
+          <a-button @click="handleAdd2" type="primary" icon="plus" style="margin-top: 16px">New用户</a-button>
+          <!--<a-button @click="handleEdit2" type="primary" icon="edit" style="margin-top: 16px">用户Edit</a-button>-->
           <a-button @click="handleAddUserRole" type="primary" icon="plus" style="margin-top: 16px">已有用户</a-button>
 
           <a-dropdown v-if="selectedRowKeys2.length > 0">
             <a-menu slot="overlay">
               <a-menu-item key="1" @click="batchDel2">
                 <a-icon type="delete"/>
-                删除
+                Delete
               </a-menu-item>
             </a-menu>
             <a-button style="margin-left: 8px"> Bulk Operations
@@ -136,9 +136,9 @@
         <!-- table区域-begin -->
         <div>
           <div class="ant-alert ant-alert-info" style="margin-bottom: 16px;">
-            <i class="anticon anticon-info-circle ant-alert-icon"></i> 已选择 <a style="font-weight: 600">{{
-            selectedRowKeys2.length }}</a>项
-            <a style="margin-left: 24px" @click="onClearSelected2">清空</a>
+            <i class="anticon anticon-info-circle ant-alert-icon"></i> Selected<a style="font-weight: 600">{{
+            selectedRowKeys2.length }}</a>item
+            <a style="margin-left: 24px" @click="onClearSelected2">clear</a>
           </div>
           <a-table
             style="height:500px"
@@ -153,7 +153,7 @@
             :rowSelection="{selectedRowKeys: selectedRowKeys2, onChange: onSelectChange2}"
             @change="handleTableChange2">
            <span slot="action" slot-scope="text, record">
-           <a @click="handleEdit2(record)">编辑</a>
+           <a @click="handleEdit2(record)">Edit</a>
           <a-divider type="vertical"/>
           <a-dropdown>
             <a class="ant-dropdown-link">
@@ -161,8 +161,8 @@
             </a>
             <a-menu slot="overlay">
               <a-menu-item>
-                <a-popconfirm title="confirm删除吗?" @confirm="() => handleDelete2(record.id)">
-                  <a>删除</a>
+                <a-popconfirm title="Are you sure you want to delete it?" @confirm="() => handleDelete2(record.id)">
+                  <a>Delete</a>
                 </a-popconfirm>
               </a-menu-item>
             </a-menu>
@@ -376,7 +376,7 @@
         return str
       },
       handleEdit2: function(record) {
-        this.$refs.modalForm2.title = '编辑'
+        this.$refs.modalForm2.title = 'Edit'
         this.$refs.modalForm2.roleDisabled = true
         this.$refs.modalForm2.edit(record)
       },
@@ -389,7 +389,7 @@
 
           this.$refs.modalForm2.add()
 
-          this.$refs.modalForm2.title = '新增'
+          this.$refs.modalForm2.title = 'New'
         }
       },
       modalFormOk2() {
@@ -401,7 +401,7 @@
           this.$message.error('请设置url.list2属性!')
           return
         }
-        //加载数据 若传入参数1则加载第一页的内容
+        //加载数据 若传入参数1则加载第一page的内容
         if (arg === 1) {
           this.ipagination2.current = 1
         }
@@ -510,7 +510,7 @@
           this.$message.error('请选择一个角色!')
         } else {
           this.$refs.modalForm.edit(record)
-          this.$refs.modalForm.title = '编辑'
+          this.$refs.modalForm.title = 'Edit'
         }
       },*/
       searchQuery2() {
@@ -521,7 +521,7 @@
         this.loadData2(1)
       },
       handleTableChange2(pagination, filters, sorter) {
-        //分页、排序、筛选变化时触发
+        //分page、排序、筛选变化时触发
         //TODO 筛选
         if (Object.keys(sorter).length > 0) {
           this.isorter2.column = sorter.field

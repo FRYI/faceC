@@ -16,25 +16,25 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="规则名称">
-          <a-input placeholder="请输入规则名称" v-decorator="['ruleName', validatorRules.ruleName]"/>
+          <a-input placeholder="please enter 规则名称" v-decorator="['ruleName', validatorRules.ruleName]"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="规则Code">
-          <a-input placeholder="请输入规则Code" :disabled="disabledCode" v-decorator="['ruleCode', validatorRules.ruleCode]"/>
+          <a-input placeholder="please enter 规则Code" :disabled="disabledCode" v-decorator="['ruleCode', validatorRules.ruleCode]"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="规则实现类">
-          <a-input placeholder="请输入规则实现类" v-decorator="['ruleClass', validatorRules.ruleClass]"/>
+          <a-input placeholder="please enter 规则实现类" v-decorator="['ruleClass', validatorRules.ruleClass]"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="规则参数">
-          <a-textarea placeholder="请输入规则参数" :rows="5" v-decorator="['ruleParams', validatorRules.ruleParams]"/>
+          <a-textarea placeholder="please enter 规则参数" :rows="5" v-decorator="['ruleParams', validatorRules.ruleParams]"/>
         </a-form-item>
 
       </a-form>
@@ -80,10 +80,10 @@
                   } else if (json instanceof Object) {
                     callback()
                   } else {
-                    callback('请输入JSON字符串')
+                    callback('please enter JSON字符串')
                   }
                 } catch {
-                  callback('请输入JSON字符串')
+                  callback('please enter JSON字符串')
                 }
               }
             }]

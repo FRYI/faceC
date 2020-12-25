@@ -23,11 +23,11 @@
         </a-form-item>
           
         <a-form-item label="分类名称" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="[ 'name', validatorRules.name]" placeholder="请输入分类名称"></a-input>
+          <a-input v-decorator="[ 'name', validatorRules.name]" placeholder="please enter 分类名称"></a-input>
         </a-form-item>
           
         <!--<a-form-item label="类型编码" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="[ 'code', validatorRules.code]" placeholder="请输入类型编码"></a-input>
+          <a-input v-decorator="[ 'code', validatorRules.code]" placeholder="please enter 类型编码"></a-input>
         </a-form-item>-->
 
         <!--<a-form-item :labelCol="labelCol" :wrapperCol="wrapperCol">
@@ -74,13 +74,13 @@
         validatorRules:{
           code:{
             rules: [{
-              required: true, message: '请输入类型编码!'
+              required: true, message: 'please enter 类型编码!'
             },{
               validator: this.validateMyCode
             }]
           },
           pid:{},
-          name:{rules: [{ required: true, message: '请输入类型名称!' }]}
+          name:{rules: [{ required: true, message: 'please enter 类型名称!' }]}
         },
         url: {
           add: "/sys/category/add",

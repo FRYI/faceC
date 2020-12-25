@@ -238,7 +238,7 @@
     }
   }
 
-  /* 首页访问量统计 */
+  /* 首page访问量统计 */
   .head-info {
     position: relative;
     text-align: left;

@@ -8,7 +8,7 @@
     :mask="false"
     okText="查询"
     @cancel="handleCancel"
-    cancelText="关闭">
+    cancelText="close">
 
     <a-spin :spinning="confirmLoading">
       <a-form>
@@ -37,7 +37,7 @@
               </a-select>
             </a-col>
 
-            <a-col :span="6"><a-input placeholder="请输入值" v-model="item.val"/></a-col>
+            <a-col :span="6"><a-input placeholder="please enter 值" v-model="item.val"/></a-col>
             <a-col :span="6">
               <a-button @click="handleAdd"  icon="plus"></a-button>&nbsp;
               <a-button @click="handleDel( index )"  icon="minus"></a-button>

@@ -9,12 +9,12 @@
   >
     <a-alert type="info" showIcon style="margin-bottom: 16px;">
       <template slot="message">
-        <span>已选择</span>
+        <span>selected</span>
         <a style="font-weight: 600;padding: 0 4px;">{{ selectedRowKeys.length }}</a>
-        <span>项</span>
+        <span>item</span>
         <template v-if="selectedRowKeys.length>0">
           <a-divider type="vertical"/>
-          <a @click="handleClearSelection">清空选择</a>
+          <a @click="handleClearSelection">clear选择</a>
           <a-divider type="vertical"/>
           <a @click="handleRevertBatch">批量还原</a>
           <a-divider type="vertical"/>

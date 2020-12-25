@@ -135,7 +135,7 @@
       },
       initDictData(){
         if(!this.async){
-          //如果字典项集合有数据
+          //如果字典item集合有数据
           if(this.dictOptions && this.dictOptions.length>0){
             this.options = [...this.dictOptions]
           }else{

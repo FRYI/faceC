@@ -16,25 +16,25 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="消息标题">
-          <a-input placeholder="请输入消息标题" v-decorator="['esTitle', {}]"/>
+          <a-input placeholder="please enter 消息标题" v-decorator="['esTitle', {}]"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="发送内容">
-          <a-input placeholder="请输入发送内容" v-decorator="['esContent', {}]"/>
+          <a-input placeholder="please enter 发送内容" v-decorator="['esContent', {}]"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="发送所需参数">
-          <a-input placeholder="请输入发送所需参数Json格式" v-decorator="['esParam', {}]"/>
+          <a-input placeholder="please enter 发送所需参数Json格式" v-decorator="['esParam', {}]"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="接收人">
-          <a-input placeholder="请输入接收人" v-decorator="['esReceiver', {}]"/>
+          <a-input placeholder="please enter 接收人" v-decorator="['esReceiver', {}]"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"

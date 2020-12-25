@@ -18,7 +18,7 @@
               :labelCol="labelCol"
               :wrapperCol="wrapperCol"
               label="标题">
-              <a-input placeholder="请输入标题" v-decorator="['titile', validatorRules.title]" :readOnly="disableSubmit"/>
+              <a-input placeholder="please enter 标题" v-decorator="['titile', validatorRules.title]" :readOnly="disableSubmit"/>
             </a-form-item>
           </a-col>
           <a-col :span="24/2">
@@ -31,8 +31,8 @@
                 placeholder="请选择消息类型"
                 :disabled="disableSubmit"
                 :getPopupContainer = "(target) => target.parentNode">
-                <a-select-option value="1">通知公告</a-select-option>
-                <a-select-option value="2">系统消息</a-select-option>
+                <a-select-option value="1">notice公告</a-select-option>
+                <a-select-option value="2">system information</a-select-option>
               </a-select>
             </a-form-item>
           </a-col>
@@ -96,7 +96,7 @@
               :labelCol="labelCol"
               :wrapperCol="wrapperCol"
               label="摘要">
-              <a-textarea placeholder="请输入摘要" v-decorator="['msgAbstract',validatorRules.msgAbstract]" />
+              <a-textarea placeholder="please enter 摘要" v-decorator="['msgAbstract',validatorRules.msgAbstract]" />
             </a-form-item>
           </a-col>
           <a-col :span="24/2">
@@ -170,12 +170,12 @@
         confirmLoading: false,
         form: this.$form.createForm(this),
         validatorRules:{
-          title:{rules: [{ required: true, message: '请输入标题!' }]},
+          title:{rules: [{ required: true, message: 'please enter 标题!' }]},
           msgCategory:{rules: [{ required: true, message: '请选择消息类型!' }]},
           msgType:{rules: [{ required: true, message: '请选择通告对象类型!' }]},
           endTime:{rules:[{ required: true, message: '请选择结束时间!'} ,{validator: this.endTimeValidate}]},
           startTime:{rules:[{required: true, message: '请选择开始时间!'},{validator: this.startTimeValidate}]},
-          msgAbstract:{rules: [{ required: true, message: '请输入摘要!' }]},
+          msgAbstract:{rules: [{ required: true, message: 'please enter 摘要!' }]},
         },
         url: {
           queryByIds: "/sys/user/queryByIds",

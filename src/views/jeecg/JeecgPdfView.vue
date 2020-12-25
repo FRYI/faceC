@@ -61,7 +61,7 @@
     },
     data () {
       return {
-        description: 'PDF预览页面',
+        description: 'PDF预览page面',
         // 文件类型集
         treeData:[{
           title: '所有PDF电子档',

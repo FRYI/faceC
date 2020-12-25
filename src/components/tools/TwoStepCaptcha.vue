@@ -25,7 +25,7 @@
             :style="{ textAlign: 'center' }"
             hasFeedback
             fieldDecoratorId="stepCode"
-            :fieldDecoratorOptions="{rules: [{ required: true, message: '请输入 6 位动态码!', pattern: /^\d{6}$/, len: 6 }]}"
+            :fieldDecoratorOptions="{rules: [{ required: true, message: 'please enter  6 位动态码!', pattern: /^\d{6}$/, len: 6 }]}"
           >
             <a-input :style="{ textAlign: 'center' }" @keyup.enter.native="handleStepOk" placeholder="000000" />
           </a-form-item>

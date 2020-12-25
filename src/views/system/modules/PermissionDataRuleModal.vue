@@ -15,26 +15,26 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="规则名称">
-          <a-input placeholder="请输入规则名称" v-decorator="['ruleName', validatorRules.ruleName]"/>
+          <a-input placeholder="please enter 规则名称" v-decorator="['ruleName', validatorRules.ruleName]"/>
         </a-form-item>
         <a-form-item
           v-show="showRuleColumn"
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="规则字段">
-          <a-input placeholder="请输入规则字段" v-decorator="['ruleColumn', validatorRules.ruleColumn]"/>
+          <a-input placeholder="please enter 规则字段" v-decorator="['ruleColumn', validatorRules.ruleColumn]"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="条件规则">
-          <j-dict-select-tag @change="handleChangeRuleCondition" v-decorator="['ruleConditions', validatorRules.ruleConditions]" placeholder="请输入条件规则" :triggerChange="true" dictCode="rule_conditions"/>
+          <j-dict-select-tag @change="handleChangeRuleCondition" v-decorator="['ruleConditions', validatorRules.ruleConditions]" placeholder="please enter 条件规则" :triggerChange="true" dictCode="rule_conditions"/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="规则值">
-          <a-input placeholder="请输入规则值" v-decorator="['ruleValue', validatorRules.ruleValue]"/>
+          <a-input placeholder="please enter 规则值" v-decorator="['ruleValue', validatorRules.ruleValue]"/>
         </a-form-item>
 
         <a-form-item
@@ -77,8 +77,8 @@
         permissionId: '',
         validatorRules: {
           ruleConditions: {rules: [{required: true, message: '请选择条件!'}]},
-          ruleName: {rules: [{required: true, message: '请输入规则名称!'}]},
-          ruleValue: {rules: [{required: true, message: '请输入规则值!'}]},
+          ruleName: {rules: [{required: true, message: 'please enter 规则名称!'}]},
+          ruleValue: {rules: [{required: true, message: 'please enter 规则值!'}]},
           ruleColumn: {rules: []}
         },
         url: {

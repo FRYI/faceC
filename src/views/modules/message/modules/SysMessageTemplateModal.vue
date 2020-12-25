@@ -20,7 +20,7 @@
             >
               <a-input
                 :disabled="disable"
-                placeholder="请输入模板编码"
+                placeholder="please enter 模板编码"
                 v-decorator="['templateCode', validatorRules.templateCode ]"
               />
             </a-form-item>
@@ -43,7 +43,7 @@
               label="模板标题"
               style="margin-left: -15px">
               <a-input
-                placeholder="请输入模板标题"
+                placeholder="please enter 模板标题"
                 v-decorator="['templateName', validatorRules.templateName]"
                 style="width: 122%"
               />
@@ -58,7 +58,7 @@
               :wrapperCol="wrapperCol"
               label="模板内容"
               style="margin-left: 4px;width: 126%">
-              <a-textarea placeholder="请输入模板内容" v-decorator="['templateContent', validatorRules.templateContent ]" :autosize="{ minRows: 8, maxRows: 8 }"/>
+              <a-textarea placeholder="please enter 模板内容" v-decorator="['templateContent', validatorRules.templateContent ]" :autosize="{ minRows: 8, maxRows: 8 }"/>
             </a-form-item>
           </a-col>
         </a-row>
@@ -108,10 +108,10 @@
         confirmLoading: false,
         form: this.$form.createForm(this),
         validatorRules: {
-        templateCode: {rules: [{required: true, message: '请输入模板CODE!' },{validator: this.validateTemplateCode}]},
-        templateName: {rules: [{required: true, message: '请输入模板标题!'}]},
+        templateCode: {rules: [{required: true, message: 'please enter 模板CODE!' },{validator: this.validateTemplateCode}]},
+        templateName: {rules: [{required: true, message: 'please enter 模板标题!'}]},
         templateContent: {rules: []},
-        templateType: {rules: [{required: true, message: '请输入模板类型!'}]},
+        templateType: {rules: [{required: true, message: 'please enter 模板类型!'}]},
         },
         url: {
           add: "/message/sysMessageTemplate/add",
@@ -210,7 +210,7 @@
         this.close()
       },
       handleChangeTemplateType(value){
-        //如果是邮件类型那么则改变模板内容是富文本编辑器
+        //如果是邮件类型那么则改变模板内容是富文本Edit器
         this.useEditor = (value==2 || value==4)
       }
 

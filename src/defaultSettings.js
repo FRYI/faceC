@@ -1,5 +1,5 @@
 /**
- * 项目默认配置项
+ * item目默认配置item
  * primaryColor - 默认主题色
  * navTheme - sidebar theme ['dark', 'light'] 两种主题
  * colorWeak - 色盲模式
@@ -9,7 +9,7 @@
  * autoHideHeader - 向下滚动时，隐藏 Header : boolean
  * contentWidth - 内容区布局： 流式 |  固定
  *
- * storageOptions: {} - Vue-ls 插件配置项 (localStorage/sessionStorage)
+ * storageOptions: {} - Vue-ls 插件配置item (localStorage/sessionStorage)
  *
  */
 
@@ -22,7 +22,7 @@ export default {
   fixSiderbar: false, // sticky siderbar
   autoHideHeader: false, //  auto hide header
   colorWeak: false,
-  multipage: true, //默认多页签模式
+  multipage: true, //默认多page签模式
   // vue-ls options
   storageOptions: {
     namespace: 'pro__', // key prefix

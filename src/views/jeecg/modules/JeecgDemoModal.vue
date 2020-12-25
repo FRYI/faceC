@@ -6,7 +6,7 @@
     :confirmLoading="confirmLoading"
     @ok="handleOk"
     @cancel="handleCancel"
-    cancelText="关闭">
+    cancelText="close">
     
     <a-spin :spinning="confirmLoading">
       <a-form :form="form">
@@ -16,14 +16,14 @@
           :wrapperCol="wrapperCol"
           label="姓名"
           hasFeedback >
-          <a-input placeholder="请输入姓名" v-decorator="['name', {}]" />
+          <a-input placeholder="please enter 姓名" v-decorator="['name', {}]" />
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="关键词"
           hasFeedback >
-          <a-input placeholder="请输入关键词" v-decorator="['keyWord', {}]" />
+          <a-input placeholder="please enter 关键词" v-decorator="['keyWord', {}]" />
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
@@ -48,7 +48,7 @@
           :wrapperCol="wrapperCol"
           label="年龄"
           hasFeedback >
-          <a-input placeholder="请输入年龄" v-decorator="['age', {}]" />
+          <a-input placeholder="please enter 年龄" v-decorator="['age', {}]" />
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
@@ -62,14 +62,14 @@
           :wrapperCol="wrapperCol"
           label="邮箱"
           hasFeedback >
-          <a-input placeholder="请输入邮箱" v-decorator="['email', {}]" />
+          <a-input placeholder="please enter 邮箱" v-decorator="['email', {}]" />
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="个人简介"
           hasFeedback >
-          <a-input placeholder="请输入个人简介" v-decorator="['content', {}]" />
+          <a-input placeholder="please enter 个人简介" v-decorator="['content', {}]" />
         </a-form-item>
 		
       </a-form>

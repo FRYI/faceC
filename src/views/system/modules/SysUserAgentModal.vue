@@ -15,13 +15,13 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="用户名">
-          <a-input placeholder="请输入用户名" v-decorator="['userName', {}]" readOnly/>
+          <a-input placeholder="please enter 用户名" v-decorator="['userName', {}]" readOnly/>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="代理人用户名">
-          <j-select-user-by-dep placeholder="请输入代理人用户名" v-decorator="['agentUserName', validatorRules.agentUserName]" :trigger-change="true"></j-select-user-by-dep>
+          <j-select-user-by-dep placeholder="please enter 代理人用户名" v-decorator="['agentUserName', validatorRules.agentUserName]" :trigger-change="true"></j-select-user-by-dep>
         </a-form-item>
         <a-form-item
           :labelCol="labelCol"
@@ -94,9 +94,9 @@
         confirmLoading: false,
         form: this.$form.createForm(this),
         validatorRules:{
-          agentUserName:{rules: [{ required: true, message: '请输入代理人用户名!' }]},
-          startTime:{rules: [{ required: true, message: '请输入代理开始时间!' }]},
-          endTime:{rules: [{ required: true, message: '请输入代理结束时间!' }]},
+          agentUserName:{rules: [{ required: true, message: 'please enter 代理人用户名!' }]},
+          startTime:{rules: [{ required: true, message: 'please enter 代理开始时间!' }]},
+          endTime:{rules: [{ required: true, message: 'please enter 代理结束时间!' }]},
         },
         url: {
           add: "/sys/sysUserAgent/add",

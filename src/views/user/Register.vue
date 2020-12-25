@@ -5,7 +5,7 @@
       <a-form-item
         fieldDecoratorId="username"
         :fieldDecoratorOptions="{rules: [{ required: true, message: '用户名不能为空'}, { validator: this.checkUsername }], validateTrigger: ['change', 'blur'], validateFirst: true}">
-        <a-input size="large" type="text" autocomplete="false" placeholder="请输入用户名"></a-input>
+        <a-input size="large" type="text" autocomplete="false" placeholder="please enter 用户名"></a-input>
       </a-form-item>
 
       <a-popover placement="rightTop" trigger="click" :visible="state.passwordLevelChecked">
@@ -33,12 +33,12 @@
       </a-form-item>
       <a-form-item
         fieldDecoratorId="email"
-        :fieldDecoratorOptions="{rules: [{ required: true, type: 'email', message: '请输入正确的邮箱地址' }, { validator: this.handleEmailCheck }], validateTrigger: ['change', 'blur'], validateFirst: true}">
+        :fieldDecoratorOptions="{rules: [{ required: true, type: 'email', message: 'please enter 正确的邮箱地址' }, { validator: this.handleEmailCheck }], validateTrigger: ['change', 'blur'], validateFirst: true}">
         <a-input size="large" type="text" placeholder="邮箱"></a-input>
       </a-form-item>
       <a-form-item
         fieldDecoratorId="mobile"
-        :fieldDecoratorOptions="{rules: [{ required: true, pattern: /^1[3456789]\d{9}$/, message: '请输入正确的手机号' }, { validator: this.handlePhoneCheck } ], validateTrigger: ['change', 'blur'], validateFirst: true}">
+        :fieldDecoratorOptions="{rules: [{ required: true, pattern: /^1[3456789]\d{9}$/, message: 'please enter 正确的手机号' }, { validator: this.handlePhoneCheck } ], validateTrigger: ['change', 'blur'], validateFirst: true}">
         <a-input size="large" placeholder="11 位手机号">
           <a-select slot="addonBefore" size="large" defaultValue="+86">
             <a-select-option value="+86">+86</a-select-option>
@@ -58,7 +58,7 @@
         <a-col class="gutter-row" :span="16">
           <a-form-item
             fieldDecoratorId="captcha"
-            :fieldDecoratorOptions="{rules: [{ required: true, message: '请输入验证码' }], validateTrigger: 'blur', validateFirst: true}">
+            :fieldDecoratorOptions="{rules: [{ required: true, message: 'please enter 验证码' }], validateTrigger: 'blur', validateFirst: true}">
             <a-input size="large" type="text" placeholder="验证码">
               <a-icon slot="prefix" type="mail" :style="{ color: 'rgba(0,0,0,.25)' }"/>
             </a-input>
@@ -208,7 +208,7 @@
         let password = this.form.getFieldValue('password')
         //console.log('value', value)
         if (value === undefined) {
-          callback(new Error('请输入密码'))
+          callback(new Error('please enter 密码'))
         }
         if (value && password && value.trim() !== password.trim()) {
           callback(new Error('两次密码不一致'))

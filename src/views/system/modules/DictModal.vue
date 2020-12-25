@@ -15,14 +15,14 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="字典名称">
-          <a-input placeholder="请输入字典名称" v-decorator.trim="[ 'dictName', validatorRules.dictName]"/>
+          <a-input placeholder="please enter 字典名称" v-decorator.trim="[ 'dictName', validatorRules.dictName]"/>
         </a-form-item>
 
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="字典编码">
-          <a-input placeholder="请输入字典编码" v-decorator.trim="[ 'dictCode', validatorRules.dictCode]"/>
+          <a-input placeholder="please enter 字典编码" v-decorator.trim="[ 'dictCode', validatorRules.dictCode]"/>
         </a-form-item>
 
         <a-form-item
@@ -60,9 +60,9 @@
         confirmLoading: false,
         form: this.$form.createForm(this),
         validatorRules: {
-          dictName: { rules: [{ required: true, message: '请输入字典名称!' }] },
+          dictName: { rules: [{ required: true, message: 'please enter 字典名称!' }] },
           dictCode: {
-            rules: [{ required: true, message: '请输入字典编码!' },
+            rules: [{ required: true, message: 'please enter 字典编码!' },
               { validator: this.validateDictCode }]
           }
         }

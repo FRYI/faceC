@@ -11,28 +11,28 @@
       <a-form :form="form">
 
         <a-form-item label="client" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['client']" placeholder="请输入client"></a-input>
+          <a-input v-decorator="['client']" placeholder="please enter client"></a-input>
         </a-form-item>
         <a-form-item label="contact" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['contact']" placeholder="请输入contact"></a-input>
+          <a-input v-decorator="['contact']" placeholder="please enter contact"></a-input>
         </a-form-item>
         <a-form-item label="tel" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['tel']" placeholder="请输入tel"></a-input>
+          <a-input v-decorator="['tel']" placeholder="please enter tel"></a-input>
         </a-form-item>
         <a-form-item label="email" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['email']" placeholder="请输入email"></a-input>
+          <a-input v-decorator="['email']" placeholder="please enter email"></a-input>
         </a-form-item>
         <a-form-item label="website" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['website']" placeholder="请输入website"></a-input>
+          <a-input v-decorator="['website']" placeholder="please enter website"></a-input>
         </a-form-item>
         <a-form-item label="city" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['city']" placeholder="请输入city"></a-input>
+          <a-input v-decorator="['city']" placeholder="please enter city"></a-input>
         </a-form-item>
         <a-form-item label="address" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['address']" placeholder="请输入address"></a-input>
+          <a-input v-decorator="['address']" placeholder="please enter address"></a-input>
         </a-form-item>
         <a-form-item label="zipCode" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <a-input v-decorator="['zipCode']" placeholder="请输入zipCode"></a-input>
+          <a-input v-decorator="['zipCode']" placeholder="please enter zipCode"></a-input>
         </a-form-item>
         
       </a-form>

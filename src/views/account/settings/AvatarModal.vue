@@ -1,5 +1,5 @@
 <template>
-  <a-modal :visible="visible" title="修改头像" :maskClosable="false" :confirmLoading="confirmLoading" :width="800">
+  <a-modal :visible="visible" title="Modify avatar" :maskClosable="false" :confirmLoading="confirmLoading" :width="800">
     <a-row>
       <a-col :xs="24" :md="12" :style="{height: '350px'}">
         <vue-cropper
@@ -23,7 +23,7 @@
 
     <template slot="footer">
       <a-button key="back" @click="cancelHandel">cancel</a-button>
-      <a-button key="submit" type="primary" :loading="confirmLoading" @click="okHandel">保存</a-button>
+      <a-button key="submit" type="primary" :loading="confirmLoading" @click="okHandel">save</a-button>
     </template>
   </a-modal>
 </template>

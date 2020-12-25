@@ -23,7 +23,7 @@
           :wrapperCol="wrapperCol"
           :label="menuLabel"
           hasFeedback >
-          <a-input placeholder="请输入菜单名称" v-decorator="[ 'name', validatorRules.name]" :readOnly="disableSubmit"/>
+          <a-input placeholder="please enter 菜单名称" v-decorator="[ 'name', validatorRules.name]" :readOnly="disableSubmit"/>
         </a-form-item>
 
 
@@ -51,7 +51,7 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="菜单路径">
-          <a-input placeholder="请输入菜单路径" v-decorator="[ 'url',validatorRules.url]" :readOnly="disableSubmit"/>
+          <a-input placeholder="please enter 菜单路径" v-decorator="[ 'url',validatorRules.url]" :readOnly="disableSubmit"/>
         </a-form-item>
 
         <a-form-item
@@ -59,7 +59,7 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="前端组件">
-          <a-input placeholder="请输入前端组件" v-decorator="[ 'component',validatorRules.component]" :readOnly="disableSubmit"/>
+          <a-input placeholder="please enter 前端组件" v-decorator="[ 'component',validatorRules.component]" :readOnly="disableSubmit"/>
         </a-form-item>
 
         <a-form-item
@@ -67,7 +67,7 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="默认跳转地址">
-          <a-input placeholder="请输入路由参数 redirect" v-decorator="[ 'redirect',{}]" :readOnly="disableSubmit"/>
+          <a-input placeholder="please enter 路由参数 redirect" v-decorator="[ 'redirect',{}]" :readOnly="disableSubmit"/>
         </a-form-item>
 
         <a-form-item
@@ -75,7 +75,7 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="授权标识">
-          <a-input placeholder="多个用逗号分隔, 如: user:list,user:create" v-decorator="[ 'perms', {rules:[{ required: false, message: '请输入授权标识!' },{validator: this.validatePerms }]}]" :readOnly="disableSubmit"/>
+          <a-input placeholder="多个用逗号分隔, 如: user:list,user:create" v-decorator="[ 'perms', {rules:[{ required: false, message: 'please enter 授权标识!' },{validator: this.validatePerms }]}]" :readOnly="disableSubmit"/>
         </a-form-item>
 
         <a-form-item
@@ -111,7 +111,7 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="排序">
-          <a-input-number placeholder="请输入菜单排序" style="width: 200px" v-decorator="[ 'sortNo',validatorRules.sortNo]" :readOnly="disableSubmit"/>
+          <a-input-number placeholder="please enter 菜单排序" style="width: 200px" v-decorator="[ 'sortNo',validatorRules.sortNo]" :readOnly="disableSubmit"/>
         </a-form-item>
 
         <a-form-item
@@ -220,10 +220,10 @@
     computed:{
       validatorRules:function() {
         return {
-          name:{rules: [{ required: true, message: '请输入菜单标题!' }]},
-          component:{rules: [{ required: this.show, message: '请输入前端组件!' }]},
-          url:{rules: [{ required: this.show, message: '请输入菜单路径!' }]},
-          permsType:{rules: [{ required: true, message: '请输入授权策略!' }]},
+          name:{rules: [{ required: true, message: 'please enter 菜单标题!' }]},
+          component:{rules: [{ required: this.show, message: 'please enter 前端组件!' }]},
+          url:{rules: [{ required: this.show, message: 'please enter 菜单路径!' }]},
+          permsType:{rules: [{ required: true, message: 'please enter 授权策略!' }]},
           sortNo:{initialValue:1.0},
         }
       }
@@ -257,7 +257,7 @@
         this.form.resetFields();
         this.model = Object.assign({}, record);
         //--------------------------------------------------------------------------------------------------
-        //根据菜单类型，动态展示页面字段
+        //根据菜单类型，动态展示page面字段
         console.log(record)
         this.alwaysShow = !record.alwaysShow?false:true;
         this.menuHidden = !record.hidden?false:true;
@@ -272,13 +272,13 @@
           this.isKeepalive = false; // 升级兼容 如果没有（后台没有传过来、或者是新建）默认为false
         }
 
-        /*update_begin author:wuxianquan date:20190908 for:编辑初始化数据*/
+        /*update_begin author:wuxianquan date:20190908 for:Edit初始化数据*/
         if(record.internalOrExternal!=null){
           this.internalOrExternal = record.internalOrExternal?true:false;
         }else{
           this.internalOrExternal = false;
         }
-        /*update_end author:wuxianquan date:20190908 for:编辑初始化数据*/
+        /*update_end author:wuxianquan date:20190908 for:Edit初始化数据*/
 
 
         //console.log('record.menuType', record.menuType);
@@ -354,7 +354,7 @@
         if(!value || new RegExp(/^[0-9]*[1-9][0-9]*$/).test(value)){
           callback();
         }else{
-          callback("请输入正整数!");
+          callback("please enter 正整数!");
         }
       },
       validatePerms(rule, value, callback){

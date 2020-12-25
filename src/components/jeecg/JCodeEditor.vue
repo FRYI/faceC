@@ -95,7 +95,7 @@
         hasCode:false,
         // 默认的语法类型
         mode: 'javascript',
-        // 编辑器实例
+        // Edit器实例
         coder: null,
         // 默认配置
         options: {
@@ -151,7 +151,7 @@
           value: 'markdown',
           label: 'Markdown'
         }],
-        // code 编辑器 是否全屏
+        // code Edit器 是否全屏
         fullCoder: false
       }
     },
@@ -235,9 +235,9 @@
     methods: {
       // 初始化
       _initialize () {
-        // 初始化编辑器实例，传入需要被实例化的文本域对象和默认配置
+        // 初始化Edit器实例，传入需要被实例化的文本域对象和默认配置
         this.coder = CodeMirror.fromTextArea(this.$refs.textarea, this.coderOptions)
-        // 编辑器赋值
+        // Edit器赋值
         if(this.value||this.code){
           this.hasCode=true
           this.coder.setValue(this.value || this.code)
@@ -312,7 +312,7 @@
       },
       // 更改模式
       changeMode (val) {
-        // 修改编辑器的语法配置
+        // 修改Edit器的语法配置
         this.coder.setOption('mode', `text/${val}`)
 
         // 获取修改后的语法

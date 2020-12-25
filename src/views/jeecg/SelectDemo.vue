@@ -176,11 +176,11 @@
         <!-- JEditor -->
         <a-row :gutter="24">
           <a-col :span="12">
-            <a-form-item label="富文本编辑器" style="min-height: 300px">
+            <a-form-item label="富文本Edit器" style="min-height: 300px">
               <j-editor v-model="jeditor.value"/>
             </a-form-item>
           </a-col>
-          <a-col :span="12">富文本编辑器(v-model)：{{ jeditor.value }}</a-col>
+          <a-col :span="12">富文本Edit器(v-model)：{{ jeditor.value }}</a-col>
         </a-row>
 
         <!-- JEllipsis -->
@@ -406,11 +406,11 @@
           <a-col :span="12">输入的值(v-model)：{{ formData.areaLinkage2 }}</a-col>
         </a-row>
 
-        <!-- 功能示例：关闭当前页面 -->
+        <!-- 功能示例：关闭当前page面 -->
         <a-row :gutter="24">
           <a-col :span="12">
-            <a-form-item label="功能示例：关闭当前页面">
-              <a-button type="primary" @click="handleCloseCurrentPage">点击关闭当前页面</a-button>
+            <a-form-item label="功能示例：关闭当前page面">
+              <a-button type="primary" @click="handleCloseCurrentPage">点击关闭当前page面</a-button>
             </a-form-item>
           </a-col>
         </a-row>
@@ -512,7 +512,7 @@ sayHi('hello, world!')`
           value: '2019-5-10 15:33:06'
         },
         jeditor: {
-          value: '<h2 style="text-align: center;">富文本编辑器</h2> <p>这里是富文本编辑器。</p>'
+          value: '<h2 style="text-align: center;">富文本Edit器</h2> <p>这里是富文本Edit器。</p>'
         },
         jellipsis: {
           value: '这是一串很长很长的文字段落。这是一串很长很长的文字段落。这是一串很长很长的文字段落。这是一串很长很长的文字段落。'
@@ -565,13 +565,13 @@ sayHi('hello, world!')`
         },
         content: '',
         searchOptions:[{
-          text:"选项一",
+          text:"选item一",
           value:"1"
         },{
-          text:"选项二",
+          text:"选item二",
           value:"2"
         },{
-          text:"选项三",
+          text:"选item三",
           value:"3"
         }],
 

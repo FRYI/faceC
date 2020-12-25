@@ -60,7 +60,7 @@ export const constantRouterMap = [
   //   path: '/',
   //   name: 'index',
   //   component: TabLayout,
-  //   meta: {title: '首页'},
+  //   meta: {title: '首page'},
   //   redirect: '/dashboard/workplace',
   //   children: [
   //     {

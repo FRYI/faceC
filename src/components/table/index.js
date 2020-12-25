@@ -106,7 +106,7 @@ export default {
       if (result instanceof Promise) {
         result.then(r => {
           this.localPagination = Object.assign({}, this.localPagination, {
-            current: r.pageNo,  // 返回结果中的当前分页数
+            current: r.pageNo,  // 返回结果中的当前分page数
             total: r.totalCount, // 返回结果中的总记录数
             showSizeChanger: this.showSizeChanger,
             pageSize: (pagination && pagination.pageSize) ||
@@ -149,7 +149,7 @@ export default {
       this.selectedRows = []
     },
     onClearSelected() {
-      // 【TESTA-262】页面清空后还能才做所选行，增加  this.$emit('clearAll')
+      // 【TESTA-262】page面clear后还能才做所选行，增加  this.$emit('clearAll')
       this.selectedRowKeys = []
       this.selectedRows = []
       this.updateSelect([], [])
@@ -158,13 +158,13 @@ export default {
     renderMsg(h) {
       const _vm = this
       let d = []
-      // 构建 已选择
+      // 构建 selected
       d.push(
         h('span', {
           style: {
             marginRight: '12px'
           }
-        }, ['已选择 ', h('a', {
+        }, ['selected ', h('a', {
           style: {
             fontWeight: 600
           }
@@ -188,7 +188,7 @@ export default {
           ]))
       });
 
-      // 构建 清空选择
+      // 构建 clear选择
       d.push(h('a', {
         style: {
           marginLeft: '24px'
@@ -196,7 +196,7 @@ export default {
         on: {
           click: _vm.onClearSelected
         }
-      }, '清空'))
+      }, 'clear'))
 
       return d
     },

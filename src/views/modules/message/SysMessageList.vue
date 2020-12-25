@@ -7,18 +7,18 @@
         <a-row :gutter="24">
           <a-col :md="6" :sm="8">
             <a-form-item label="消息标题">
-              <a-input placeholder="请输入消息标题" v-model="queryParam.esTitle"></a-input>
+              <a-input placeholder="please enter 消息标题" v-model="queryParam.esTitle"></a-input>
             </a-form-item>
           </a-col>
           <a-col :md="6" :sm="8">
             <a-form-item label="发送内容">
-              <a-input placeholder="请输入发送内容" v-model="queryParam.esContent"></a-input>
+              <a-input placeholder="please enter 发送内容" v-model="queryParam.esContent"></a-input>
             </a-form-item>
           </a-col>
           <template v-if="toggleSearchStatus">
             <a-col :md="6" :sm="8">
               <a-form-item label="接收人">
-                <a-input placeholder="请输入接收人" v-model="queryParam.esReceiver"></a-input>
+                <a-input placeholder="please enter 接收人" v-model="queryParam.esReceiver"></a-input>
               </a-form-item>
             </a-col>
           </template>
@@ -39,7 +39,7 @@
 
     <!-- 操作按钮区域 -->
     <div class="table-operator">
-      <a-button @click="handleAdd" v-show="show" type="primary" icon="plus">新增</a-button>
+      <a-button @click="handleAdd" v-show="show" type="primary" icon="plus">New</a-button>
       <a-button type="primary" v-show="show" icon="download" @click="handleExportXls('消息')">导出</a-button>
       <a-upload v-show="show" name="file" :showUploadList="false" :multiple="false" :headers="tokenHeader" :action="importExcelUrl"
                 @change="handleImportExcel">
@@ -61,9 +61,9 @@
     <!-- table区域-begin -->
     <div>
       <div class="ant-alert ant-alert-info" style="margin-bottom: 16px;">
-        <i class="anticon anticon-info-circle ant-alert-icon"></i> 已选择 <a style="font-weight: 600">{{
-        selectedRowKeys.length }}</a>项
-        <a style="margin-left: 24px" @click="onClearSelected">清空</a>
+        <i class="anticon anticon-info-circle ant-alert-icon"></i> Selected<a style="font-weight: 600">{{
+        selectedRowKeys.length }}</a>item
+        <a style="margin-left: 24px" @click="onClearSelected">clear</a>
       </div>
 
       <a-table
@@ -90,10 +90,10 @@
             <a class="ant-dropdown-link">更多<a-icon type="down"/></a>
             <a-menu slot="overlay">
                <a-menu-item v-show="show">
-                <a  @click="handleEdit(record)">编辑</a>
+                <a  @click="handleEdit(record)">Edit</a>
               </a-menu-item>
               <a-menu-item>
-                <a-popconfirm title="确定删除吗?" @confirm="() => handleDelete(record.id)">
+                <a-popconfirm title="Are you sure you want to delete it?" @confirm="() => handleDelete(record.id)">
                   <a>删除</a>
                 </a-popconfirm>
               </a-menu-item>
@@ -124,7 +124,7 @@
     },
     data() {
       return {
-        description: '消息管理页面',
+        description: '消息管理page面',
         // 新增修改按钮是否显示
         show: false,
         // 表头

@@ -3,7 +3,7 @@
 
     <!-- 操作按钮区域 -->
     <div class="table-operator">
-      <a-button @click="handleAdd" type="primary" icon="plus">新增</a-button>
+      <a-button @click="handleAdd" type="primary" icon="plus">New</a-button>
       <a-button
         @click="batchDel"
         v-if="selectedRowKeys.length > 0"
@@ -17,9 +17,9 @@
     <div>
 
       <div class="ant-alert ant-alert-info" style="margin-bottom: 16px;">
-        <i class="anticon anticon-info-circle ant-alert-icon"></i>已选择&nbsp;<a style="font-weight: 600">{{
-        selectedRowKeys.length }}</a>项&nbsp;&nbsp;
-        <a style="margin-left: 24px" @click="onClearSelected">清空</a>
+        <i class="anticon anticon-info-circle ant-alert-icon"></i>selected&nbsp;<a style="font-weight: 600">{{
+        selectedRowKeys.length }}</a>item&nbsp;&nbsp;
+        <a style="margin-left: 24px" @click="onClearSelected">clear</a>
       </div>
 
       <a-table
@@ -34,7 +34,7 @@
         @expandedRowsChange="handleExpandedRowsChange">
 
         <span slot="action" slot-scope="text, record">
-          <a @click="handleEdit(record)">编辑</a>
+          <a @click="handleEdit(record)">Edit</a>
 
           <a-divider type="vertical"/>
           <a-dropdown>
@@ -53,8 +53,8 @@
               </a-menu-item>
 
               <a-menu-item>
-                <a-popconfirm title="确定删除吗?" @confirm="() => handleDelete(record.id)">
-                  <a>删除</a>
+                <a-popconfirm title="Are you sure you want to delete it?" @confirm="() => handleDelete(record.id)">
+                  <a>Delete</a>
                 </a-popconfirm>
               </a-menu-item>
             </a-menu>
@@ -152,7 +152,7 @@
     },
     data() {
       return {
-        description: '这是菜单管理页面',
+        description: '这是菜单管理page面',
         // 表头
         columns: columns,
         loading: false,
@@ -175,7 +175,7 @@
           }
         })
       },
-      // 打开数据规则编辑
+      // 打开数据规则Edit
       handleDataRule(record) {
         this.$refs.PermissionDataRuleList.edit(record)
       },

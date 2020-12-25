@@ -6,12 +6,12 @@
         <a-row :gutter="24">
           <a-col :md="6" :sm="8">
             <a-form-item label="表名">
-              <a-input placeholder="请输入表名" v-model="queryParam.dataTable"></a-input>
+              <a-input placeholder="please enter 表名" v-model="queryParam.dataTable"></a-input>
             </a-form-item>
           </a-col>
           <a-col :md="6" :sm="8">
             <a-form-item label="数据ID">
-              <a-input placeholder="请输入ID" v-model="queryParam.dataId"></a-input>
+              <a-input placeholder="please enter ID" v-model="queryParam.dataId"></a-input>
             </a-form-item>
           </a-col>
 
@@ -32,10 +32,10 @@
 
     <!--table区 -->
     <div>
-      <!--已选择的清空 -->
+      <!--selected的clear -->
       <div class="ant-alert ant-alert-info" style="margin-bottom: 16px;">
-        <i class="anticon anticon-info-circle ant-alert-icon"></i>已选择&nbsp;<a style="font-weight: 600">{{ selectedRowKeys.length }}</a>项&nbsp;&nbsp;
-        <a style="margin-left: 24px" @click="onClearSelected">清空</a>
+        <i class="anticon anticon-info-circle ant-alert-icon"></i>selected&nbsp;<a style="font-weight: 600">{{ selectedRowKeys.length }}</a>item&nbsp;&nbsp;
+        <a style="margin-left: 24px" @click="onClearSelected">clear</a>
       </div>
       <a-table
         ref="table"
@@ -73,7 +73,7 @@
     },
     data() {
       return {
-        description: '数据日志管理页面',
+        description: '数据日志管理page面',
         //表头
         columns: [
           {

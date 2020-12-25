@@ -5,7 +5,7 @@
         <a-row :gutter="48">
           <a-col :md="8" :sm="24">
             <a-form-item label="角色ID">
-              <a-input placeholder="请输入"/>
+              <a-input placeholder="please enter "/>
             </a-form-item>
           </a-col>
           <a-col :md="8" :sm="24">
@@ -52,7 +52,7 @@
         </a-row>
       </div>
       <span slot="action" slot-scope="text, record">
-        <a @click="$refs.modal.edit(record)">编辑</a>
+        <a @click="$refs.modal.edit(record)">Edit</a>
         <a-divider type="vertical" />
         <a-dropdown>
           <a class="ant-dropdown-link">
@@ -66,7 +66,7 @@
               <a href="javascript:;">禁用</a>
             </a-menu-item>
             <a-menu-item>
-              <a href="javascript:;">删除</a>
+              <a href="javascript:;">Delete</a>
             </a-menu-item>
           </a-menu>
         </a-dropdown>
@@ -97,7 +97,7 @@
         form: null,
         mdl: {},
 
-        // 高级搜索 展开/关闭
+        // 高级搜索 展开/close
         advanced: false,
         // 查询参数
         queryParam: {},

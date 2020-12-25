@@ -40,7 +40,7 @@
           操作 <a-icon type="up" />
         </a-button>
       </a-dropdown>
-      <a-popconfirm  title="confirm放弃编辑？" @confirm="close" okText="confirm" cancelText="cancel">
+      <a-popconfirm  title="Are you sure you're giving up editing?？" @confirm="close" okText="confirm" cancelText="cancel">
         <a-button style="margin-right: .8rem">cancel</a-button>
       </a-popconfirm>
       <a-button @click="handleSubmit(true)" type="primary">保存</a-button>

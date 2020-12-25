@@ -17,7 +17,7 @@
 
             <a-col :span="10">
               <a-form-item label="用户账号">
-                <a-input placeholder="请输入用户账号" v-model="queryParam.username"></a-input>
+                <a-input placeholder="please enter 用户账号" v-model="queryParam.username"></a-input>
               </a-form-item>
             </a-col>
             <a-col :span="8">
@@ -134,7 +134,7 @@
         //数据集
         dataSource1: [],
         dataSource2: [],
-        // 分页参数
+        // 分page参数
         ipagination: {
           current: 1,
           pageSize: 10,
@@ -182,7 +182,7 @@
         this.visible = true;
       },
       loadData(arg) {
-        //加载数据 若传入参数1则加载第一页的内容
+        //加载数据 若传入参数1则加载第一page的内容
         if (arg === 1) {
           this.ipagination.current = 1;
         }
@@ -240,7 +240,7 @@
         this.dataSource2.splice(this.dataSource2.indexOf(record), 1);
       },
       handleTableChange(pagination, filters, sorter) {
-        //分页、排序、筛选变化时触发
+        //分page、排序、筛选变化时触发
         console.log(sorter);
         //TODO 筛选
         if (Object.keys(sorter).length > 0) {

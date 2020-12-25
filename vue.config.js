@@ -79,7 +79,7 @@ module.exports = {
         }
       },*/
       '/jeecg-boot': {
-        target: 'http://182.92.230.207:8080', //请求本地 需要jeecg-boot后台项目
+        target: 'http://182.92.230.207:8080', //请求本地 需要jeecg-boot后台item目
         ws: false,
         changeOrigin: true,
         proxyTimeout: 10 * 60 * 1000,

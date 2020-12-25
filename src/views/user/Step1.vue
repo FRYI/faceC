@@ -8,7 +8,7 @@
           size="large"
           type="text"
           autocomplete="false"
-          placeholder="请输入用户账号或手机号">
+          placeholder="please enter 用户账号或手机号">
           <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
         </a-input>
       </a-form-item>
@@ -20,7 +20,7 @@
               size="large"
               type="text"
               @change="inputCodeChange"
-              placeholder="请输入验证码">
+              placeholder="please enter 验证码">
               <a-icon slot="prefix" v-if=" inputCodeContent==verifiedCode " type="smile"
                       :style="{ color: 'rgba(0,0,0,.25)' }"/>
               <a-icon slot="prefix" v-else type="frown" :style="{ color: 'rgba(0,0,0,.25)' }"/>
@@ -54,7 +54,7 @@
         verifiedCode: "",
         validatorRules: {
           username: {rules: [{required: false}, {validator: this.validateInputUsername}]},
-          inputCode: {rules: [{required: true, message: '请输入验证码!'}]},
+          inputCode: {rules: [{required: true, message: 'please enter 验证码!'}]},
         },
         randCodeImage:'',
         requestCodeSuccess:true,
@@ -145,7 +145,7 @@
         console.log(value);
         var reg = /^[0-9]+.?[0-9]*/;
         if (!value) {
-          callback("请输入用户名和手机号！");
+          callback("please enter 用户名和手机号！");
         }
 
         //判断用户输入账号还是手机号码

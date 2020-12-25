@@ -20,7 +20,7 @@
             <a-row :gutter="10">
               <a-col :md="8" :sm="12">
                 <a-form-item label="名称">
-                  <a-input style="width: 120px;" placeholder="请输入名称" v-model="queryParam.itemText"></a-input>
+                  <a-input style="width: 120px;" placeholder="please enter 名称" v-model="queryParam.itemText"></a-input>
                 </a-form-item>
               </a-col>
               <a-col :md="9" :sm="24">
@@ -43,7 +43,7 @@
             </a-row>
             <a-row>
               <a-col :md="2" :sm="24">
-                <a-button style="margin-bottom: 10px" type="primary" @click="handleAdd">新增</a-button>
+                <a-button style="margin-bottom: 10px" type="primary" @click="handleAdd">New</a-button>
               </a-col>
             </a-row>
           </a-form>
@@ -61,10 +61,10 @@
           >
 
           <span slot="action" slot-scope="text, record">
-            <a @click="handleEdit(record)">编辑</a>
+            <a @click="handleEdit(record)">Edit</a>
             <a-divider type="vertical"/>
-            <a-popconfirm title="confirm删除吗?" @confirm="() => handleDelete(record.id)">
-              <a>删除</a>
+            <a-popconfirm title="Are you sure you want to delete it?" @confirm="() => handleDelete(record.id)">
+              <a>Delete</a>
             </a-popconfirm>
           </span>
 
@@ -129,8 +129,8 @@
         },
         form: this.$form.createForm(this),
         validatorRules: {
-          itemText: {rules: [{required: true, message: '请输入名称!'}]},
-          itemValue: {rules: [{required: true, message: '请输入数据值!'}]},
+          itemText: {rules: [{required: true, message: 'please enter 名称!'}]},
+          itemValue: {rules: [{required: true, message: 'please enter 数据值!'}]},
         },
         url: {
           list: "/sys/dictItem/list",
@@ -140,7 +140,7 @@
       }
     },
     created() {
-      // 当页面初始化时,根据屏幕大小来给抽屉设置宽度
+      // 当page面初始化时,根据屏幕大小来给抽屉设置宽度
       this.resetScreenSize();
     },
     methods: {
@@ -181,7 +181,7 @@
       // 添加字典数据
       handleAdd() {
         this.$refs.modalForm.add(this.dictId);
-        this.$refs.modalForm.title = "新增";
+        this.$refs.modalForm.title = "New";
       },
       showDrawer() {
         this.visible = true

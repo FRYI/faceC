@@ -157,7 +157,7 @@
       handleExpand(expanded, record) {
         // 判断是否是展开状态
         if (expanded) {
-          // 判断子级的首个项的标记是否是“正在加载中”，如果是就加载数据
+          // 判断子级的首个item的标记是否是“正在加载中”，如果是就加载数据
           if (record.children[0].isLoading === true) {
             this.loadData(record.id, false, this.getChildrenUrl).then(dataSource => {
               // 处理好的数据可直接赋值给children

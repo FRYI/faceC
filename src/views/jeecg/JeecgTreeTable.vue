@@ -12,7 +12,7 @@
         <!-- props.text -->
         <!-- props.record -->
         <!-- props.index -->
-        <a @click="()=>handleEdit(props.record)">编辑</a>
+        <a @click="()=>handleEdit(props.record)">Edit</a>
       </template>
 
     </j-tree-table>
@@ -54,7 +54,7 @@
       tableProps() {
         let _this = this
         return {
-          // 列表项是否可选择
+          // 列表item是否可选择
           // https://vue.ant.design/components/table-cn/#rowSelection
           rowSelection: {
             selectedRowKeys: _this.selectedRowKeys,
@@ -67,8 +67,8 @@
       handleEdit(record) {
         this.$info({
           width: 600,
-          title: '编辑',
-          content: '编辑ID：' + record.id+"；名称："+record.name,
+          title: 'Edit',
+          content: 'EditID：' + record.id+"；名称："+record.name,
           okText: 'confirm',
           maskClosable: true
         })

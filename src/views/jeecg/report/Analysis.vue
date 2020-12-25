@@ -373,7 +373,7 @@
         },{
           text:"信息查询"
         }],
-        // 分页参数
+        // 分page参数
         ipagination:{
           current: 1,
           pageSize: 5,

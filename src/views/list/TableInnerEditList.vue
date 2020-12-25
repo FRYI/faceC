@@ -12,7 +12,7 @@
             <a-form-item label="使用状态">
               <a-select placeholder="请选择" default-value="0">
                 <a-select-option value="0">全部</a-select-option>
-                <a-select-option value="1">关闭</a-select-option>
+                <a-select-option value="1">close</a-select-option>
                 <a-select-option value="2">运行中</a-select-option>
               </a-select>
             </a-form-item>
@@ -25,14 +25,14 @@
             </a-col>
             <a-col :md="8" :sm="24">
               <a-form-item label="更新日期">
-                <a-date-picker style="width: 100%" placeholder="请输入更新日期"/>
+                <a-date-picker style="width: 100%" placeholder="please enter 更新日期"/>
               </a-form-item>
             </a-col>
             <a-col :md="8" :sm="24">
               <a-form-item label="使用状态">
                 <a-select placeholder="请选择" default-value="0">
                   <a-select-option value="0">全部</a-select-option>
-                  <a-select-option value="1">关闭</a-select-option>
+                  <a-select-option value="1">close</a-select-option>
                   <a-select-option value="2">运行中</a-select-option>
                 </a-select>
               </a-form-item>
@@ -41,7 +41,7 @@
               <a-form-item label="使用状态">
                 <a-select placeholder="请选择" default-value="0">
                   <a-select-option value="0">全部</a-select-option>
-                  <a-select-option value="1">关闭</a-select-option>
+                  <a-select-option value="1">close</a-select-option>
                   <a-select-option value="2">运行中</a-select-option>
                 </a-select>
               </a-form-item>
@@ -65,7 +65,7 @@
       <a-button type="primary" icon="plus" @click="() => $router.push({name: 'anime-add'})">新建</a-button>
       <a-dropdown v-if="selectedRowKeys.length > 0">
         <a-menu slot="overlay">
-          <a-menu-item key="1"><a-icon type="delete" />删除</a-menu-item>
+          <a-menu-item key="1"><a-icon type="delete" />Delete</a-menu-item>
           <!-- lock | unlock -->
           <a-menu-item key="2"><a-icon type="lock" />锁定</a-menu-item>
         </a-menu>
@@ -99,14 +99,14 @@
           <span v-if="record.editable">
             <a @click="() => save(record)">保存</a>
             <a-divider type="vertical" />
-            <a-popconfirm title="真的放弃编辑吗?" @confirm="() => cancel(record)">
+            <a-popconfirm title="真的放弃Edit吗?" @confirm="() => cancel(record)">
               <a>cancel</a>
             </a-popconfirm>
           </span>
           <span v-else>
             <a class="edit" @click="() => edit(record)">修改</a>
             <a-divider type="vertical" />
-            <a class="delete" @click="() => del(record)">删除</a>
+            <a class="delete" @click="() => del(record)">Delete</a>
           </span>
         </div>
       </template>
@@ -199,7 +199,7 @@
         this.$confirm({
           title: '警告',
           content: '真的要删除吗?',
-          okText: '删除',
+          okText: 'Delete',
           okType: 'danger',
           cancelText: 'cancel',
           onOk() {
